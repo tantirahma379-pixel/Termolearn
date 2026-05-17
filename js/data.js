@@ -47,7 +47,7 @@ function defaultContent() {
                 Perhatikan gambar berikut!
               </p>
               <div class="imgWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                <img src="/gambar/EnergiKeluarMasuk.png" alt="Energi Keluar Masuk" style="width:100%; display:block;">
+                <img src="gambar/EnergiKeluarMasuk.png" alt="Energi Keluar Masuk" style="width:100%; display:block;">
               </div>
               <div class="contentBox" style="margin-top: 20px; border: 1px solid rgba(17, 24, 39, 0.15);">
                 <p style="margin:0 0 12px; color:#111827; font-weight:750; font-size: 15px;">
@@ -256,7 +256,7 @@ function defaultContent() {
                 Amati perubahan yang terjadi pada sistem dan lingkungan di sekitarnya!
               </p>
               <div class="imgWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                <img src="/gambar/GambarPeristiwaAdanB.png" alt="Energi Keluar Masuk" style="width:100%; display:block;">
+                <img src="gambar/GambarPeristiwaAdanB.png" alt="Energi Keluar Masuk" style="width:100%; display:block;">
               </div>
             </div>
           `

@@ -26,44 +26,32 @@ function renderCover(app) {
             <!-- LOGIN FORM -->
             <div id="formLogin" class="form" style="max-width:520px; width:100%; margin-top:0; border-top:none;">
               <div class="field">
-                <label>Email</label>
-                <input id="inpEmail" type="email" placeholder="Email@gmail.com..." autocomplete="email" />
-              </div>
-              <div class="field">
-                <label>Password</label>
-                <input id="inpPassword" type="password" placeholder="Masukkan password..." autocomplete="current-password" />
+                <label>Email (opsional)</label>
+                <input id="inpEmail" type="email" placeholder="Email@gmail.com... (boleh kosong)" autocomplete="email" />
               </div>
 
               <button id="btnLogin" class="btn btnPrimary" onclick="login()">Masuk</button>
 
               <div class="hint">
-                <b>Belum punya akun?</b> Klik tab <b>Daftar</b> di atas untuk membuat akun baru.
+                Klik <b>Masuk</b> untuk langsung memulai. Email bersifat opsional.
               </div>
             </div>
 
             <!-- REGISTER FORM -->
             <div id="formRegister" class="form" style="max-width:520px; width:100%; margin-top:0; display:none; border-top:none;">
               <div class="field">
-                <label>Nama</label>
-                <input id="inpRegName" type="text" placeholder="Tulis Nama Kamu..." autocomplete="name" />
+                <label>Nama (opsional)</label>
+                <input id="inpRegName" type="text" placeholder="Tulis Nama Kamu... (boleh kosong)" autocomplete="name" />
               </div>
               <div class="field">
-                <label>Email</label>
-                <input id="inpRegEmail" type="email" placeholder="Email@gmail.com..." autocomplete="email" />
-              </div>
-              <div class="field">
-                <label>Password</label>
-                <input id="inpRegPassword" type="password" placeholder="Minimal 6 karakter..." autocomplete="new-password" />
-              </div>
-              <div class="field">
-                <label>Konfirmasi Password</label>
-                <input id="inpRegPassword2" type="password" placeholder="Ulangi password..." autocomplete="new-password" />
+                <label>Email (opsional)</label>
+                <input id="inpRegEmail" type="email" placeholder="Email@gmail.com... (boleh kosong)" autocomplete="email" />
               </div>
 
               <button id="btnRegister" class="btn btnPrimary" onclick="register()">Daftar</button>
 
               <div class="hint">
-                <b>Sudah punya akun?</b> Klik tab <b>Masuk</b> di atas untuk login.
+                Klik <b>Daftar</b> untuk langsung memulai. Semua field bersifat opsional.
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 /***********************
  * Main Entry Point
  ***********************/
-async function init() {
+function init() {
     const app = $("#app");
     if(app) {
         app.innerHTML = `
@@ -11,8 +11,7 @@ async function init() {
         </div>`;
     }
 
-    // Await loading the state from backend and local session
-    await loadAll();
+    loadAll();
 
     if (!location.hash) location.hash = "#/cover";
 
@@ -37,7 +36,6 @@ async function init() {
         }
     });
 
-    // Simple pseudo-eyes blink if elements exist (optional)
     setInterval(() => {
         const eyes = document.getElementById("eyes");
         if (!eyes) return;
@@ -59,7 +57,6 @@ window.addEventListener("hashchange", () => {
 
 function go(hash) { location.hash = hash; }
 
-// Require Login is used by render functions so it should be global or imported
 function requireLogin() {
     if (!state.session) {
         go("#/cover");
