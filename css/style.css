@@ -823,3 +823,153 @@
     .authTab:hover:not(.active) {
       background: rgba(255, 255, 255, .75);
     }
+
+    /* ===== Progressive Content Stages ===== */
+    .content-stage {
+      margin-bottom: 14px;
+      transition: opacity .35s ease, transform .35s ease, max-height .4s ease;
+    }
+
+    .content-stage.stage-unlocked {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content-stage.stage-locked {
+      display: none;
+    }
+
+    #quizSection.stage-locked {
+      display: none;
+    }
+
+    #quizSection.stage-unlocked {
+      display: block;
+    }
+
+    .stage-continue-btn {
+      display: block;
+      margin: 16px auto 4px;
+      padding: 14px 22px !important;
+      border-radius: 18px !important;
+      font-size: 13px !important;
+      animation: stageBtnPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes stageBtnPulse {
+      0%, 100% {
+        box-shadow: 0 18px 50px rgba(47, 107, 255, .18);
+      }
+      50% {
+        box-shadow: 0 18px 50px rgba(47, 107, 255, .35);
+      }
+    }
+
+    .stage-locked-hint {
+      text-align: center;
+      padding: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      border: 2px dashed rgba(17, 24, 39, .12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .4);
+      margin-top: 14px;
+    }
+
+    /* ===== Stage Progress Bar ===== */
+    .progressWrap {
+      margin-bottom: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255, 255, 255, .60);
+      backdrop-filter: blur(8px);
+    }
+
+    .progressHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .progressLabel {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: .3px;
+    }
+
+    .progressPct {
+      font-size: 13px;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--orange), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .progressTrack {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(17, 24, 39, .08);
+      overflow: hidden;
+    }
+
+    .progressFill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--orange), var(--blue));
+      transition: width .5s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: 0 2px 8px rgba(47, 107, 255, .25);
+    }
+
+    .progressDots {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      gap: 2px;
+    }
+
+    .progressDots .dot {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progressDots .dot span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      border: 2px solid rgba(17, 24, 39, .12);
+      background: rgba(255, 255, 255, .7);
+      color: var(--muted);
+      transition: all .3s ease;
+    }
+
+    .progressDots .dot.done span {
+      background: linear-gradient(135deg, var(--orange), var(--blue));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 3px 10px rgba(47, 107, 255, .2);
+    }
+
+    .progressDots .dot.active span {
+      border-color: var(--orange);
+      color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255, 106, 0, .12);
+      animation: dotPulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(255, 106, 0, .12); }
+      50% { box-shadow: 0 0 0 7px rgba(255, 106, 0, .20); }
+    }

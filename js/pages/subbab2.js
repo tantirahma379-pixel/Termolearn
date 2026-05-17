@@ -31,26 +31,31 @@ function renderSubbab2(app) {
 
             <div class="divider"></div>
 
+            <div id="stageProgressBar"></div>
+
             <div id="subContent">${state.content[key].html}</div>
 
-            <div class="divider"></div>
+            <div id="quizSection">
+              <div class="divider"></div>
 
-            <h3 style="margin:0 0 8px;">🧠 Kuis Singkat (${label})</h3>
-            ${lockedInfo}
-            <div id="quizArea"></div>
+              <h3 style="margin:0 0 8px;">🧠 Kuis Singkat (${label})</h3>
+              ${lockedInfo}
+              <div id="quizArea"></div>
 
-            <div class="row" style="margin-top:10px;">
-              <button class="btn btnGhost" onclick="go('#/materi')">⬅️ Back</button>
-              <button class="btn btnPrimary" onclick="submitQuiz('${key}')">Submit ✅</button>
-              <button class="btn btnGhost ${nextUnlocked ? "" : "disabled"}" ${nextUnlocked ? `onclick="go('${nextHash}')"` : "disabled"}>
-                Next ➡️
-              </button>
+              <div class="row" style="margin-top:10px;">
+                <button class="btn btnGhost" onclick="go('#/materi')">⬅️ Back</button>
+                <button class="btn btnPrimary" onclick="submitQuiz('${key}')">Submit ✅</button>
+                <button class="btn btnGhost ${nextUnlocked ? "" : "disabled"}" ${nextUnlocked ? `onclick="go('${nextHash}')"` : "disabled"}>
+                  Next ➡️
+                </button>
+              </div>
+
+              ${nextUnlocked ? "" : `<div class="lockHint">Next masih terkunci. Submit (pertama kali) agar terbuka 🙂</div>`}
             </div>
-
-            ${nextUnlocked ? "" : `<div class="lockHint">Next masih terkunci. Submit (pertama kali) agar terbuka 🙂</div>`}
           </div>
         </section>
       `;
 
     renderQuiz(key);
+    initStages(key);
 }
