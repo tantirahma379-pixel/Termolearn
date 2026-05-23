@@ -273,32 +273,260 @@ function defaultContent() {
               </div>
             </div>
 
-            <!-- Stage 6: Kesimpulan (SECTION 6) -->
-            <div class="content-stage" data-stage="6" data-type="activity">
-              <div class="contentBox">
-                <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
-                  Setelah mengamati fenomena, membaca bahan bacaan, menganalisis data, dan mengerjakan kuis verifikasi, sekarang saatnya menyusun kesimpulan berdasarkan konsep yang telah kamu temukan selama pembelajaran.
-                </p>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan kesimpulanmu pada kolom berikut.</p>
-                <textarea id="kesimpulanS1" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
-                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
-                  <p style="margin:0; color:#065f46; font-weight:650;">
-                    🎉 Selamat! Kamu telah mempelajari konsep dasar termokimia dan memahami hubungan antara sistem, lingkungan, perpindahan kalor, serta perubahan entalpi.
-                  </p>
-                </div>
-              </div>
-            </div>
           `
     },
     s2: {
       title: "Perubahan Entalpi Standar (∆H°)",
       html: `
-            <div class="contentBox">
-              <h4 style="margin:0 0 8px;">✨ Placeholder Materi Subbab 2</h4>
-              <p style="margin:0; color:#6b7280; font-weight:650;">
-                Konten bisa kamu tempel nanti dalam bentuk HTML.
-              </p>
+            <!-- Stage 0: Video Pengamatan (SECTION 1) -->
+            <div class="content-stage" data-stage="0" data-type="video">
+              <div class="contentBox">
+                <h4 style="margin:0 0 8px;">🔍 Yuk, amati video berikut!</h4>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Amati video berikut dengan saksama. Perhatikan nyala api, asap, dan panas yang dihasilkan dari masing-masing bahan bakar!
+                </p>
+                <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/UZDto5boCJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 1: Dugaan Awal (SECTION 2) -->
+            <div class="content-stage" data-stage="1" data-type="activity">
+              <div class="contentBox">
+                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">
+                  Setelah mengamati video pembakaran berbagai bahan bakar, coba pikirkan: mengapa LPG dapat memanaskan air lebih cepat dibandingkan bahan bakar lainnya, mengapa setiap bahan bakar menghasilkan kalor yang berbeda, serta apa hubungan proses pembakaran dengan energi kimia?
+                </p>
+                <h4 style="margin:12px 0 8px;">✍ DUGAAN AWAL</h4>
+                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
+                <textarea id="dugaanAwalS2" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
+              </div>
+            </div>
+
+            <!-- Stage 2: Bahan Bacaan — Flipcard & Data Tabel (SECTION 3) -->
+            <div class="content-stage" data-stage="2" data-type="content">
+              <div class="contentBox">
+                <h4 style="margin:0 0 8px;">📘 Pengertian Perubahan Entalpi Standar</h4>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Perubahan entalpi standar (ΔH°) merupakan perubahan kalor yang terjadi pada suatu reaksi kimia dalam kondisi standar, yaitu pada suhu 25°C (298 K) dan tekanan 1 atm. Nilai ΔH° menunjukkan jumlah kalor yang dilepaskan atau diserap selama reaksi berlangsung.
+                </p>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Untuk memahami mengapa setiap bahan bakar dapat menghasilkan kalor yang berbeda, mari pelajari jenis-jenis perubahan entalpi standar melalui flipcard berikut.
+                </p>
+
+                <h4 style="margin:16px 0 12px;">🃏 Flipcard</h4>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Klik kartu untuk melihat penjelasan di baliknya. Pelajari ketiga jenis perubahan entalpi standar berikut.
+                </p>
+                <div id="s2_flipcards" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-bottom:20px;">
+                  <!-- Flipcard 1: Pembentukan -->
+                  <div class="flipcard" onclick="toggleFlipcard(this)">
+                    <div class="flipcard-inner">
+                      <div class="flipcard-front">
+                        <img src="gambar/sub-bab-2/PembentukanDepan.png" alt="Pembentukan Standar" style="width:100%; border-radius:8px;">
+                      </div>
+                      <div class="flipcard-back">
+                        <img src="gambar/sub-bab-2/PembentukanBelakang.png" alt="Pembentukan Standar - Penjelasan" style="width:100%; border-radius:8px;">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Flipcard 2: Penguraian -->
+                  <div class="flipcard" onclick="toggleFlipcard(this)">
+                    <div class="flipcard-inner">
+                      <div class="flipcard-front">
+                        <img src="gambar/sub-bab-2/PenguraianDepan.png" alt="Penguraian Standar" style="width:100%; border-radius:8px;">
+                      </div>
+                      <div class="flipcard-back">
+                        <img src="gambar/sub-bab-2/PenguraianBelakang.png" alt="Penguraian Standar - Penjelasan" style="width:100%; border-radius:8px;">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Flipcard 3: Pembakaran -->
+                  <div class="flipcard" onclick="toggleFlipcard(this)">
+                    <div class="flipcard-inner">
+                      <div class="flipcard-front">
+                        <img src="gambar/sub-bab-2/PembakaranDepan.png" alt="Pembakaran Standar" style="width:100%; border-radius:8px;">
+                      </div>
+                      <div class="flipcard-back">
+                        <img src="gambar/sub-bab-2/PembakaranBelakang.png" alt="Pembakaran Standar - Penjelasan" style="width:100%; border-radius:8px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h4 style="margin:16px 0 8px;">📊 Data Perubahan Entalpi Standar</h4>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Setelah mempelajari jenis-jenis perubahan entalpi standar melalui flipcard, amati data perubahan entalpi (ΔH°) berikut dengan saksama. Perhatikan hubungan antara: tanda ΔH°, jenis perubahan entalpi, serta kalor yang dilepaskan atau diserap selama reaksi berlangsung.
+                </p>
+                <div style="text-align:center; margin-bottom:12px;">
+                  <img src="gambar/sub-bab-2/TabelDataPerubahan.png" alt="Tabel Data Perubahan Entalpi" style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                </div>
+                <p style="margin:0; color:#6b7280; font-weight:650;">
+                  Gunakan informasi pada tabel untuk membantu menyelesaikan aktivitas analisis pada section berikutnya.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 3: Aktivitas Analisis (SECTION 4) -->
+            <div class="content-stage" data-stage="3" data-type="quiz" data-quiz="s2aktivitas">
+              <div class="contentBox" style="border: 1px solid rgba(17, 24, 39, 0.15);">
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Setelah mempelajari konsep perubahan entalpi standar melalui flipcard pada section sebelumnya, sekarang saatnya mengolah informasi tersebut melalui beberapa aktivitas analisis. Pada section ini, kamu akan menentukan jenis perubahan entalpi standar, menganalisis persamaan reaksi, serta menghitung perubahan entalpi sederhana berdasarkan data reaksi.
+                </p>
+
+                <!-- Aktivitas 1: Drag & Drop — Menentukan Jenis Perubahan Entalpi -->
+                <div id="s2_akt1_wrap">
+                  <h4 style="margin:0 0 8px;">🧠 Aktivitas 1 — Menentukan Jenis Perubahan Entalpi</h4>
+                  <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                    Perhatikan reaksi berikut, kemudian tentukan jenis perubahan entalpinya dengan menyeret jawaban ke kolom yang sesuai.
+                  </p>
+                  <div style="overflow-x:auto; margin-bottom:12px;">
+                    <table style="width:100%; border-collapse:collapse; font-size:13.5px;">
+                      <thead>
+                        <tr style="background:rgba(255,106,0,0.05);">
+                          <th style="border:1px solid rgba(17,24,39,0.1); padding:10px; text-align:center; font-weight:800; width:60%;">Reaksi</th>
+                          <th style="border:1px solid rgba(17,24,39,0.1); padding:10px; text-align:center; font-weight:800; width:40%;">Jenis Perubahan Entalpi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:10px; font-weight:600;">H₂(<em>g</em>) + ½O₂(<em>g</em>) → H₂O(<em>l</em>)</td>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px; vertical-align:top;">
+                            <div class="drop-zone" id="dz_s2akt1_r1" data-accept="s2akt1_dhf" style="min-height:40px;"></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:10px; font-weight:600;">H₂O(<em>l</em>) → H₂(<em>g</em>) + ½O₂(<em>g</em>)</td>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px; vertical-align:top;">
+                            <div class="drop-zone" id="dz_s2akt1_r2" data-accept="s2akt1_dhd1" style="min-height:40px;"></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:10px; font-weight:600;">CH₄(<em>g</em>) + 2O₂(<em>g</em>) → CO₂(<em>g</em>) + 2H₂O(<em>l</em>)</td>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px; vertical-align:top;">
+                            <div class="drop-zone" id="dz_s2akt1_r3" data-accept="s2akt1_dhc" style="min-height:40px;"></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:10px; font-weight:600;">CaCO₃(<em>s</em>) → CaO(<em>s</em>) + CO₂(<em>g</em>)</td>
+                          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px; vertical-align:top;">
+                            <div class="drop-zone" id="dz_s2akt1_r4" data-accept="s2akt1_dhd2" style="min-height:40px;"></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.5); border:1px dashed rgba(17,24,39,0.2); border-radius:12px; padding:12px; margin-bottom:8px;">
+                    <p style="margin:0 0 8px; font-weight:800; font-size:13px; color:#2f6bff;">▼ Pilihan Jawaban (Seret ke kolom yang sesuai)</p>
+                    <div class="drag-source-group" id="drag_source_s2akt1" style="display:flex; flex-wrap:wrap; gap:8px;">
+                      <div class="drag-item" draggable="true" data-id="s2akt1_dhf">🧪 ΔH°f — Pembentukan Standar</div>
+                      <div class="drag-item" draggable="true" data-id="s2akt1_dhd1">⚡ ΔH°d — Penguraian Standar</div>
+                      <div class="drag-item" draggable="true" data-id="s2akt1_dhc">🔥 ΔH°c — Pembakaran Standar</div>
+                      <div class="drag-item" draggable="true" data-id="s2akt1_dhd2">⚡ ΔH°d — Penguraian Standar</div>
+                    </div>
+                  </div>
+                  <div style="text-align:right;">
+                    <button class="btn btnPrimary" onclick="checkS2Aktivitas1()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
+                  </div>
+                  <div id="feedback_s2akt1" style="display:none; margin-top:10px;"></div>
+                </div>
+
+                <!-- Aktivitas 2: Pilihan Ganda — Menentukan Persamaan Termokimia -->
+                <div id="s2_akt2_wrap" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
+                  <h4 style="margin:0 0 8px;">🌡 Aktivitas 2 — Menentukan Persamaan Termokimia yang Benar</h4>
+                  <p style="margin:0 0 8px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                    Pilih persamaan yang menunjukkan <strong>entalpi pembentukan standar H₂O(<em>l</em>)</strong>:
+                  </p>
+                  <div style="margin-bottom:12px;">
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt2_q1" value="A"> A. 2H₂(<em>g</em>) + O₂(<em>g</em>) → 2H₂O(<em>l</em>)
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt2_q1" value="B"> B. H₂(<em>g</em>) + ½O₂(<em>g</em>) → H₂O(<em>l</em>)
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt2_q1" value="C"> C. H₂O(<em>l</em>) → H₂(<em>g</em>) + ½O₂(<em>g</em>)
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; padding:6px 8px;">
+                      <input type="radio" name="s2_akt2_q1" value="D"> D. CH₄(<em>g</em>) + 2O₂(<em>g</em>) → CO₂(<em>g</em>) + 2H₂O(<em>l</em>)
+                    </label>
+                  </div>
+                  <div style="text-align:right;">
+                    <button class="btn btnPrimary" onclick="checkS2Aktivitas2()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
+                  </div>
+                  <div id="feedback_s2akt2" style="display:none; margin-top:10px;"></div>
+                </div>
+
+                <!-- Aktivitas 3: Pilihan Ganda — Menghitung ΔH Reaksi -->
+                <div id="s2_akt3_wrap" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
+                  <h4 style="margin:0 0 8px;">🔥 Aktivitas 3 — Menghitung ΔH Reaksi</h4>
+                  <p style="margin:0 0 8px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                    Diketahui: ΔH°c = −890,3 kJ/mol<br>
+                    Jika <strong>2 mol CH₄ dibakar sempurna</strong>, maka besar ΔH total adalah ...
+                  </p>
+                  <div style="margin-bottom:12px;">
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt3_q1" value="A"> A. −1780,6 kJ
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt3_q1" value="B"> B. −890,3 kJ
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt3_q1" value="C"> C. +1780,6 kJ
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-bottom:4px; padding:6px 8px;">
+                      <input type="radio" name="s2_akt3_q1" value="D"> D. +890,3 kJ
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; padding:6px 8px;">
+                      <input type="radio" name="s2_akt3_q1" value="E"> E. −445,15 kJ
+                    </label>
+                  </div>
+                  <div style="text-align:right;">
+                    <button class="btn btnPrimary" onclick="checkS2Aktivitas3()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
+                  </div>
+                  <div id="feedback_s2akt3" style="display:none; margin-top:10px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 4: Kesimpulan (SECTION 6) -->
+            <div class="content-stage" data-stage="4" data-type="activity">
+              <div class="contentBox">
+                <h4 style="margin:0 0 8px;">✍ Lengkapi Pernyataan</h4>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Lengkapilah pernyataan berikut berdasarkan hasil pembelajaran yang telah kamu lakukan.
+                </p>
+                <div style="margin-bottom:16px;">
+                  <p style="margin:0 0 8px; font-weight:700;">A. Perubahan entalpi standar (ΔH°) merupakan perubahan kalor yang terjadi pada suatu reaksi kimia dalam kondisi standar yaitu suhu
+                    <input type="text" id="s2_fill_a1" placeholder="..." style="width:100px; padding:4px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
+                    dan tekanan
+                    <input type="text" id="s2_fill_a2" placeholder="..." style="width:80px; padding:4px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
+                  </p>
+                </div>
+                <div style="margin-bottom:16px;">
+                  <p style="margin:0 0 8px; font-weight:700;">B. Entalpi pembentukan standar dilambangkan dengan
+                    <input type="text" id="s2_fill_b1" placeholder="..." style="width:80px; padding:4px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
+                    dan menunjukkan proses pembentukan
+                    <input type="text" id="s2_fill_b2" placeholder="..." style="width:50px; padding:4px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
+                    mol senyawa dari unsur-unsurnya.
+                  </p>
+                </div>
+                <div style="text-align:right; margin-bottom:16px;">
+                  <button class="btn btnPrimary" onclick="checkS2FillBlank()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
+                </div>
+                <div id="feedback_s2fill" style="display:none; margin-bottom:16px;"></div>
+
+                <h4 style="margin:16px 0 8px;">✍ Kesimpulan</h4>
+                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                  Tuliskan kesimpulanmu mengenai hubungan antara: perubahan entalpi standar, jenis reaksi eksoterm dan endoterm, nilai ΔH°, serta kalor yang dilepaskan atau diserap pada reaksi kimia.
+                </p>
+                <textarea id="kesimpulanS2" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
+                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
+                  <p style="margin:0; color:#065f46; font-weight:650;">
+                    🏆 Selamat! Kamu telah menyelesaikan Subbab 2 — Perubahan Entalpi Standar (ΔH°). Kamu telah memahami konsep perubahan entalpi standar dan jenis-jenisnya.
+                  </p>
+                </div>
+              </div>
             </div>
           `
     },
@@ -340,14 +568,18 @@ function defaultContent() {
 
 const quizBank = {
   s1: [
-    { q: "Saat praktikum, seorang siswa mencampurkan serbuk soda kue dan cuka ke dalam gelas kimia. Setelah beberapa saat, gelas terasa lebih dingin. Reaksi yang terjadi termasuk ...", a: ["eksoterm karena melepaskan kalor", "endoterm karena menyerap kalor", "eksoterm karena suhu sistem menurun", "isoterm karena suhu berubah", "netral karena tidak terjadi perpindahan kalor"], correct: 1 },
-    { q: "\"Jika suatu reaksi memiliki nilai ΔH positif, maka reaksi tersebut melepaskan kalor ke lingkungan.\" Pernyataan tersebut adalah ...", a: ["benar, karena ΔH positif menunjukkan kalor dilepaskan", "benar, karena lingkungan menerima kalor", "salah, karena ΔH positif menunjukkan sistem menyerap kalor", "salah, karena ΔH tidak berhubungan dengan kalor", "salah, karena semua reaksi memiliki ΔH negatif"], correct: 2 },
-    { q: "Gas hidrogen bereaksi dengan oksigen membentuk air dan menghasilkan kalor sebesar 572 kJ. Persamaan termokimia yang tepat adalah ...", a: ["2H₂(g) + O₂(g) → 2H₂O(l) ΔH = +572 kJ", "2H₂(g) + O₂(g) → 2H₂O(l) ΔH = −572 kJ", "2H₂O(l) → 2H₂(g) + O₂(g) ΔH = −572 kJ", "H₂(g) + O₂(g) → H₂O(l) ΔH = 0", "H₂(g) + O₂(g) → 2H₂O(l) ΔH = +572 kJ"], correct: 1 },
-    { q: "Seorang siswa memasukkan serbuk kapur tohor (CaO) ke dalam air. Wadah terasa panas ketika disentuh. Pernyataan yang tepat adalah ...", a: ["sistem menyerap kalor dari lingkungan sehingga reaksi endoterm", "kalor berpindah dari lingkungan ke sistem sehingga ΔH positif", "sistem melepaskan kalor ke lingkungan sehingga reaksi eksoterm", "suhu lingkungan menurun karena kalor diserap sistem", "tidak terjadi perpindahan kalor antara sistem dan lingkungan"], correct: 2 },
-    { q: "Persamaan termokimia: N₂(g) + O₂(g) → 2NO(g) ΔH = +180 kJ. Pernyataan yang tepat adalah ...", a: ["reaksi melepaskan kalor ke lingkungan", "reaksi termasuk eksoterm karena ΔH positif", "sistem menyerap kalor dari lingkungan", "suhu lingkungan meningkat karena sistem melepaskan kalor", "kalor berpindah dari sistem ke lingkungan"], correct: 2 },
+    { q: "Saat praktikum, seorang siswa mencampurkan serbuk soda kue dan cuka ke dalam gelas kimia. Setelah beberapa saat, gelas terasa lebih dingin. Reaksi yang terjadi termasuk ...", a: ["eksoterm karena melepaskan kalor", "endoterm karena menyerap kalor", "eksoterm karena suhu sistem menurun", "isoterm karena suhu berubah", "netral karena tidak terjadi perpindahan kalor"], correct: 1, hint: "Perhatikan perubahan suhu pada gelas. Jika gelas terasa dingin, ke arah mana kalor berpindah?", pembahasan: "Gelas terasa lebih dingin menunjukkan bahwa sistem menyerap kalor dari lingkungan sehingga reaksi termasuk endoterm." },
+    { q: "\"Jika suatu reaksi memiliki nilai ΔH positif, maka reaksi tersebut melepaskan kalor ke lingkungan.\" Pernyataan tersebut adalah ...", a: ["benar, karena ΔH positif menunjukkan kalor dilepaskan", "benar, karena lingkungan menerima kalor", "salah, karena ΔH positif menunjukkan sistem menyerap kalor", "salah, karena ΔH tidak berhubungan dengan kalor", "salah, karena semua reaksi memiliki ΔH negatif"], correct: 2, hint: "Perhatikan hubungan antara tanda ΔH dengan arah perpindahan kalor pada sistem.", pembahasan: "Nilai ΔH positif menunjukkan bahwa sistem menyerap kalor dari lingkungan sehingga reaksi termasuk endoterm." },
+    { q: "Gas hidrogen bereaksi dengan oksigen membentuk air dan menghasilkan kalor sebesar 572 kJ. Persamaan termokimia yang tepat adalah ...", a: ["2H₂(g) + O₂(g) → 2H₂O(l) ΔH = +572 kJ", "2H₂(g) + O₂(g) → 2H₂O(l) ΔH = −572 kJ", "2H₂O(l) → 2H₂(g) + O₂(g) ΔH = −572 kJ", "H₂(g) + O₂(g) → H₂O(l) ΔH = 0", "H₂(g) + O₂(g) → 2H₂O(l) ΔH = +572 kJ"], correct: 1, hint: "Ingat: reaksi yang menghasilkan kalor memiliki ΔH bertanda negatif. Perhatikan juga kesetaraan reaksinya.", pembahasan: "Karena reaksi menghasilkan kalor, maka reaksi termasuk eksoterm sehingga nilai ΔH bertanda negatif." },
+    { q: "Seorang siswa memasukkan serbuk kapur tohor (CaO) ke dalam air. Wadah terasa panas ketika disentuh. Pernyataan yang tepat adalah ...", a: ["sistem menyerap kalor dari lingkungan sehingga reaksi endoterm", "kalor berpindah dari lingkungan ke sistem sehingga ΔH positif", "sistem melepaskan kalor ke lingkungan sehingga reaksi eksoterm", "suhu lingkungan menurun karena kalor diserap sistem", "tidak terjadi perpindahan kalor antara sistem dan lingkungan"], correct: 2, hint: "Perhatikan perubahan suhu wadah. Jika wadah terasa panas, dari mana kalor tersebut berasal?", pembahasan: "Wadah terasa panas menunjukkan bahwa kalor dilepaskan dari sistem ke lingkungan. Oleh karena itu, reaksi termasuk eksoterm dan memiliki ΔH negatif." },
+    { q: "Persamaan termokimia: N₂(g) + O₂(g) → 2NO(g) ΔH = +180 kJ. Pernyataan yang tepat adalah ...", a: ["reaksi melepaskan kalor ke lingkungan", "reaksi termasuk eksoterm karena ΔH positif", "sistem menyerap kalor dari lingkungan", "suhu lingkungan meningkat karena sistem melepaskan kalor", "kalor berpindah dari sistem ke lingkungan"], correct: 2, hint: "Perhatikan tanda ΔH pada persamaan tersebut dan hubungkan dengan arah perpindahan kalor.", pembahasan: "Nilai ΔH positif menunjukkan bahwa reaksi menyerap kalor dari lingkungan sehingga termasuk reaksi endoterm." },
   ],
   s2: [
-    { q: "ΔH° menyatakan perubahan entalpi pada kondisi...", a: ["acak", "standar (mis. 1 atm dan 25°C)", "tekanan nol", "selalu 100°C"], correct: 1 },
+    { q: "Perhatikan reaksi berikut.\nNaCl(s) → Na(s) + ½Cl₂(g)\nReaksi tersebut termasuk ...", a: ["ΔH°f", "ΔH°c", "ΔH°d", "eksoterm", "pembakaran"], correct: 2 },
+    { q: "Perhatikan data berikut.\nΔH°f NH₄Cl = −314,4 kJ/mol\nPersamaan termokimia yang benar adalah ...", a: ["NH₄Cl(s) → NH₃(g) + HCl(g)", "½N₂(g) + 2H₂(g) + ½Cl₂(g) → NH₄Cl(s)", "N₂(g) + 2H₂(g) + Cl₂(g) → 2NH₄Cl(s)", "NH₄Cl(s) + O₂(g) → CO₂(g) + H₂O(l)", "NH₄Cl(s) → N₂(g) + H₂(g) + Cl₂(g)"], correct: 1 },
+    { q: "Diketahui: ΔH°f H₂O(l) = −285,85 kJ/mol\nJika terbentuk 4 mol H₂O(l), maka besar ΔH total adalah ...", a: ["−1143,4 kJ", "−571,7 kJ", "+1143,4 kJ", "+571,7 kJ", "−285,85 kJ"], correct: 0 },
+    { q: "Reaksi berikut termasuk jenis perubahan entalpi ...\nC(s) + O₂(g) → CO₂(g)", a: ["penguraian", "endoterm", "pembentukan", "pembakaran dan pembentukan", "netral"], correct: 3 },
+    { q: "Mengapa reaksi pembakaran umumnya memiliki nilai ΔH negatif?", a: ["karena menyerap kalor", "karena kalor berpindah ke sistem", "karena melepaskan kalor ke lingkungan", "karena produk memiliki energi lebih tinggi", "karena tidak terjadi perpindahan kalor"], correct: 2 },
   ],
   s3: [
     { q: "Hukum Hess menyatakan bahwa ΔH reaksi...", a: ["bergantung pada jalannya reaksi", "tidak bergantung pada jalannya reaksi", "selalu nol", "selalu positif"], correct: 1 },

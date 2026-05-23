@@ -57,5 +57,6 @@ function renderSubbab2(app) {
       `;
 
     renderQuiz(key);
+    initDragDrop();
     initStages(key);
 }
