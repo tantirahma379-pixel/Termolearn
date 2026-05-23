@@ -15,7 +15,7 @@ function renderCover(app) {
             </h2>
             <div class="coverMascot">
               <div class="mascotWrap" style="min-height:320px; padding:0;">
-                <img class="mascot" src="gambar/Maskot.png" alt="Maskot TermoLearn">
+                <img class="mascot" src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/Maskot.png" alt="Maskot TermoLearn">
               </div>
 
             <div class="authTabs" style="display:flex; gap:0; max-width:520px; width:100%; margin-bottom:0;">
@@ -28,6 +28,10 @@ function renderCover(app) {
               <div class="field">
                 <label>Email (opsional)</label>
                 <input id="inpEmail" type="email" placeholder="Email@gmail.com... (boleh kosong)" autocomplete="email" />
+              </div>
+              <div class="field">
+                <label>Password (opsional)</label>
+                <input id="inpPassword" type="password" placeholder="Password... (boleh kosong)" autocomplete="current-password" />
               </div>
 
               <button id="btnLogin" class="btn btnPrimary" onclick="login()">Masuk</button>
@@ -46,6 +50,10 @@ function renderCover(app) {
               <div class="field">
                 <label>Email (opsional)</label>
                 <input id="inpRegEmail" type="email" placeholder="Email@gmail.com... (boleh kosong)" autocomplete="email" />
+              </div>
+              <div class="field">
+                <label>Password (opsional)</label>
+                <input id="inpRegPassword" type="password" placeholder="Password... (boleh kosong)" autocomplete="new-password" />
               </div>
 
               <button id="btnRegister" class="btn btnPrimary" onclick="register()">Daftar</button>

@@ -67,7 +67,7 @@ function defaultContent() {
                 <!-- Peristiwa 1: Kayu Terbakar -->
                 <div id="akt1_p1" class="akt1-peristiwa">
                   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                    <img src="gambar/sub-bab-1/KayuTerbakar.png" alt="Kayu Terbakar" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KayuTerbakar.png" alt="Kayu Terbakar" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                     <strong style="font-size:14px;">Peristiwa 1: Kayu Terbakar</strong>
                   </div>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -107,7 +107,7 @@ function defaultContent() {
                 <!-- Peristiwa 2: Es Batu Mencair -->
                 <div id="akt1_p2" class="akt1-peristiwa" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
                   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                    <img src="gambar/sub-bab-1/EsBatu.png" alt="Es Batu Mencair" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/EsBatu.png" alt="Es Batu Mencair" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                     <strong style="font-size:14px;">Peristiwa 2: Es Batu Mencair</strong>
                   </div>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -148,7 +148,7 @@ function defaultContent() {
                 <!-- Peristiwa 3: Air Dipanaskan dalam Panci -->
                 <div id="akt1_p3" class="akt1-peristiwa" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
                   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                    <img src="gambar/sub-bab-1/AirDalamPanci.png" alt="Air Dipanaskan dalam Panci" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/AirDalamPanci.png" alt="Air Dipanaskan dalam Panci" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                     <strong style="font-size:14px;">Peristiwa 3: Air Dipanaskan dalam Panci</strong>
                   </div>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -209,16 +209,16 @@ function defaultContent() {
                   <p style="margin:0 0 8px; font-weight:800; font-size:13px; color:#2f6bff;">▼ Kartu Peristiwa (Seret ke kolom yang sesuai)</p>
                   <div class="drag-source-group" id="drag_source_akt2" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
                     <div class="drag-item" draggable="true" data-id="kt_es" style="padding:4px;">
-                      <img src="gambar/sub-bab-1/KtEsBatuMencir.png" alt="Es Batu Mencair" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtEsBatuMencir.png" alt="Es Batu Mencair" style="width:140px; border-radius:8px;">
                     </div>
                     <div class="drag-item" draggable="true" data-id="kt_kayu" style="padding:4px;">
-                      <img src="gambar/sub-bab-1/KtKayuTerbakar.png" alt="Kayu Terbakar" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtKayuTerbakar.png" alt="Kayu Terbakar" style="width:140px; border-radius:8px;">
                     </div>
                     <div class="drag-item" draggable="true" data-id="kt_fotosintesis" style="padding:4px;">
-                      <img src="gambar/sub-bab-1/KtFotosintesis.png" alt="Fotosintesis" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtFotosintesis.png" alt="Fotosintesis" style="width:140px; border-radius:8px;">
                     </div>
                     <div class="drag-item" draggable="true" data-id="kt_respirasi" style="padding:4px;">
-                      <img src="gambar/sub-bab-1/KtRespirasi.png" alt="Respirasi" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtRespirasi.png" alt="Respirasi" style="width:140px; border-radius:8px;">
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ function defaultContent() {
                   Perhatikan ilustrasi perpindahan kalor berikut, kemudian analisis arah perpindahan kalor, tanda ΔH, dan jenis reaksi yang terjadi dengan memilih jawaban yang sesuai.
                 </p>
                 <div class="imgWrap" style="margin-bottom:16px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
-                  <img src="gambar/sub-bab-1/GifAktivitas3.gif" alt="Ilustrasi Perpindahan Kalor" style="max-width:100%; display:block; margin:0 auto;">
+                  <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/GifAktivitas3.gif" alt="Ilustrasi Perpindahan Kalor" style="max-width:100%; display:block; margin:0 auto;">
                 </div>
                 <div style="margin-bottom:12px;">
                   <p style="margin:0 0 6px; font-weight:700;">1. Arah perpindahan kalor pada peristiwa tersebut adalah ...</p>
