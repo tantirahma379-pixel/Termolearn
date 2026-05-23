@@ -5,10 +5,11 @@
 const SHEET_NAME_USERS = 'Users';
 const SHEET_NAME_RESULTS = 'Results';
 const ADMIN_EMAIL = 'admin@thermolearn.id';
+const SPREADSHEET_ID = 'xxxxxxxx';
 
 function setup() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+
   let sheetUsers = ss.getSheetByName(SHEET_NAME_USERS);
   if (!sheetUsers) {
     sheetUsers = ss.insertSheet(SHEET_NAME_USERS);
@@ -31,34 +32,34 @@ function doPost(e) {
     const params = JSON.parse(e.postData.contents);
     const action = params.action;
     const email = params.email || '';
-    
+
     if (action === 'get_all_results') {
       return handleGetAllResults();
     }
-    
+
     if (action === 'sync_result') {
       return handleSyncResult(params);
     }
-    
+
     // Untuk action login & register
     if (!email) {
       return createJsonResponse({ status: 'error', message: 'Email diperlukan' });
     }
-    
+
     const password = params.password || '';
     const name = params.name || email.split('@')[0];
-    
+
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     let sheet = ss.getSheetByName(SHEET_NAME_USERS);
     if (!sheet) {
       setup();
       sheet = ss.getSheetByName(SHEET_NAME_USERS);
     }
-    
+
     const data = sheet.getDataRange().getValues();
     let userRowIndex = -1;
     let userData = null;
-    
+
     for (let i = 1; i < data.length; i++) {
       if (data[i][1] === email) {
         userRowIndex = i + 1;
@@ -71,19 +72,19 @@ function doPost(e) {
         break;
       }
     }
-    
+
     const timestamp = new Date();
-    
+
     if (action === 'login') {
       if (userRowIndex !== -1) {
         if (userData.password !== password) {
           return createJsonResponse({ status: 'error', message: 'Password salah!' });
         }
         sheet.getRange(userRowIndex, 6).setValue(timestamp);
-        
+
         // Ambil progress dari tabel Results
         const progress = getUserProgress(email);
-        
+
         return createJsonResponse({
           status: 'success',
           message: 'Login berhasil',
@@ -93,7 +94,7 @@ function doPost(e) {
       } else {
         return createJsonResponse({ status: 'error', message: 'Email belum terdaftar. Silakan daftar terlebih dahulu.' });
       }
-      
+
     } else if (action === 'register') {
       if (userRowIndex !== -1) {
         return createJsonResponse({ status: 'error', message: 'Email sudah terdaftar. Silakan login.' });
@@ -104,7 +105,7 @@ function doPost(e) {
         const role = (email === ADMIN_EMAIL) ? 'admin' : 'siswa';
         sheet.appendRow([timestamp, email, password, name, role, timestamp]);
         userData = { email: email, name: name, role: role };
-        
+
         return createJsonResponse({
           status: 'success',
           message: 'Pendaftaran berhasil',
@@ -115,7 +116,7 @@ function doPost(e) {
     } else {
       return createJsonResponse({ status: 'error', message: 'Action tidak valid' });
     }
-    
+
   } catch (error) {
     return createJsonResponse({ status: 'error', message: 'Terjadi kesalahan: ' + error.toString() });
   }
@@ -128,11 +129,11 @@ function handleSyncResult(params) {
     setup();
     sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
   }
-  
+
   const email = params.email;
   const name = params.name;
   if (!email) return createJsonResponse({ status: 'error', message: 'Email tidak valid untuk sinkronisasi' });
-  
+
   const data = sheetResults.getDataRange().getValues();
   let rowIndex = -1;
   for (let i = 1; i < data.length; i++) {
@@ -141,7 +142,7 @@ function handleSyncResult(params) {
       break;
     }
   }
-  
+
   // Data array
   // 0: Email, 1: Nama, 2: S1, 3: S2, 4: S3, 5: S4, 6: Eval, 7: Total, 8: Summary, 9: UpdatedAt
   const rowData = [
@@ -156,7 +157,7 @@ function handleSyncResult(params) {
     params.summary || '',
     params.updatedAt || new Date().toISOString()
   ];
-  
+
   if (rowIndex !== -1) {
     // Update baris
     sheetResults.getRange(rowIndex, 1, 1, 10).setValues([rowData]);
@@ -164,7 +165,7 @@ function handleSyncResult(params) {
     // Insert baru
     sheetResults.appendRow(rowData);
   }
-  
+
   return createJsonResponse({ status: 'success', message: 'Sync berhasil' });
 }
 
@@ -172,7 +173,7 @@ function handleGetAllResults() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
   if (!sheetResults) return createJsonResponse({ status: 'success', data: [] });
-  
+
   const data = sheetResults.getDataRange().getValues();
   const resultData = [];
   for (let i = 1; i < data.length; i++) {
@@ -197,7 +198,7 @@ function getUserProgress(email) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
   if (!sheetResults) return null;
-  
+
   const data = sheetResults.getDataRange().getValues();
   for (let i = 1; i < data.length; i++) {
     if (data[i][0] === email) {

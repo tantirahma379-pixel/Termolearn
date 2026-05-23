@@ -59,3 +59,65 @@ function renderSubbab4(app) {
     renderQuiz(key);
     initStages(key);
 }
+
+function checkS4Ikatan() {
+  const diputus = document.getElementById("s4_ikatan_diputus").value.toLowerCase();
+  const dibentuk = document.getElementById("s4_ikatan_dibentuk").value.toLowerCase();
+  const eDiputus = document.getElementById("s4_energi_diputus").value;
+  const eDibentuk = document.getElementById("s4_energi_dibentuk").value;
+  const dh = document.getElementById("s4_dh_reaksi1").value;
+
+  const fb = document.getElementById("feedback_s4_ikatan");
+  fb.style.display = "block";
+
+  if (!diputus || !dibentuk || !eDiputus || !eDibentuk || !dh) {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">⚠️ Harap isi semua kolom penyelesaian terlebih dahulu!</div>';
+    return;
+  }
+
+  let benar = true;
+  if (eDiputus != "2646") benar = false;
+  if (eDibentuk != "3300") benar = false;
+  if (dh != "-654" && dh != "-650") benar = false; // mentoleransi typo di referensi (2650-3300 = -650) sebenarnya (2646-3300 = -654)
+
+  if (benar) {
+    fb.innerHTML = `<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;">
+      <strong>✅ Jawaban benar!</strong><br>
+      Kamu berhasil menentukan ΔH reaksi menggunakan data energi ikatan.<br>
+      <em>Energi Diputus: 2646 kJ. Energi Dibentuk: 3300 kJ. ΔH = 2646 - 3300 = -654 kJ.</em>
+    </div>`;
+  } else {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">❌ Jawaban masih kurang tepat.<br>💡 Petunjuk: Perhatikan kembali jumlah ikatan pada pereaksi dan produk. Ingat bahwa pemutusan ikatan membutuhkan energi.</div>';
+  }
+}
+
+function checkS4Entalpi() {
+  const dhfProduk = document.getElementById("s4_dhf_produk").value;
+  const dhfPereaksi = document.getElementById("s4_dhf_pereaksi").value;
+  const sumProduk = document.getElementById("s4_sum_produk").value;
+  const sumPereaksi = document.getElementById("s4_sum_pereaksi").value;
+  const dh = document.getElementById("s4_dh_reaksi2").value;
+
+  const fb = document.getElementById("feedback_s4_entalpi");
+  fb.style.display = "block";
+
+  if (!dhfProduk || !dhfPereaksi || !sumProduk || !sumPereaksi || !dh) {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">⚠️ Harap isi semua kolom penyelesaian terlebih dahulu!</div>';
+    return;
+  }
+
+  let benar = true;
+  if (sumProduk != "-965.1") benar = false;
+  if (sumPereaksi != "-74.9") benar = false;
+  if (dh != "-890.2") benar = false;
+
+  if (benar) {
+    fb.innerHTML = `<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;">
+      <strong>✅ Jawaban benar!</strong><br>
+      Kamu berhasil menentukan ΔH reaksi menggunakan data ΔH°f.<br>
+      <em>ΔH = (-965.1) - (-74.9) = -890.2 kJ. Karena ΔH negatif, reaksi bersifat eksoterm.</em>
+    </div>`;
+  } else {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">❌ Jawaban masih kurang tepat.<br>💡 Petunjuk: Perhatikan kembali jumlah ΔH°f produk dan pereaksi. Jangan lupa koefisien reaksi memengaruhi perhitungan ΔH.</div>';
+  }
+}

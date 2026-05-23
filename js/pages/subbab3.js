@@ -59,3 +59,71 @@ function renderSubbab3(app) {
     renderQuiz(key);
     initStages(key);
 }
+
+function checkS3Praktikum() {
+  const tAwal = document.getElementById("s3_suhu_awal").value;
+  const tAkhir = document.getElementById("s3_suhu_akhir").value;
+  const dt = document.getElementById("s3_dt").value;
+  const hitung = document.getElementById("s3_perhitungan").value;
+  const alasan = document.getElementById("s3_alasan").value;
+  
+  let sifat = "";
+  const radios = document.getElementsByName("s3_sifat");
+  for (let i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      sifat = radios[i].value;
+      break;
+    }
+  }
+
+  const fb = document.getElementById("feedback_s3_praktikum");
+  fb.style.display = "block";
+
+  if (!tAwal || !tAkhir || !dt || !hitung || !sifat || !alasan) {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">⚠️ Harap lengkapi semua isian terlebih dahulu!</div>';
+    return;
+  }
+
+  // Cek sederhana
+  let score = 0;
+  if (dt == (tAkhir - tAwal)) score += 30; // Data Pengamatan
+  if (hitung.includes("2940")) score += 40; // Perhitungan
+  if (sifat === "eksoterm") score += 20; // Analisis Reaksi
+  score += 10; // Kesimpulan (langsung dapat poin)
+
+  fb.innerHTML = `<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;">
+    <strong>✅ Jawaban Tersimpan!</strong><br>
+    Nilai Lkpd Praktikum kamu: ${score}/100<br>
+    <em>Feedback: Perhitungan kalor yang benar adalah q = 100 × 4.2 × 7 = 2940 J. Reaksi bersifat eksoterm karena suhu meningkat (melepas kalor).</em>
+  </div>`;
+}
+
+function checkS3Hess() {
+  const h1_1 = document.getElementById("s3_hess1_1").value.trim();
+  const h1_2 = document.getElementById("s3_hess1_2").value.trim();
+  const h2_1 = document.getElementById("s3_hess2_1").value.trim();
+  const h2_2 = document.getElementById("s3_hess2_2").value.trim();
+
+  const fb = document.getElementById("feedback_s3_hess");
+  fb.style.display = "block";
+
+  if (!h1_1 || !h1_2 || !h2_1 || !h2_2) {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">💡 Perhatikan hubungan antara koefisien reaksi dan ΔH. Harap isi semua kolom!</div>';
+    return;
+  }
+
+  let benar = true;
+  if (!h1_1.includes("+285.8") && !h1_1.includes("+ 285.8")) benar = false;
+  if (!h1_2.includes("-571.6") && !h1_2.includes("- 571.6")) benar = false;
+  if (h2_2 != "-110.5") benar = false;
+
+  if (benar) {
+    fb.innerHTML = `<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;">
+      <strong>✅ Tepat Sekali!</strong><br>
+      Aktivitas 1: Jika reaksi dibalik, ΔH menjadi +285.8 kJ. Jika dikali 2, ΔH menjadi -571.6 kJ.<br>
+      Aktivitas 2: Reaksi 2 dibalik, lalu dijumlahkan dengan Reaksi 1. ΔH = -393.5 + 283 = -110.5 kJ.
+    </div>`;
+  } else {
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">💡 Masih ada yang kurang tepat. Coba periksa kembali tanda positif/negatif dan perhitungan matematikanya!</div>';
+  }
+}

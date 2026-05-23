@@ -532,13 +532,206 @@ function defaultContent() {
     },
     s3: {
       title: "Penentuan Perubahan Entalpi Reaksi (ΔH)",
-      html: `
-            <div class="contentBox">
-              <h4 style="margin:0 0 8px;">✨ Placeholder Materi Subbab 3</h4>
-              <p style="margin:0; color:#6b7280; font-weight:650;">
-                Konten bisa kamu tempel nanti dalam bentuk HTML.
-              </p>
-            </div>
+      html: `\n<!-- Stage 0: Video Pengamatan (SECTION 1) -->
+<div class="content-stage" data-stage="0" data-type="content">
+  <div class="contentBox">
+    <h4 style="margin:0 0 8px;">👀 Amati ilustrasi berikut dengan saksama!</h4>
+    <div style="text-align:center; margin-bottom:16px;">
+      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-3/image1.png" alt="Ilustrasi Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    </div>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Seorang siswa melakukan percobaan dengan mencampurkan larutan HCl dan NaOH ke dalam kalorimeter sederhana. Setelah kedua larutan dicampurkan, suhu larutan meningkat dari 25°C menjadi 32°C. Fenomena tersebut menunjukkan bahwa selama reaksi berlangsung terjadi perpindahan kalor.
+    </p>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Menurutmu, dari mana asal kalor tersebut? Bagaimana cara menentukan besar kalor yang dihasilkan reaksi?
+    </p>
+  </div>
+</div>
+
+<!-- Stage 1: Dugaan Awal (SECTION 2) -->
+<div class="content-stage" data-stage="1" data-type="activity">
+  <div class="contentBox">
+    <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">
+      Berdasarkan ilustrasi sebelumnya, suhu larutan meningkat setelah HCl dan NaOH dicampurkan ke dalam kalorimeter. Kenaikan suhu tersebut menunjukkan bahwa reaksi menghasilkan kalor. Namun: bagaimana cara menentukan besar kalor yang dihasilkan? apakah semua reaksi menghasilkan kalor yang sama? dan bagaimana jika kalor suatu reaksi sulit diukur secara langsung?
+    </p>
+    <h4 style="margin:12px 0 8px;">✍ DUGAAN AWAL</h4>
+    <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
+    <textarea id="dugaanAwalS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
+  </div>
+</div>
+
+<!-- Stage 2: Kalorimeter (SECTION 3) -->
+<div class="content-stage" data-stage="2" data-type="quiz" data-quiz="s3_kalorimeter">
+  <div class="contentBox">
+    <h4 style="margin:0 0 8px;">🧪 BAGIAN 1 MENENTUKAN ΔH REAKSI MENGGUNAKAN KALORIMETER</h4>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Pada section ini, peserta didik akan melakukan praktikum virtual menggunakan simulasi kalorimeter untuk mengetahui besar kalor reaksi berdasarkan perubahan suhu yang terjadi selama reaksi berlangsung.
+    </p>
+    <h4 style="margin:12px 0 8px;">📘 Infografis Konsep: Mengenal Kalorimeter dan Perubahan Entalpi Reaksi</h4>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Sebelum melakukan praktikum virtual, pelajari terlebih dahulu konsep dasar kalorimeter dan perubahan entalpi reaksi melalui infografis berikut.
+    </p>
+    <div style="text-align:center; margin-bottom:16px;">
+      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-3/image2.png" alt="Infografis Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    </div>
+
+    <hr style="border:0; border-top:1px dashed #ccc; margin:20px 0;">
+
+    <h4 style="margin:0 0 8px;">🧪 BAGIAN 2 SIMULASI VIRTUAL KALORIMETER</h4>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Setelah mempelajari konsep kalorimeter, lakukan praktikum virtual berikut untuk mengetahui perubahan kalor selama reaksi berlangsung.<br>
+      <strong>🎯 Tujuan:</strong> Menganalisis perubahan suhu dan menghitung kalor reaksi melalui praktikum virtual.
+    </p>
+    
+    <div style="background:rgba(255,106,0,0.05); padding:16px; border-radius:8px; margin-bottom:16px;">
+      <h5 style="margin:0 0 8px;">A. Petunjuk Praktikum Virtual Kalorimeter</h5>
+      <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px;">
+        <li>Buka simulasi kalorimeter virtual: <a href="https://media.pearsoncmg.com/bc/bc_0media_chem/chem_sim/calorimetry/Calor.php?utm_source=chatgpt.com" target="_blank" style="color:#2f6bff; text-decoration:none; font-weight:bold;">Mulai Simulasi ↗️</a></li>
+        <li>Baca petunjuk penggunaan simulator: <a href="https://online.fliphtml5.com/nttmb/PetunjukSimulasi/" target="_blank" style="color:#2f6bff; text-decoration:none; font-weight:bold;">Petunjuk Simulator ↗️</a></li>
+        <li>Amati bagian-bagian kalorimeter virtual: gelas kalorimeter, termometer, pilihan zat, pengatur massa/volume, dan tombol “Run Experiment”.</li>
+      </ul>
+
+      <h5 style="margin:0 0 8px;">B. Langkah Kerja</h5>
+      <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px;">
+        <li><strong>Larutan 1:</strong> Pilih: HCl(<em>aq</em>) | Atur: Volume = 50 mL | Molaritas = 1 M | Suhu = 20°C</li>
+        <li><strong>Larutan 2:</strong> Pilih: NaOH(<em>aq</em>) | Atur: Volume = 50 mL | Molaritas = 1 M | Suhu = 20°C</li>
+      </ul>
+
+      <h5 style="margin:0 0 8px;">C. Menjalankan Percobaan</h5>
+      <ul style="margin:0 0 0; padding-left:20px; font-size:13.5px;">
+        <li>Klik tombol Run Experiment. Amati perubahan suhu pada kalorimeter. Catat suhu akhir yang diperoleh.</li>
+      </ul>
+    </div>
+
+    <h4 style="margin:0 0 8px;">📝 Lkpd Praktikum</h4>
+    <div style="margin-bottom:16px;">
+      <p style="margin:0 0 6px; font-weight:700;">A. Data Pengamatan</p>
+      <table style="width:100%; max-width:400px; border-collapse:collapse; font-size:13.5px;">
+        <tr>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">Suhu awal</td>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;"><input type="number" id="s3_suhu_awal" style="width:60px;"> °C</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">Suhu akhir</td>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;"><input type="number" id="s3_suhu_akhir" style="width:60px;"> °C</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">ΔT</td>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;"><input type="number" id="s3_dt" style="width:60px;"> °C</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">Massa larutan</td>
+          <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">100 g</td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <p style="margin:0 0 6px; font-weight:700;">B. Menghitung Kalor Reaksi</p>
+      <p style="margin:0 0 6px; font-size:13.5px;">Gunakan rumus: <em>q = m × c × ΔT</em><br>Diketahui: m = 100 g, c = 4,2 J/g°C</p>
+      <p style="margin:0 0 6px; font-size:13.5px;">Tuliskan perhitungan dan hasil akhir (dalam Joule):</p>
+      <textarea id="s3_perhitungan" rows="3" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px;"></textarea>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <p style="margin:0 0 6px; font-weight:700;">C. Analisis</p>
+      <p style="margin:0 0 6px; font-size:13.5px;">1. Berdasarkan perubahan suhu yang terjadi pada simulasi, tentukan sifat reaksi yang berlangsung.</p>
+      <label style="display:inline-block; margin-right:16px; font-size:13.5px; cursor:pointer;"><input type="radio" name="s3_sifat" value="eksoterm"> 🔥 Eksoterm</label>
+      <label style="display:inline-block; font-size:13.5px; cursor:pointer;"><input type="radio" name="s3_sifat" value="endoterm"> ❄️ Endoterm</label>
+      <p style="margin:8px 0 6px; font-size:13.5px;">✍ Alasan:</p>
+      <textarea id="s3_alasan" rows="3" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px;"></textarea>
+      
+      <p style="margin:12px 0 6px; font-size:13.5px;">2. Tuliskan kesimpulan berdasarkan hasil percobaan virtual yang telah dilakukan.</p>
+      <textarea id="s3_kesimpulan_praktikum" rows="4" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px;"></textarea>
+    </div>
+
+    <div style="text-align:right;">
+      <button class="btn btnPrimary" onclick="checkS3Praktikum()" style="padding:10px 20px; font-size:12px;">Periksa Lkpd 🔍</button>
+    </div>
+    <div id="feedback_s3_praktikum" style="display:none; margin-top:10px;"></div>
+
+  </div>
+</div>
+
+<!-- Stage 3: Hukum Hess (SECTION 4) -->
+<div class="content-stage" data-stage="3" data-type="quiz" data-quiz="s3_hess">
+  <div class="contentBox">
+    <h4 style="margin:0 0 8px;">📘 BAGIAN 2 MENENTUKAN ΔH REAKSI MENGGUNAKAN HUKUM HESS</h4>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Pada percobaan sebelumnya, kamu telah menentukan kalor reaksi menggunakan kalorimeter berdasarkan perubahan suhu yang terjadi selama reaksi berlangsung. Namun, tidak semua reaksi kimia dapat diukur secara langsung menggunakan kalorimeter. Oleh karena itu, ilmuwan menggunakan cara lain untuk menentukan perubahan entalpi reaksi, yaitu menggunakan Hukum Hess.
+    </p>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">Pelajari konsep Hukum Hess melalui Video berikut:</p>
+    <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/J8E0Car5uiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <h4 style="margin:0 0 8px;">🧠 Aktivitas 1 — Analisis Perubahan Persamaan Reaksi dan Nilai ΔH</h4>
+    <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+      Perhatikan data reaksi berikut.<br>
+      H₂(<em>g</em>) + ½O₂(<em>g</em>) → H₂O(<em>l</em>) ΔH = −285.8 kJ<br>
+      Tentukan perubahan nilai ΔH jika:
+    </p>
+    <div style="overflow-x:auto; margin-bottom:16px;">
+      <table style="width:100%; border-collapse:collapse; font-size:13.5px;">
+        <thead>
+          <tr style="background:rgba(255,106,0,0.05);">
+            <th style="border:1px solid rgba(17,24,39,0.1); padding:8px; text-align:left;">Perubahan Reaksi</th>
+            <th style="border:1px solid rgba(17,24,39,0.1); padding:8px; text-align:left;">Perubahan nilai ΔH (kJ)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">H₂O(<em>l</em>) → H₂(<em>g</em>) + ½O₂(<em>g</em>)</td>
+            <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">
+              <input type="text" id="s3_hess1_1" placeholder="+285.8" style="width:80px; padding:4px; border:1px solid rgba(17,24,39,0.2); border-radius:4px;">
+            </td>
+          </tr>
+          <tr>
+            <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">2H₂O(<em>l</em>) → 2H₂(<em>g</em>) + O₂(<em>g</em>)</td>
+            <td style="border:1px solid rgba(17,24,39,0.1); padding:8px;">
+              <input type="text" id="s3_hess1_2" placeholder="-571.6" style="width:80px; padding:4px; border:1px solid rgba(17,24,39,0.2); border-radius:4px;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="margin:0 0 8px;">🔥 Aktivitas 2 — Menentukan ΔH Reaksi</h4>
+    <p style="margin:0 0 8px; color:#6b7280; font-size:13.5px; font-weight:600;">Gunakan data reaksi berikut untuk menentukan ΔH reaksi target.</p>
+    <p style="margin:0 0 8px; font-size:13.5px;"><strong>Reaksi Target:</strong> C(<em>s</em>) + ½O₂(<em>g</em>) → CO(<em>g</em>)</p>
+    <p style="margin:0 0 8px; font-size:13.5px;">
+      <strong>Data Reaksi:</strong><br>
+      Reaksi 1: C(<em>s</em>) + O₂(<em>g</em>) → CO₂(<em>g</em>) ΔH = −393.5 kJ<br>
+      Reaksi 2: CO(<em>g</em>) + ½O₂(<em>g</em>) → CO₂(<em>g</em>) ΔH = −283 kJ
+    </p>
+    <p style="margin:0 0 8px; font-size:13.5px;">Berdasarkan data reaksi, tentukan reaksi mana yang dibalik dan bagaimana nilai ΔH nya!</p>
+    <textarea id="s3_hess2_1" rows="2" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:13.5px; margin-bottom:8px;" placeholder="Misal: Reaksi 1 dibalik..."></textarea>
+    <p style="margin:0 0 8px; font-size:13.5px;">Tentukan ΔH total (kJ):</p>
+    <input type="number" id="s3_hess2_2" step="0.1" style="width:100px; padding:6px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; margin-bottom:16px;">
+    
+    <div style="text-align:right;">
+      <button class="btn btnPrimary" onclick="checkS3Hess()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
+    </div>
+    <div id="feedback_s3_hess" style="display:none; margin-top:10px;"></div>
+  </div>
+</div>
+
+<!-- Stage 4: Kesimpulan (SECTION 6) -->
+<div class="content-stage" data-stage="4" data-type="activity">
+  <div class="contentBox">
+    <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>
+    <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+      Setelah mempelajari praktikum kalorimeter dan Hukum Hess, tuliskan kesimpulanmu tentang: cara menentukan perubahan entalpi reaksi, dan penggunaan Hukum Hess dalam menentukan ΔH reaksi.
+    </p>
+    <textarea id="kesimpulanS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
+    <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
+      <p style="margin:0; color:#065f46; font-weight:650;">
+        🏆 Selamat! Kamu telah menyelesaikan Subbab 3 — Penentuan ΔH Reaksi Menggunakan Kalorimeter dan Hukum Hess.
+      </p>
+    </div>
+  </div>
+</div>
+
           `
     },
     s4: {
@@ -554,13 +747,17 @@ function defaultContent() {
     },
     eval: {
       title: "Evaluasi Akhir",
-      html: `
-            <div class="contentBox">
-              <h4 style="margin:0 0 8px;">🧪 Placeholder Evaluasi</h4>
-              <p style="margin:0; color:#6b7280; font-weight:650;">
-                Admin dapat menempelkan HTML evaluasi (materi/soal tambahan/embedded) di sini.
-              </p>
-            </div>
+      html: `\n<div class="contentBox">
+  <h4 style="margin:0 0 8px;">🎓 Evaluasi Akhir Termokimia</h4>
+  <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+    Selamat! Kamu telah menyelesaikan seluruh materi. Sekarang saatnya menguji pemahamanmu melalui evaluasi akhir ini. 
+    Terdapat 10 soal pilihan ganda dengan alokasi waktu 40 menit. Kerjakan dengan teliti ya!
+  </p>
+  <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px; color:#4b5563;">
+    <li>Pilih satu jawaban yang paling tepat.</li>
+    <li>Setelah semua soal dijawab, submit kuis untuk melihat nilai akhirmu.</li>
+  </ul>
+</div>
           `
     }
   };
@@ -582,15 +779,29 @@ const quizBank = {
     { q: "Mengapa reaksi pembakaran umumnya memiliki nilai ΔH negatif?", a: ["karena menyerap kalor", "karena kalor berpindah ke sistem", "karena melepaskan kalor ke lingkungan", "karena produk memiliki energi lebih tinggi", "karena tidak terjadi perpindahan kalor"], correct: 2 },
   ],
   s3: [
-    { q: "Hukum Hess menyatakan bahwa ΔH reaksi...", a: ["bergantung pada jalannya reaksi", "tidak bergantung pada jalannya reaksi", "selalu nol", "selalu positif"], correct: 1 },
+    { q: "Seorang siswa mencampurkan larutan HCl(aq) dan NaOH(aq) dalam kalorimeter sederhana. Massa total larutan sebesar 100 g. Setelah reaksi berlangsung, suhu naik dari 20°C menjadi 27°C. Jika kalor jenis larutan dianggap 4,2 J/g°C, maka besar kalor reaksi yang dihasilkan adalah ...", a: ["294 J", "1260 J", "2100 J", "2940 J", "4200 J"], correct: 3, pembahasan: "q = m×c×ΔT = 100 × 4.2 × 7 = 2940 J. Karena suhu meningkat, reaksi bersifat eksoterm." },
+    { q: "Pada suatu percobaan kalorimeter, suhu larutan turun setelah dua zat dicampurkan. Kesimpulan yang paling tepat adalah ...", a: ["reaksi bersifat eksoterm karena melepas kalor", "reaksi bersifat endoterm karena menyerap kalor", "kalor berpindah dari sistem ke lingkungan", "produk memiliki energi lebih rendah dari pereaksi", "ΔH bernilai negatif"], correct: 1, pembahasan: "Penurunan suhu menunjukkan bahwa sistem menyerap kalor dari lingkungan. Akibatnya: reaksi bersifat endoterm, ΔH bernilai positif, kalor berpindah dari lingkungan ke sistem." },
+    { q: "Diketahui persamaan reaksi: N2(g) + 3H2(g) → 2NH3(g) ΔH = −92 kJ\nJika reaksi dibalik, maka nilai ΔH menjadi …", a: ["−184 kJ", "−92 kJ", "+46 kJ", "+92 kJ", "+184 kJ"], correct: 3, pembahasan: "Jika reaksi dibalik, maka tanda ΔH juga berubah. Semula ΔH = −92 kJ, setelah dibalik menjadi ΔH = +92 kJ." },
+    { q: "Diketahui: H2(g) + 1/2O2(g) → H2O(l) ΔH = −285.8 kJ\nJika koefisien reaksi dikalikan 2, maka nilai ΔH menjadi …", a: ["−571.6 kJ", "−285.8 kJ", "+285.8 kJ", "+571.6 kJ", "−142.9 kJ"], correct: 0, pembahasan: "Jika seluruh koefisien reaksi dikalikan 2, maka nilai ΔH juga dikalikan 2. ΔH = 2 × (−285.8) = −571.6 kJ." },
+    { q: "Perhatikan data reaksi berikut.\nC(s) + O2(g) → CO2(g) ΔH = −393.5 kJ\nCO(g) + 1/2O2(g) → CO2(g) ΔH = −283 kJ\nNilai ΔH untuk reaksi: C(s) + 1/2O2(g) → CO(g) adalah …", a: ["−676.5 kJ", "−110.5 kJ", "+110.5 kJ", "+676.5 kJ", "−283 kJ"], correct: 1, pembahasan: "Reaksi 2 harus dibalik menjadi: CO2(g) → CO(g) + 1/2O2(g) ΔH = +283 kJ. Jumlahkan dengan reaksi 1: ΔH = −393.5 + 283 = −110.5 kJ." }
   ],
   s4: [
-    { q: "Placeholder kuis Subbab 4...", a: ["A", "B", "C", "D"], correct: 0 },
+    { q: "Perhatikan data energi ikatan berikut.\nH–H: 436 kJ/mol\nCl–Cl: 242 kJ/mol\nH–Cl: 431 kJ/mol\nTentukan ΔH reaksi berikut: H2(g) + Cl2(g) → 2HCl(g)", a: ["−184 kJ", "−242 kJ", "−431 kJ", "+184 kJ", "+242 kJ"], correct: 0, pembahasan: "Energi ikatan diputus = 436 + 242 = 678 kJ. Energi ikatan dibentuk = 2(431) = 862 kJ. ΔH = 678 - 862 = -184 kJ." },
+    { q: "Diketahui data ΔH°f berikut.\nNH3(g) = −46 kJ/mol\nNO(g) = +90 kJ/mol\nH2O(l) = −286 kJ/mol\nO2(g) = 0 kJ/mol\nTentukan ΔH reaksi berikut: 4NH3(g) + 5O2(g) → 4NO(g) + 6H2O(l)", a: ["−905 kJ", "−1172 kJ", "−1260 kJ", "+905 kJ", "+1172 kJ"], correct: 1, pembahasan: "ΔH = [4(90) + 6(-286)] - [4(-46) + 5(0)] = (-1356) - (-184) = -1172 kJ." },
+    { q: "Perhatikan reaksi berikut. N2(g)+3H2(g) → 2NH3(g)\nPada reaksi tersebut, energi yang dilepaskan saat pembentukan ikatan N–H lebih besar dibanding energi yang diperlukan untuk memutus ikatan pereaksi. Berdasarkan pernyataan tersebut, sifat reaksi yang terjadi adalah ....", a: ["endoterm", "netral", "eksoterm", "tidak memiliki ΔH", "menyerap kalor"], correct: 2, pembahasan: "Jika energi pembentukan ikatan lebih besar dibanding energi pemutusan ikatan, reaksi akan melepaskan kalor (eksoterm)." },
+    { q: "Diketahui data ΔH°f berikut.\nCO2(g) = −394 kJ/mol\nH2O(l) = −286 kJ/mol\nC2H6(g) = −85 kJ/mol\nO2(g) = 0 kJ/mol\nTentukan ΔH pembakaran etana berikut: 2C2H6(g) + 7O2(g) → 4CO2(g) + 6H2O(l)", a: ["−3122 kJ", "−2854 kJ", "−1560 kJ", "+3122 kJ", "+2854 kJ"], correct: 0, pembahasan: "ΔH = [4(-394) + 6(-286)] - [2(-85) + 0] = (-3292) - (-170) = -3122 kJ." },
+    { q: "Perhatikan pernyataan berikut.\n1. Pemutusan ikatan membutuhkan energi.\n2. Pembentukan ikatan melepaskan energi.\n3. ΔH negatif menunjukkan reaksi eksoterm.\n4. ΔH reaksi dapat ditentukan menggunakan data energi ikatan.\nPernyataan yang benar adalah ....", a: ["1 dan 2", "1, 2, dan 3", "1, 3, dan 4", "2, 3, dan 4", "1, 2, 3, dan 4"], correct: 4, pembahasan: "Seluruh pernyataan benar." }
   ],
   eval: [
-    { q: "Perubahan entalpi pembakaran standar adalah...", a: ["pembentukan 1 mol senyawa", "pembakaran 1 mol zat dengan oksigen", "penguraian 1 mol senyawa", "pelarutan 1 mol zat"], correct: 1 },
-    { q: "Jika ΔH negatif, maka reaksi bersifat...", a: ["endoterm", "eksoterm", "adiabatik", "isoterm"], correct: 1 },
-    { q: "Alat untuk mengukur kalor reaksi disebut...", a: ["termometer", "kalorimeter", "barometer", "voltmeter"], correct: 1 },
-    { q: "Jika reaksi melepaskan kalor, ΔH bernilai...", a: ["positif", "negatif", "nol", "tidak bisa ditentukan"], correct: 1 },
+    { q: "Perhatikan peristiwa berikut.\n1. Es mencair\n2. Pembakaran LPG\n3. Air membeku\n4. Fotosintesis\nPeristiwa yang termasuk reaksi eksoterm adalah ....", a: ["1 dan 2", "1 dan 4", "2 dan 3", "2 dan 4", "3 dan 4"], correct: 2, pembahasan: "Reaksi eksoterm adalah reaksi yang melepaskan kalor ke lingkungan. Pembakaran LPG → melepaskan kalor. Air membeku → melepaskan kalor. Sedangkan: es mencair, fotosintesis, termasuk endoterm karena menyerap energi." },
+    { q: "Dalam percobaan kalorimeter, suhu larutan meningkat setelah reaksi berlangsung. Pernyataan yang tepat adalah ....", a: ["Sistem menyerap kalor", "Reaksi bersifat endoterm", "Reaksi melepaskan kalor", "Lingkungan menyerap kalor dari luar", "Tidak terjadi perpindahan kalor"], correct: 2, pembahasan: "Kenaikan suhu menunjukkan kalor dilepaskan oleh sistem ke lingkungan sehingga reaksi bersifat eksoterm." },
+    { q: "Sebanyak 200 g larutan mengalami kenaikan suhu sebesar 4°C. Jika kalor jenis larutan 4,2 J/g°C, maka kalor yang diserap larutan adalah ....", a: ["420 J", "840 J", "1680 J", "3360 J", "4200 J"], correct: 3, pembahasan: "Gunakan rumus: q = m×c×ΔT = (200)(4.2)(4) = 3360 J" },
+    { q: "Diketahui data reaksi berikut.\n2H2(g) + O2(g) → 2H2O(l) ΔH = −572 kJ\nBerdasarkan data tersebut, perubahan entalpi untuk reaksi berikut adalah ....\n2H2O(l) → 2H2(g) + O2(g)", a: ["−572 kJ", "+572 kJ", "−286 kJ", "+286 kJ", "0 kJ"], correct: 1, pembahasan: "Jika reaksi dibalik: tanda ΔH berubah menjadi kebalikannya. Maka: ΔH = +572 kJ. Reaksi menjadi endoterm karena menyerap energi." },
+    { q: "Jika suatu reaksi memiliki ΔH positif, maka reaksi tersebut ....", a: ["melepaskan kalor", "bersifat eksoterm", "menyerap kalor", "menghasilkan suhu lebih tinggi", "tidak memerlukan energi"], correct: 2, pembahasan: "ΔH positif menunjukkan reaksi endoterm, yaitu reaksi yang menyerap kalor dari lingkungan." },
+    { q: "Perhatikan data energi ikatan berikut.\nH–H : 436 kJ/mol\nBr–Br : 193 kJ/mol\nH–Br : 366 kJ/mol\nTentukan ΔH reaksi berikut.\nH2(g) + Br2(g) → 2HBr(g)", a: ["−103 kJ", "+103 kJ", "−366 kJ", "+366 kJ", "−193 kJ"], correct: 0, pembahasan: "Energi ikatan diputus: 436 + 193 = 629 kJ. Energi ikatan dibentuk: 2(366) = 732 kJ. ΔH = 629 − 732 = −103 kJ. Karena ΔH negatif, reaksi bersifat eksoterm." },
+    { q: "Perhatikan pernyataan berikut.\n1. Pemutusan ikatan membutuhkan energi.\n2. Pembentukan ikatan melepaskan energi.\n3. ΔH negatif menunjukkan reaksi eksoterm.\n4. ΔH reaksi dapat dihitung menggunakan data energi ikatan.\nPernyataan yang benar adalah ....", a: ["1 dan 2", "1, 2, dan 3", "1, 3, dan 4", "2, 3, dan 4", "1, 2, 3, dan 4"], correct: 4, pembahasan: "Semua pernyataan benar sesuai konsep energi ikatan dan perubahan entalpi reaksi." },
+    { q: "Diketahui data ΔH°f berikut.\nCO2(g) : −394 kJ/mol\nH2O(l) : −286 kJ/mol\nC2H5OH(l) : −278 kJ/mol\nO2(g) : 0 kJ/mol\nTentukan ΔH reaksi pembakaran etanol berikut.\nC2H5OH(l) + 3O2(g) → 2CO2(g) + 3H2O(l)", a: ["−1368 kJ", "+1368 kJ", "−958 kJ", "+958 kJ", "−394 kJ"], correct: 0, pembahasan: "Jumlah ΔH°f produk: 2(−394) + 3(−286) = −788 − 858 = −1646 kJ. Jumlah ΔH°f pereaksi: (−278) + 3(0) = −278 kJ. ΔH reaksi = (−1646) − (−278) = −1368 kJ." },
+    { q: "Perhatikan reaksi pembakaran metana berikut.\nCH4(g) + 2O2(g) → CO2(g) + 2H2O(l)\nPada reaksi pembakaran tersebut: pemutusan ikatan pada pereaksi membutuhkan energi, sedangkan pembentukan ikatan pada produk melepaskan energi. Pembakaran bahan bakar menghasilkan kalor karena ....", a: ["semua reaksi kimia selalu menghasilkan kalor", "energi yang diperlukan untuk memutus ikatan lebih besar dibanding energi yang dilepaskan", "energi yang dilepaskan saat pembentukan ikatan lebih besar dibanding energi untuk memutus ikatan", "pemutusan ikatan menghasilkan energi ke lingkungan", "oksigen merupakan sumber utama kalor reaksi"], correct: 2, pembahasan: "Pada reaksi pembakaran: pemutusan ikatan pereaksi membutuhkan energi, sedangkan pembentukan ikatan produk melepaskan energi. Jika energi yang dilepaskan lebih besar, maka reaksi akan melepaskan kalor (eksoterm)." },
+    { q: "Seorang siswa menghitung ΔH reaksi menggunakan data energi ikatan tetapi tidak memperhatikan jumlah ikatan yang terlibat dalam reaksi. Akibatnya ....", a: ["hasil ΔH tetap benar", "hasil ΔH menjadi lebih akurat", "hasil perhitungan ΔH menjadi salah", "energi ikatan tidak perlu dihitung", "koefisien reaksi tidak berpengaruh"], correct: 2, pembahasan: "Dalam perhitungan energi ikatan: jumlah ikatan harus diperhatikan, energi ikatan harus dikalikan dengan jumlah ikatan yang terlibat. Jika diabaikan, maka hasil ΔH menjadi tidak tepat." }
   ]
 };
