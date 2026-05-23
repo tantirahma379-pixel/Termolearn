@@ -143,6 +143,10 @@ async function login() {
                 if (btn) btn.textContent = originalText;
                 return;
             }
+            if (result.progress) {
+                // Simpan progress dari server ke local
+                upsertResultInStorage(email, name, result.progress);
+            }
         }
     } catch (err) {
         console.warn("Gagal fetch GAS_URL:", err);
@@ -186,6 +190,9 @@ async function register() {
                 toast("Gagal mendaftar: " + result.message);
                 if (btn) btn.textContent = originalText;
                 return;
+            }
+            if (result.progress) {
+                upsertResultInStorage(email, name, result.progress);
             }
         }
     } catch (err) {
@@ -236,7 +243,24 @@ function upsertResult(partial, options = { lockIfExists: true }) {
 
     const row = upsertResultInStorage(state.session.email, state.session.name, partial);
     state.currentUserResult = row;
+    
+    // Sinkronisasi data ke server (fire and forget)
+    syncResultWithServer(row);
+    
     return { changed: true, row };
+}
+
+async function syncResultWithServer(row) {
+    if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") return;
+    try {
+        const payload = { action: "sync_result", ...row };
+        await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify(payload)
+        });
+    } catch (e) {
+        console.warn("Gagal sinkronisasi progress ke server", e);
+    }
 }
 
 function buildSummary(row) {
