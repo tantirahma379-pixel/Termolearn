@@ -29,6 +29,10 @@ function renderCover(app) {
                 <label>Email (opsional)</label>
                 <input id="inpEmail" type="email" placeholder="Email@gmail.com... (boleh kosong)" autocomplete="email" />
               </div>
+              <div class="field">
+                <label>Password (opsional)</label>
+                <input id="inpPassword" type="password" placeholder="Password... (boleh kosong)" autocomplete="current-password" />
+              </div>
 
               <button id="btnLogin" class="btn btnPrimary" onclick="login()">Masuk</button>
 
@@ -46,6 +50,10 @@ function renderCover(app) {
               <div class="field">
                 <label>Email (opsional)</label>
                 <input id="inpRegEmail" type="email" placeholder="Email@gmail.com... (boleh kosong)" autocomplete="email" />
+              </div>
+              <div class="field">
+                <label>Password (opsional)</label>
+                <input id="inpRegPassword" type="password" placeholder="Password... (boleh kosong)" autocomplete="new-password" />
               </div>
 
               <button id="btnRegister" class="btn btnPrimary" onclick="register()">Daftar</button>

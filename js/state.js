@@ -121,10 +121,35 @@ function guardRoute() {
     return true;
 }
 
-/* ---- Login (bypass — langsung masuk) ---- */
-function login() {
+/* ---- Login (terhubung ke Google Apps Script) ---- */
+async function login() {
     const email = ($("#inpEmail")?.value || "").trim() || "siswa@thermolearn.id";
+    const password = ($("#inpPassword")?.value || "").trim();
     const name = email.split("@")[0];
+
+    const btn = $("#btnLogin");
+    const originalText = btn ? btn.textContent : "Masuk";
+    if (btn) btn.textContent = "Memproses...";
+
+    try {
+        if (typeof GAS_URL !== 'undefined' && GAS_URL && GAS_URL !== "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+            const res = await fetch(GAS_URL, {
+                method: "POST",
+                body: JSON.stringify({ action: "login", email, password, name })
+            });
+            const result = await res.json();
+            if (result.status !== "success") {
+                toast("Gagal login: " + result.message);
+                if (btn) btn.textContent = originalText;
+                return;
+            }
+        }
+    } catch (err) {
+        console.warn("Gagal fetch GAS_URL:", err);
+        toast("Mode Offline aktif (Server tidak merespons)");
+    }
+    
+    if (btn) btn.textContent = originalText;
 
     const role = (email === ADMIN_EMAIL) ? "admin" : "siswa";
 
@@ -140,10 +165,35 @@ function login() {
     toast(role === "admin" ? "Masuk sebagai Admin" : "Selamat belajar!");
 }
 
-/* ---- Register (offline — bypass langsung masuk) ---- */
-function register() {
+/* ---- Register (terhubung ke Google Apps Script) ---- */
+async function register() {
     const name = ($("#inpRegName")?.value || "").trim() || "Siswa";
     const email = ($("#inpRegEmail")?.value || "").trim() || "siswa@thermolearn.id";
+    const password = ($("#inpRegPassword")?.value || "").trim();
+
+    const btn = $("#btnRegister");
+    const originalText = btn ? btn.textContent : "Daftar";
+    if (btn) btn.textContent = "Memproses...";
+
+    try {
+        if (typeof GAS_URL !== 'undefined' && GAS_URL && GAS_URL !== "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+            const res = await fetch(GAS_URL, {
+                method: "POST",
+                body: JSON.stringify({ action: "register", email, password, name })
+            });
+            const result = await res.json();
+            if (result.status !== "success") {
+                toast("Gagal mendaftar: " + result.message);
+                if (btn) btn.textContent = originalText;
+                return;
+            }
+        }
+    } catch (err) {
+        console.warn("Gagal fetch GAS_URL:", err);
+        toast("Mode Offline aktif (Server tidak merespons)");
+    }
+    
+    if (btn) btn.textContent = originalText;
 
     const role = (email === ADMIN_EMAIL) ? "admin" : "siswa";
 
