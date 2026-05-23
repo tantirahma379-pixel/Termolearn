@@ -15,7 +15,7 @@ function renderCover(app) {
             </h2>
             <div class="coverMascot">
               <div class="mascotWrap" style="min-height:320px; padding:0;">
-                <img class="mascot" src="gambar/Maskot.png" alt="Maskot TermoLearn">
+                <img class="mascot" src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/Maskot.png" alt="Maskot TermoLearn">
               </div>
 
             <div class="authTabs" style="display:flex; gap:0; max-width:520px; width:100%; margin-bottom:0;">
