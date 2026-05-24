@@ -24,7 +24,7 @@ function renderLanding(app) {
             <div class="divider"></div>
 
             <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/Iyl5V9viCvk?si=5DSUU1QNQasW3PZM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/fy-JbJzJys4?si=cvKmiKnH4Cd5Dgcp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div class="row" style="justify-content:center;">

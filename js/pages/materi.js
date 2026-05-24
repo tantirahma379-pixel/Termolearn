@@ -13,17 +13,8 @@ function renderMateri(app) {
           <div class="cardPad">
             <div class="row" style="justify-content:space-between;">
               <div>
-                <span class="badge"><i></i> Tujuan Pembelajaran</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">Apa yang Akan Kita Pelajari?</h2>
-                <div class="subtitle" style="margin:0;">
-                  Setelah mengikuti pembelajaran ini, kamu diharapkan mampu:
-                  <ul>
-                    <li>Menjelaskan secara sederhana bagaimana energi terlibat dalam reaksi kimia melalui konsep sistem dan lingkungan.</li>
-                    <li>Mengenali perbedaan reaksi yang melepaskan energi dan reaksi yang menyerap energi.</li>
-                    <li>Mengidentifikasi berbagai bentuk perubahan energi reaksi, seperti pembentukan, pembakaran, dan penguraian.</li>
-                    <li>Menentukan perubahan energi reaksi dengan beberapa cara dan mengaitkannya dengan peristiwa dalam kehidupan sehari-hari.</li>
-                  </ul>
-                </div>
+                <span class="badge"><i></i> Petunjuk Penggunaan</span>
+                <div style="position:relative;padding-top:0;width:900px;height:500px;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/nttmb/Petunjuk-Penggunaan/" title="Petunjuk Penggunaan " seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
               </div>
             </div>
 
@@ -35,7 +26,7 @@ function renderMateri(app) {
                 <p class="subtitle" style="margin:0;">
                   Peta konsep berikut menunjukkan alur materi yang akan kamu pelajari, mulai dari konsep dasar hingga penerapannya dalam kehidupan sehari-hari. Gunakan peta ini sebagai panduan belajar, sehingga kamu tahu dari mana harus mulai dan ke mana pembelajaran akan berlanjut.
                 </p>
-                <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/PetaKonsepTermokimia.png" alt="Peta Konsep Termokimia" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                <img src="/gambar/PetaKonsep.png" alt="Peta Konsep Termokimia" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
               </div>
             </div>
 
