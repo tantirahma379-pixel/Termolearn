@@ -372,6 +372,14 @@ function doGet(e) {
   html.email = e && e.parameter && e.parameter.email ? e.parameter.email : '';
   html.token = e && e.parameter && e.parameter.token ? e.parameter.token : '';
 
+  let gasUrl = '';
+  try {
+    gasUrl = ScriptApp.getService().getUrl();
+  } catch (err) {
+    // Fallback jika dijalankan langsung di editor Apps Script tanpa status Web App
+  }
+  html.gasUrl = gasUrl;
+
   return html.evaluate()
     .setTitle('ThermoLearn')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1')

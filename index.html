@@ -68,20 +68,20 @@
   <!-- Global Variable untuk Google Apps Script -->
   <script>
     // URL ini akan otomatis diisi oleh Google Apps Script ketika dijalankan sebagai Web App
-    let GAS_URL = "<?= ScriptApp.getService().getUrl() ?>";
+    let GAS_URL = "<?= gasUrl ?>";
     
     // Fallback untuk testing di localhost: ambil dari localStorage 'dev_gas_url'
-    if (GAS_URL.includes("<?=")) {
+    if (GAS_URL.includes("<" + "?=")) {
         GAS_URL = localStorage.getItem("dev_gas_url") || "";
     }
 
     // Variabel reset password dinamis (diisi oleh doGet backend GAS)
-    let RESET_ACTION = "<?= typeof action !== 'undefined' ? action : '' ?>";
-    let RESET_EMAIL = "<?= typeof email !== 'undefined' ? email : '' ?>";
-    let RESET_TOKEN = "<?= typeof token !== 'undefined' ? token : '' ?>";
+    let RESET_ACTION = "<?= action ?>";
+    let RESET_EMAIL = "<?= email ?>";
+    let RESET_TOKEN = "<?= token ?>";
 
     // Fallback localhost: baca dari parameter query URL browser
-    if (RESET_ACTION.includes("<?=")) {
+    if (RESET_ACTION.includes("<" + "?=")) {
         const urlParams = new URLSearchParams(window.location.search);
         RESET_ACTION = urlParams.get('action') || '';
         RESET_EMAIL = urlParams.get('email') || '';
