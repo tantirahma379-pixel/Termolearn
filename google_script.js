@@ -7,15 +7,37 @@ const SHEET_NAME_RESULTS = 'Results';
 const ADMIN_EMAIL = 'admin@thermolearn.id';
 const SPREADSHEET_ID = 'xxxxxxxx';
 
+// Helper untuk mendapatkan objek Spreadsheet secara aman (bound atau standalone)
+function getSpreadsheet() {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (ss) return ss;
+  } catch (e) {}
+  try {
+    if (SPREADSHEET_ID && SPREADSHEET_ID !== 'xxxxxxxx') {
+      return SpreadsheetApp.openById(SPREADSHEET_ID);
+    }
+  } catch (e) {}
+  return SpreadsheetApp.getActiveSpreadsheet();
+}
+
 function setup() {
-  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const ss = getSpreadsheet();
 
   let sheetUsers = ss.getSheetByName(SHEET_NAME_USERS);
   if (!sheetUsers) {
     sheetUsers = ss.insertSheet(SHEET_NAME_USERS);
-    sheetUsers.appendRow(['Timestamp', 'Email', 'Password', 'Nama', 'Role', 'Login Terakhir']);
-    sheetUsers.getRange("A1:F1").setFontWeight("bold");
+    sheetUsers.appendRow(['Timestamp', 'Email', 'Password', 'Nama', 'Role', 'Login Terakhir', 'ResetToken', 'ResetTokenExpires']);
+    sheetUsers.getRange("A1:H1").setFontWeight("bold");
     sheetUsers.setFrozenRows(1);
+  } else {
+    // Pastikan jika kolom ResetToken & ResetTokenExpires belum ada, kita tambahkan header-nya
+    const headers = sheetUsers.getRange("1:1").getValues()[0];
+    if (headers.indexOf('ResetToken') === -1) {
+      sheetUsers.getRange(1, 7).setValue('ResetToken');
+      sheetUsers.getRange(1, 8).setValue('ResetTokenExpires');
+      sheetUsers.getRange("A1:H1").setFontWeight("bold");
+    }
   }
 
   let sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
@@ -27,11 +49,36 @@ function setup() {
   }
 }
 
+// Regex validasi format email
+function validateEmailFormat(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(String(email).toLowerCase());
+}
+
+// Hash MD5 ganda (MD5(MD5(input))) untuk keamanan password
+function md5(input) {
+  if (!input) return '';
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.MD5, input, Utilities.Charset.UTF_8);
+  let hash = '';
+  for (let i = 0; i < digest.length; i++) {
+    let byteVal = digest[i];
+    if (byteVal < 0) byteVal += 256;
+    let byteString = byteVal.toString(16);
+    if (byteString.length === 1) byteString = '0' + byteString;
+    hash += byteString;
+  }
+  return hash;
+}
+
+function md5Double(input) {
+  return md5(md5(input));
+}
+
 function doPost(e) {
   try {
     const params = JSON.parse(e.postData.contents);
     const action = params.action;
-    const email = params.email || '';
+    const email = (params.email || '').trim();
 
     if (action === 'get_all_results') {
       return handleGetAllResults();
@@ -41,15 +88,19 @@ function doPost(e) {
       return handleSyncResult(params);
     }
 
-    // Untuk action login & register
+    // Untuk action login, register, forgot_password, reset_password_submit
     if (!email) {
-      return createJsonResponse({ status: 'error', message: 'Email diperlukan' });
+      return createJsonResponse({ status: 'error', message: 'Email tidak boleh kosong.' });
+    }
+
+    if (!validateEmailFormat(email)) {
+      return createJsonResponse({ status: 'error', message: 'Format email tidak valid.' });
     }
 
     const password = params.password || '';
     const name = params.name || email.split('@')[0];
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSpreadsheet();
     let sheet = ss.getSheetByName(SHEET_NAME_USERS);
     if (!sheet) {
       setup();
@@ -60,6 +111,7 @@ function doPost(e) {
     let userRowIndex = -1;
     let userData = null;
 
+    // Cari baris user berdasarkan email
     for (let i = 1; i < data.length; i++) {
       if (data[i][1] === email) {
         userRowIndex = i + 1;
@@ -77,9 +129,18 @@ function doPost(e) {
 
     if (action === 'login') {
       if (userRowIndex !== -1) {
-        if (userData.password !== password) {
+        const hashedPassword = md5Double(password);
+        
+        // Cek jika password cocok (baik dengan hash md5 2x maupun plain text untuk kompatibilitas migrasi)
+        if (userData.password !== hashedPassword && userData.password !== password) {
           return createJsonResponse({ status: 'error', message: 'Password salah!' });
         }
+        
+        // Jika password di database masih berupa plain text, kita migrasikan otomatis ke md5 2x!
+        if (userData.password === password) {
+          sheet.getRange(userRowIndex, 3).setValue(hashedPassword);
+        }
+
         sheet.getRange(userRowIndex, 6).setValue(timestamp);
 
         // Ambil progress dari tabel Results
@@ -103,7 +164,9 @@ function doPost(e) {
           return createJsonResponse({ status: 'error', message: 'Password tidak boleh kosong untuk pendaftaran baru.' });
         }
         const role = (email === ADMIN_EMAIL) ? 'admin' : 'siswa';
-        sheet.appendRow([timestamp, email, password, name, role, timestamp]);
+        const hashedPassword = md5Double(password);
+        // Simpan data pendaftaran baru
+        sheet.appendRow([timestamp, email, hashedPassword, name, role, timestamp, '', '']);
         userData = { email: email, name: name, role: role };
 
         return createJsonResponse({
@@ -113,6 +176,83 @@ function doPost(e) {
           progress: null
         });
       }
+
+    } else if (action === 'forgot_password') {
+      if (userRowIndex === -1) {
+        return createJsonResponse({ status: 'error', message: 'Email belum terdaftar.' });
+      }
+
+      const token = Utilities.getUuid();
+      const expires = new Date();
+      expires.setHours(expires.getHours() + 1); // Token berlaku 1 jam
+
+      // Simpan token di kolom ResetToken (kolom 7) dan ResetTokenExpires (kolom 8)
+      sheet.getRange(userRowIndex, 7).setValue(token);
+      sheet.getRange(userRowIndex, 8).setValue(expires.toISOString());
+
+      // Kirim email reset password
+      const resetLink = ScriptApp.getService().getUrl() + "?action=reset_password&email=" + encodeURIComponent(email) + "&token=" + token;
+
+      const subject = "[ThermoLearn] Permintaan Reset Password Anda";
+      const body = "Halo " + userData.name + ",\n\n" +
+                   "Kami menerima permintaan untuk mereset password akun ThermoLearn Anda.\n" +
+                   "Silakan klik link di bawah ini untuk mereset password Anda (Link aktif selama 1 jam):\n\n" +
+                   resetLink + "\n\n" +
+                   "Jika Anda tidak merasa meminta hal ini, silakan abaikan email ini.\n\n" +
+                   "Salam,\nThermoLearn Team";
+
+      try {
+        MailApp.sendEmail(email, subject, body);
+      } catch (mailError) {
+        return createJsonResponse({ status: 'error', message: 'Gagal mengirim email reset: ' + mailError.toString() });
+      }
+
+      return createJsonResponse({
+        status: 'success',
+        message: 'Link reset password telah dikirim ke email Anda. Silakan cek inbox/spam.'
+      });
+
+    } else if (action === 'reset_password_submit') {
+      const token = params.token || '';
+      const newPassword = params.newPassword || '';
+
+      if (!newPassword) {
+        return createJsonResponse({ status: 'error', message: 'Password baru tidak boleh kosong.' });
+      }
+
+      if (userRowIndex === -1) {
+        return createJsonResponse({ status: 'error', message: 'Email tidak ditemukan.' });
+      }
+
+      const storedToken = sheet.getRange(userRowIndex, 7).getValue();
+      const storedExpiresStr = sheet.getRange(userRowIndex, 8).getValue();
+
+      if (!storedToken || storedToken !== token) {
+        return createJsonResponse({ status: 'error', message: 'Token reset password tidak valid.' });
+      }
+
+      if (storedExpiresStr) {
+        const expires = new Date(storedExpiresStr);
+        if (new Date() > expires) {
+          return createJsonResponse({ status: 'error', message: 'Token reset password telah kedaluwarsa.' });
+        }
+      } else {
+        return createJsonResponse({ status: 'error', message: 'Token tidak valid.' });
+      }
+
+      const hashedPassword = md5Double(newPassword);
+      // Update password (kolom 3)
+      sheet.getRange(userRowIndex, 3).setValue(hashedPassword);
+
+      // Hapus token reset yang sudah digunakan
+      sheet.getRange(userRowIndex, 7).setValue('');
+      sheet.getRange(userRowIndex, 8).setValue('');
+
+      return createJsonResponse({
+        status: 'success',
+        message: 'Password berhasil diubah. Silakan login kembali dengan password baru.'
+      });
+
     } else {
       return createJsonResponse({ status: 'error', message: 'Action tidak valid' });
     }
@@ -123,7 +263,7 @@ function doPost(e) {
 }
 
 function handleSyncResult(params) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet();
   let sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
   if (!sheetResults) {
     setup();
@@ -143,8 +283,6 @@ function handleSyncResult(params) {
     }
   }
 
-  // Data array
-  // 0: Email, 1: Nama, 2: S1, 3: S2, 4: S3, 5: S4, 6: Eval, 7: Total, 8: Summary, 9: UpdatedAt
   const rowData = [
     email,
     name || '',
@@ -159,10 +297,8 @@ function handleSyncResult(params) {
   ];
 
   if (rowIndex !== -1) {
-    // Update baris
     sheetResults.getRange(rowIndex, 1, 1, 10).setValues([rowData]);
   } else {
-    // Insert baru
     sheetResults.appendRow(rowData);
   }
 
@@ -170,7 +306,7 @@ function handleSyncResult(params) {
 }
 
 function handleGetAllResults() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet();
   const sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
   if (!sheetResults) return createJsonResponse({ status: 'success', data: [] });
 
@@ -195,7 +331,7 @@ function handleGetAllResults() {
 }
 
 function getUserProgress(email) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet();
   const sheetResults = ss.getSheetByName(SHEET_NAME_RESULTS);
   if (!sheetResults) return null;
 
@@ -230,7 +366,13 @@ function createJsonResponse(data) {
 }
 
 function doGet(e) {
-  return HtmlService.createHtmlOutputFromFile('index')
+  const html = HtmlService.createTemplateFromFile('index');
+  // Inject parameter ke html template
+  html.action = e && e.parameter && e.parameter.action ? e.parameter.action : '';
+  html.email = e && e.parameter && e.parameter.email ? e.parameter.email : '';
+  html.token = e && e.parameter && e.parameter.token ? e.parameter.token : '';
+
+  return html.evaluate()
     .setTitle('ThermoLearn')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1')
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);

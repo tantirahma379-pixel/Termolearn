@@ -74,6 +74,23 @@
     if (GAS_URL.includes("<?=")) {
         GAS_URL = localStorage.getItem("dev_gas_url") || "";
     }
+
+    // Variabel reset password dinamis (diisi oleh doGet backend GAS)
+    let RESET_ACTION = "<?= typeof action !== 'undefined' ? action : '' ?>";
+    let RESET_EMAIL = "<?= typeof email !== 'undefined' ? email : '' ?>";
+    let RESET_TOKEN = "<?= typeof token !== 'undefined' ? token : '' ?>";
+
+    // Fallback localhost: baca dari parameter query URL browser
+    if (RESET_ACTION.includes("<?=")) {
+        const urlParams = new URLSearchParams(window.location.search);
+        RESET_ACTION = urlParams.get('action') || '';
+        RESET_EMAIL = urlParams.get('email') || '';
+        RESET_TOKEN = urlParams.get('token') || '';
+    }
+
+    window.RESET_ACTION = RESET_ACTION;
+    window.RESET_EMAIL = RESET_EMAIL;
+    window.RESET_TOKEN = RESET_TOKEN;
   </script>
 
   <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/utils.js"></script>

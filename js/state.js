@@ -121,6 +121,11 @@ function guardRoute() {
     return true;
 }
 
+function validateEmailFormat(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
 /* ---- Login (terhubung ke Google Apps Script) ---- */
 async function login() {
     const email = ($("#inpEmail")?.value || "").trim();
@@ -128,6 +133,11 @@ async function login() {
     
     if (!email || !password) {
         toast("Email dan Password tidak boleh kosong!");
+        return;
+    }
+
+    if (!validateEmailFormat(email)) {
+        toast("Format email tidak valid!");
         return;
     }
     
@@ -192,6 +202,11 @@ async function register() {
         return;
     }
 
+    if (!validateEmailFormat(email)) {
+        toast("Format email tidak valid!");
+        return;
+    }
+
     const btn = $("#btnRegister");
     const originalText = btn ? btn.textContent : "Daftar";
     if (btn) btn.textContent = "Memproses...";
@@ -237,6 +252,101 @@ async function register() {
 
     go(role === "admin" ? "#/admin" : "#/landing");
     toast("Pendaftaran berhasil! Selamat belajar!");
+}
+
+/* ---- Lupa Password (terhubung ke Google Apps Script) ---- */
+async function forgotPassword() {
+    const email = ($("#inpForgotEmail")?.value || "").trim();
+    if (!email) {
+        toast("Email tidak boleh kosong!");
+        return;
+    }
+    if (!validateEmailFormat(email)) {
+        toast("Format email tidak valid!");
+        return;
+    }
+
+    const btn = $("#btnForgotSubmit");
+    const originalText = btn ? btn.textContent : "Kirim Link Reset";
+    if (btn) btn.textContent = "Mengirim...";
+
+    try {
+        if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+            toast("Sistem belum terhubung ke server. Hubungi Admin.");
+            if (btn) btn.textContent = originalText;
+            return;
+        }
+
+        const res = await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify({ action: "forgot_password", email })
+        });
+        const result = await res.json();
+        toast(result.message);
+        if (result.status === "success") {
+            switchAuthTab("login");
+        }
+    } catch (err) {
+        console.warn("Gagal kirim link reset:", err);
+        toast("Gagal terhubung ke Server. Pastikan internet aktif.");
+    }
+
+    if (btn) btn.textContent = originalText;
+}
+
+/* ---- Submit Reset Password Baru ---- */
+async function resetPasswordSubmit() {
+    const newPassword = ($("#inpResetPassword")?.value || "").trim();
+    const confirmPassword = ($("#inpResetConfirm")?.value || "").trim();
+
+    if (!newPassword || !confirmPassword) {
+        toast("Password baru dan konfirmasi tidak boleh kosong!");
+        return;
+    }
+
+    if (newPassword !== confirmPassword) {
+        toast("Konfirmasi password tidak cocok!");
+        return;
+    }
+
+    const email = window.RESET_EMAIL;
+    const token = window.RESET_TOKEN;
+
+    if (!email || !token) {
+        toast("Sesi reset password tidak valid atau telah kedaluwarsa.");
+        return;
+    }
+
+    const btn = $("#btnResetSubmit");
+    const originalText = btn ? btn.textContent : "Simpan Password";
+    if (btn) btn.textContent = "Menyimpan...";
+
+    try {
+        if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+            toast("Sistem belum terhubung ke server.");
+            if (btn) btn.textContent = originalText;
+            return;
+        }
+
+        const res = await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify({ action: "reset_password_submit", email, token, newPassword })
+        });
+        const result = await res.json();
+        toast(result.message);
+        if (result.status === "success") {
+            // Hapus session reset agar form normal dimuat
+            window.RESET_ACTION = "";
+            window.RESET_EMAIL = "";
+            window.RESET_TOKEN = "";
+            switchAuthTab("login");
+        }
+    } catch (err) {
+        console.warn("Gagal reset password:", err);
+        toast("Gagal terhubung ke Server. Pastikan internet aktif.");
+    }
+
+    if (btn) btn.textContent = originalText;
 }
 
 function logout() {
