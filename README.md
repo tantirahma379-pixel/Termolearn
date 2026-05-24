@@ -14,6 +14,8 @@ Aplikasi ini menggunakan kombinasi **Google Apps Script (GAS)** sebagai backend/
    - Salin isi dari file `google_script.js` ke dalam `Code.gs`.
    - Buat file baru di Apps Script dengan nama `index.html` (File > Baru > HTML), lalu salin seluruh isi dari file `index.html` lokal Anda ke sana.
    - Variabel `GAS_URL` di dalam `index.html` akan otomatis diisi dengan URL Web App oleh `<?= ScriptApp.getService().getUrl() ?>`.
+   - Jalankan fungsi setup atau deploy untuk membuat dokumen spreadsheet dengan nama sheet Users dan Results
+   - Pada sheet Users tambahkan secara manual user dengan role admin, untuk kolom password bisa diisi secara plain teks tanpa di encode karena nanti akan dienkripsi otomatis saat login
 
 3. **Deploy Web App**
    - Di editor Apps Script, klik tombol **Terapkan (Deploy) > Deployment baru**.

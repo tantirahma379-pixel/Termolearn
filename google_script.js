@@ -1,10 +1,9 @@
 // ==========================================
-// GOOGLE APPS SCRIPT UNTUK TERMOLEARN
+// GOOGLE APPS SCRIPT UNTUK TERMOLEARN (MODIFIED)
 // ==========================================
 
 const SHEET_NAME_USERS = 'Users';
 const SHEET_NAME_RESULTS = 'Results';
-const ADMIN_EMAIL = 'admin@thermolearn.id';
 const SPREADSHEET_ID = 'xxxxxxxx';
 
 // Helper untuk mendapatkan objek Spreadsheet secara aman (bound atau standalone)
@@ -163,7 +162,7 @@ function doPost(e) {
         if (!password) {
           return createJsonResponse({ status: 'error', message: 'Password tidak boleh kosong untuk pendaftaran baru.' });
         }
-        const role = (email === ADMIN_EMAIL) ? 'admin' : 'siswa';
+        const role = 'siswa';
         const hashedPassword = md5Double(password);
         // Simpan data pendaftaran baru
         sheet.appendRow([timestamp, email, hashedPassword, name, role, timestamp, '', '']);

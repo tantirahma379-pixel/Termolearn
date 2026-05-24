@@ -2,7 +2,6 @@
 /***********************
  * Data & Constants
  ***********************/
-const ADMIN_EMAIL = "tantirahma379@gmail.com";
 const LS_KEYS = {
   session: "thermolearn_session_v1",
   users: "thermolearn_users_v1",

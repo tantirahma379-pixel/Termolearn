@@ -177,9 +177,11 @@ async function login() {
     
     if (btn) btn.textContent = originalText;
 
-    const role = (email === ADMIN_EMAIL) ? "admin" : "siswa";
+    // Ambil data role dan name asli dari respon server, atau fallback ke email check
+    const role = (result && result.data && result.data.role) || ((email === ADMIN_EMAIL) ? "admin" : "siswa");
+    const displayName = (result && result.data && result.data.name) || name;
 
-    state.session = { email, name, role };
+    state.session = { email, name: displayName, role };
     saveSession();
 
     refreshCurrentUserResult();
@@ -240,9 +242,11 @@ async function register() {
     
     if (btn) btn.textContent = originalText;
 
-    const role = (email === ADMIN_EMAIL) ? "admin" : "siswa";
+    // Ambil data role dan name asli dari respon server, atau fallback ke email check
+    const role = (result && result.data && result.data.role) || ((email === ADMIN_EMAIL) ? "admin" : "siswa");
+    const displayName = (result && result.data && result.data.name) || name;
 
-    state.session = { email, name, role };
+    state.session = { email, name: displayName, role };
     saveSession();
 
     refreshCurrentUserResult();
