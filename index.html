@@ -68,7 +68,12 @@
   <!-- Global Variable untuk Google Apps Script -->
   <script>
     // URL ini akan otomatis diisi oleh Google Apps Script ketika dijalankan sebagai Web App
-    const GAS_URL = "<?= ScriptApp.getService().getUrl() ?>";
+    let GAS_URL = "<?= ScriptApp.getService().getUrl() ?>";
+    
+    // Fallback untuk testing di localhost: ambil dari localStorage 'dev_gas_url'
+    if (GAS_URL.includes("<?=")) {
+        GAS_URL = localStorage.getItem("dev_gas_url") || "";
+    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/js/utils.js"></script>

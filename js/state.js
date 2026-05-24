@@ -123,8 +123,14 @@ function guardRoute() {
 
 /* ---- Login (terhubung ke Google Apps Script) ---- */
 async function login() {
-    const email = ($("#inpEmail")?.value || "").trim() || "siswa@thermolearn.id";
+    const email = ($("#inpEmail")?.value || "").trim();
     const password = ($("#inpPassword")?.value || "").trim();
+    
+    if (!email || !password) {
+        toast("Email dan Password tidak boleh kosong!");
+        return;
+    }
+    
     const name = email.split("@")[0];
 
     const btn = $("#btnLogin");
@@ -132,25 +138,31 @@ async function login() {
     if (btn) btn.textContent = "Memproses...";
 
     try {
-        if (typeof GAS_URL !== 'undefined' && GAS_URL && GAS_URL !== "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
-            const res = await fetch(GAS_URL, {
-                method: "POST",
-                body: JSON.stringify({ action: "login", email, password, name })
-            });
-            const result = await res.json();
-            if (result.status !== "success") {
-                toast("Gagal login: " + result.message);
-                if (btn) btn.textContent = originalText;
-                return;
-            }
-            if (result.progress) {
-                // Simpan progress dari server ke local
-                upsertResultInStorage(email, name, result.progress);
-            }
+        if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+            toast("Sistem belum terhubung ke server. Hubungi Admin.");
+            if (btn) btn.textContent = originalText;
+            return;
+        }
+
+        const res = await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify({ action: "login", email, password, name })
+        });
+        const result = await res.json();
+        if (result.status !== "success") {
+            toast("Gagal login: " + result.message);
+            if (btn) btn.textContent = originalText;
+            return;
+        }
+        if (result.progress) {
+            // Simpan progress dari server ke local
+            upsertResultInStorage(email, name, result.progress);
         }
     } catch (err) {
         console.warn("Gagal fetch GAS_URL:", err);
-        toast("Mode Offline aktif (Server tidak merespons)");
+        toast("Gagal terhubung ke Server. Pastikan internet aktif.");
+        if (btn) btn.textContent = originalText;
+        return;
     }
     
     if (btn) btn.textContent = originalText;
@@ -171,33 +183,44 @@ async function login() {
 
 /* ---- Register (terhubung ke Google Apps Script) ---- */
 async function register() {
-    const name = ($("#inpRegName")?.value || "").trim() || "Siswa";
-    const email = ($("#inpRegEmail")?.value || "").trim() || "siswa@thermolearn.id";
+    const name = ($("#inpRegName")?.value || "").trim();
+    const email = ($("#inpRegEmail")?.value || "").trim();
     const password = ($("#inpRegPassword")?.value || "").trim();
+
+    if (!name || !email || !password) {
+        toast("Semua inputan tidak boleh kosong!");
+        return;
+    }
 
     const btn = $("#btnRegister");
     const originalText = btn ? btn.textContent : "Daftar";
     if (btn) btn.textContent = "Memproses...";
 
     try {
-        if (typeof GAS_URL !== 'undefined' && GAS_URL && GAS_URL !== "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
-            const res = await fetch(GAS_URL, {
-                method: "POST",
-                body: JSON.stringify({ action: "register", email, password, name })
-            });
-            const result = await res.json();
-            if (result.status !== "success") {
-                toast("Gagal mendaftar: " + result.message);
-                if (btn) btn.textContent = originalText;
-                return;
-            }
-            if (result.progress) {
-                upsertResultInStorage(email, name, result.progress);
-            }
+        if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+            toast("Sistem belum terhubung ke server. Hubungi Admin.");
+            if (btn) btn.textContent = originalText;
+            return;
+        }
+
+        const res = await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify({ action: "register", email, password, name })
+        });
+        const result = await res.json();
+        if (result.status !== "success") {
+            toast("Gagal mendaftar: " + result.message);
+            if (btn) btn.textContent = originalText;
+            return;
+        }
+        if (result.progress) {
+            upsertResultInStorage(email, name, result.progress);
         }
     } catch (err) {
         console.warn("Gagal fetch GAS_URL:", err);
-        toast("Mode Offline aktif (Server tidak merespons)");
+        toast("Gagal terhubung ke Server. Pastikan internet aktif.");
+        if (btn) btn.textContent = originalText;
+        return;
     }
     
     if (btn) btn.textContent = originalText;
