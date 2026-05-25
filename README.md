@@ -45,7 +45,7 @@ Aplikasi ini menggunakan kombinasi **Google Apps Script (GAS)** sebagai backend/
 
 Untuk membersihkan cache jsDelivr:
 ```
-https://www.jsdelivr.com/terms/cache-purging
+https://www.jsdelivr.com/tools/purge
 ```
 masukan url: https://cdn.jsdelivr.net/gh/[NAMA_USER]/[NAMA_REPO]@latest/[NAMA_FILE_YANG_DI_EDIT]
 ```
