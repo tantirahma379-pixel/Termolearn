@@ -686,13 +686,13 @@ function defaultContent() {
                       <tr>
                         <td style="border:1px solid rgba(17,24,39,0.1); padding:10px;">H₂O(<em>l</em>) → H₂(<em>g</em>) + ½O₂(<em>g</em>)</td>
                         <td style="border:1px solid rgba(17,24,39,0.1); padding:10px;">
-                          <input type="text" id="s3_hess1_1" placeholder="+285.8" style="width:100px; padding:6px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
+                          <input type="text" id="s3_hess1_1"" style="width:100px; padding:6px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
                         </td>
                       </tr>
                       <tr>
                         <td style="border:1px solid rgba(17,24,39,0.1); padding:10px;">2H₂O(<em>l</em>) → 2H₂(<em>g</em>) + O₂(<em>g</em>)</td>
                         <td style="border:1px solid rgba(17,24,39,0.1); padding:10px;">
-                          <input type="text" id="s3_hess1_2" placeholder="-571.6" style="width:100px; padding:6px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
+                          <input type="text" id="s3_hess1_2"" style="width:100px; padding:6px 8px; border:1px solid rgba(17,24,39,0.2); border-radius:6px; font-size:13px;">
                         </td>
                       </tr>
                     </tbody>
