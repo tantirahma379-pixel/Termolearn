@@ -147,6 +147,7 @@ async function login() {
     const originalText = btn ? btn.textContent : "Masuk";
     if (btn) btn.textContent = "Memproses...";
 
+    let result = null;
     try {
         if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
             toast("Sistem belum terhubung ke server. Hubungi Admin.");
@@ -158,7 +159,7 @@ async function login() {
             method: "POST",
             body: JSON.stringify({ action: "login", email, password, name })
         });
-        const result = await res.json();
+        result = await res.json();
         if (result.status !== "success") {
             toast("Gagal login: " + result.message);
             if (btn) btn.textContent = originalText;
