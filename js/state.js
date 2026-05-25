@@ -147,6 +147,7 @@ async function login() {
     const originalText = btn ? btn.textContent : "Masuk";
     if (btn) btn.textContent = "Memproses...";
 
+    let result = null;
     try {
         if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
             toast("Sistem belum terhubung ke server. Hubungi Admin.");
@@ -158,7 +159,7 @@ async function login() {
             method: "POST",
             body: JSON.stringify({ action: "login", email, password, name })
         });
-        const result = await res.json();
+        result = await res.json();
         if (result.status !== "success") {
             toast("Gagal login: " + result.message);
             if (btn) btn.textContent = originalText;
@@ -177,9 +178,12 @@ async function login() {
     
     if (btn) btn.textContent = originalText;
 
-    const role = (email === ADMIN_EMAIL) ? "admin" : "siswa";
+    // Ambil data role dan name asli dari respon server, atau fallback ke email check
+    console.log('result login', result);
+    const role = (result && result.data && result.data.role) || ((email === ADMIN_EMAIL) ? "admin" : "siswa");
+    const displayName = (result && result.data && result.data.name) || name;
 
-    state.session = { email, name, role };
+    state.session = { email, name: displayName, role };
     saveSession();
 
     refreshCurrentUserResult();
@@ -211,6 +215,7 @@ async function register() {
     const originalText = btn ? btn.textContent : "Daftar";
     if (btn) btn.textContent = "Memproses...";
 
+    let result = null;
     try {
         if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
             toast("Sistem belum terhubung ke server. Hubungi Admin.");
@@ -222,7 +227,7 @@ async function register() {
             method: "POST",
             body: JSON.stringify({ action: "register", email, password, name })
         });
-        const result = await res.json();
+        result = await res.json();
         if (result.status !== "success") {
             toast("Gagal mendaftar: " + result.message);
             if (btn) btn.textContent = originalText;
@@ -240,9 +245,12 @@ async function register() {
     
     if (btn) btn.textContent = originalText;
 
-    const role = (email === ADMIN_EMAIL) ? "admin" : "siswa";
+    // Ambil data role dan name asli dari respon server, atau fallback ke email check
+    console.log('result register', result);
+    const role = (result && result.data && result.data.role) || ((email === ADMIN_EMAIL) ? "admin" : "siswa");
+    const displayName = (result && result.data && result.data.name) || name;
 
-    state.session = { email, name, role };
+    state.session = { email, name: displayName, role };
     saveSession();
 
     refreshCurrentUserResult();
