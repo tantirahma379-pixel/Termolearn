@@ -847,8 +847,34 @@
       font-size: 12px;
       font-weight: 600;
       user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      touch-action: none;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       transition: transform 0.1s ease, opacity 0.1s ease;
+    }
+
+    .drag-item:active {
+      cursor: grabbing;
+    }
+
+    .drag-item.dragging {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+
+    .drag-item.touch-dragging {
+      position: fixed;
+      z-index: 1000;
+      opacity: 0.85;
+      transform: scale(1.08);
+      pointer-events: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .drop-zone.touch-hover {
+      background: rgba(47, 107, 255, 0.1);
+      border-color: rgba(47, 107, 255, 0.5);
     }
 
     .drag-item:active {
@@ -1109,18 +1135,33 @@
       position: relative;
       width: 100%;
       max-width: 900px;
-      height: 0;
-      padding-bottom: 55.56%;
-      overflow: hidden;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
     }
 
     .flipbookWrap iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      display: block;
+      width: 1px;
+      min-width: 100%;
+      height: 500px;
       border: none;
+    }
+
+    @media (max-width: 768px) {
+      .flipbookWrap {
+        max-width: 100%;
+      }
+
+      .flipbookWrap iframe {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flipbookWrap iframe {
+        height: 320px;
+      }
     }
 
     .imgResponsive {

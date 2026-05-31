@@ -438,6 +438,8 @@ function submitQuiz(key) {
     render();
 }
 
+let _touchDragBound = false;
+
 function initDragDrop() {
     const draggables = document.querySelectorAll(".drag-item");
     const dropZones = document.querySelectorAll(".drop-zone");
@@ -499,6 +501,90 @@ function initDragDrop() {
             }
         });
     });
+
+    // --- Touch support for mobile ---
+    let touchItem = null;
+    let touchClone = null;
+    let touchOriginParent = null;
+    let touchOffsetX = 0;
+    let touchOffsetY = 0;
+
+    function getDropTarget(x, y) {
+        const cloneEl = touchClone;
+        if (cloneEl) cloneEl.style.display = "none";
+        const el = document.elementFromPoint(x, y);
+        if (cloneEl) cloneEl.style.display = "";
+        if (!el) return null;
+        return el.closest(".drop-zone, .drag-source-group, #drag_source");
+    }
+
+    function onTouchStart(e) {
+        if (e.touches.length !== 1) return;
+        const item = e.target.closest(".drag-item");
+        if (!item) return;
+        e.preventDefault();
+
+        const touch = e.touches[0];
+        const rect = item.getBoundingClientRect();
+
+        touchItem = item;
+        touchOriginParent = item.parentNode;
+        touchOffsetX = touch.clientX - rect.left;
+        touchOffsetY = touch.clientY - rect.top;
+
+        touchClone = item.cloneNode(true);
+        touchClone.classList.add("touch-dragging");
+        touchClone.style.width = rect.width + "px";
+        touchClone.style.left = (touch.clientX - touchOffsetX) + "px";
+        touchClone.style.top = (touch.clientY - touchOffsetY) + "px";
+        document.body.appendChild(touchClone);
+
+        item.classList.add("dragging");
+    }
+
+    function onTouchMove(e) {
+        if (!touchItem || !touchClone) return;
+        e.preventDefault();
+
+        const touch = e.touches[0];
+        touchClone.style.left = (touch.clientX - touchOffsetX) + "px";
+        touchClone.style.top = (touch.clientY - touchOffsetY) + "px";
+
+        document.querySelectorAll(".drop-zone.touch-hover").forEach(z => z.classList.remove("touch-hover"));
+        const target = getDropTarget(touch.clientX, touch.clientY);
+        if (target && target.classList.contains("drop-zone")) {
+            target.classList.add("touch-hover");
+        }
+    }
+
+    function onTouchEnd(e) {
+        if (!touchItem) return;
+
+        document.querySelectorAll(".drop-zone.touch-hover").forEach(z => z.classList.remove("touch-hover"));
+
+        const touch = e.changedTouches[0];
+        const target = getDropTarget(touch.clientX, touch.clientY);
+
+        if (target && (target.classList.contains("drop-zone") || target.classList.contains("drag-source-group") || target.id === "drag_source")) {
+            target.appendChild(touchItem);
+        }
+
+        if (touchClone) {
+            touchClone.remove();
+            touchClone = null;
+        }
+
+        touchItem.classList.remove("dragging");
+        touchItem = null;
+        touchOriginParent = null;
+    }
+
+    if (!_touchDragBound) {
+        _touchDragBound = true;
+        document.addEventListener("touchstart", onTouchStart, { passive: false });
+        document.addEventListener("touchmove", onTouchMove, { passive: false });
+        document.addEventListener("touchend", onTouchEnd, { passive: false });
+    }
 }
 
 function checkDragDropAnswer() {
