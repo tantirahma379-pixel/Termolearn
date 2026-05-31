@@ -55,7 +55,7 @@ async function renderAdmin(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> SPREADSHEET • DASHBOARD ADMIN</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">Kelola ThermoLearn 👩‍🏫</h2>
+                <h2 style="margin:10px 0 6px; font-size:32px;">Kelola ThermoLearn 👩‍🏫</h2>
                 <p class="subtitle" style="margin:0;">
                   Lihat nilai siswa secara real-time tersinkron dengan Google Sheets.
                 </p>

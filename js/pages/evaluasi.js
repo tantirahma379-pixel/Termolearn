@@ -19,7 +19,7 @@ function renderEvaluasi(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> EVALUASI AKHIR</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">Uji Pemahaman Termokimia 🧪</h2>
+                <h2 style="margin:10px 0 6px; font-size:32px;">Uji Pemahaman Termokimia 🧪</h2>
                 <p class="subtitle" style="margin:0;">Submit evaluasi pertama kali untuk membuka halaman akhir (nilai dikunci).</p>
               </div>
               <div class="scoreBadge">🧾 Skor Terkunci: <span style="font-size:14px;">${typeof res.eval === "number" ? res.eval : "—"}</span></div>

@@ -13,7 +13,7 @@ function renderLanding(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> VIDEO PENGANTAR</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">Halo, ${escapeHtml(me.name)} 👋</h2>
+                <h2 style="margin:10px 0 6px; font-size:32px;">Halo, ${escapeHtml(me.name)} 👋</h2>
                 <p class="subtitle" style="margin:0;">
                   Tonton video pengantar ini sebelum mulai belajar materi Termokimia.
                 </p>

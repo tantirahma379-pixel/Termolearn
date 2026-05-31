@@ -1,3 +1,5 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
     :root {
       --bg1: #ffffff;
       --bg2: #fff6e8;
@@ -196,6 +198,7 @@
       font-size: 14px;
       letter-spacing: .2px;
       line-height: 1.1;
+      font-family: 'Poppins', sans-serif;
     }
 
     .brand small {
@@ -206,6 +209,7 @@
       letter-spacing: .6px;
       text-transform: uppercase;
       font-size: 11px;
+      font-family: 'Poppins', sans-serif;
     }
 
     .nav {
@@ -226,6 +230,7 @@
       cursor: pointer;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
       user-select: none;
+      font-family: 'Poppins', sans-serif;
     }
 
     .chip:hover {
@@ -276,16 +281,31 @@
 
     .titleXL {
       margin: 0 0 8px;
-      font-size: 40px;
+      font-size: 32px;
       letter-spacing: .2px;
-      font-family: initial
+      font-family: 'Poppins', sans-serif;
     }
 
     .subtitle {
       margin: 0 0 14px;
-      color: var(--muted);
+      color: #1a1818;
       font-weight: 600;
       line-height: 1.4;
+      font-size: 17px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h2 {
+      font-size: 32px;
+      text-transform: capitalize;
+    }
+
+    h4 {
+      font-size: 20px;
     }
 
     .badge {
@@ -365,6 +385,7 @@
       gap: 10px;
       user-select: none;
       white-space: nowrap;
+      font-family: 'Poppins', sans-serif;
     }
 
     .btnPrimary {

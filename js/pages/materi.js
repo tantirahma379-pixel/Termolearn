@@ -39,7 +39,7 @@ function renderMateri(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> MATERI PEMBELAJARAN</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">Pilih Materi 📚</h2>
+                <h2 style="margin:10px 0 6px; font-size:32px;">Mulai Belajar 📚</h2>
                 <p class="subtitle" style="margin:0;">
                   Kerjakan subbab berurutan. Nilai <b>otomatis dikunci</b> setelah pertama kali submit.
                 </p>
@@ -49,10 +49,10 @@ function renderMateri(app) {
             <div class="divider"></div>
 
             <div class="modules">
-              ${moduleCardLocked("s1", "SUBBAB 1", state.content.s1.title, "Eksoterm/Endoterm • Sistem/Lingkungan", res.s1, true)}
-              ${moduleCardLocked("s2", "SUBBAB 2", state.content.s2.title, "Kondisi standar • ∆H° • ∆H°f", res.s2, hasDone("s1"))}
-              ${moduleCardLocked("s3", "SUBBAB 3", state.content.s3.title, "Kalorimeter • Hess • Energi ikatan", res.s3, hasDone("s1") && hasDone("s2"))}
-              ${moduleCardLocked("s4", "SUBBAB 4", state.content.s4.title, "Pendalaman Materi", res.s4, hasDone("s1") && hasDone("s2") && hasDone("s3"))}
+              ${moduleCardLocked("s1", "SUBBAB 1", state.content.s1.title, res.s1, true)}
+              ${moduleCardLocked("s2", "SUBBAB 2", state.content.s2.title, res.s2, hasDone("s1"))}
+              ${moduleCardLocked("s3", "SUBBAB 3", state.content.s3.title, res.s3, hasDone("s1") && hasDone("s2"))}
+              ${moduleCardLocked("s4", "SUBBAB 4", state.content.s4.title, res.s4, hasDone("s1") && hasDone("s2") && hasDone("s3"))}
             </div>
 
             <div class="lockHint">

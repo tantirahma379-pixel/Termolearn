@@ -30,7 +30,7 @@ function renderSubbab3(app) {
     <div class="row" style="justify-content:space-between;">\
       <div>\
         <span class="badge"><i></i> ' + label.toUpperCase() + '</span>\
-        <h2 style="margin:10px 0 6px; font-size:26px;">' + escapeHtml(state.content[key].title) + '</h2>\
+        <h2 style="margin:10px 0 6px; font-size:32px;">' + escapeHtml(state.content[key].title) + '</h2>\
         <p class="subtitle" style="margin:0;">Pada subbab ini, kamu akan mempelajari cara menentukan perubahan entalpi (ΔH) suatu reaksi kimia melalui percobaan kalorimeter dan perhitungan menggunakan Hukum Hess. Kamu juga akan belajar menganalisis perubahan suhu selama reaksi berlangsung, menghitung kalor reaksi berdasarkan data percobaan, serta menentukan nilai ΔH reaksi yang sulit diukur secara langsung melalui penggabungan beberapa persamaan reaksi kimia.</p>\
       </div>\
       <div class="scoreBadge">&#127919; Skor Terkunci: <span style="font-size:14px;">' + scoreText + '</span></div>\

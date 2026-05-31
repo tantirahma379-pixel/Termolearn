@@ -22,7 +22,7 @@ function renderFinal(app) {
         <section class="card">
           <div class="cardPad">
             <span class="badge"><i></i> HALAMAN TERAKHIR</span>
-            <h2 style="margin:10px 0 6px; font-size:28px;">Terima kasih sudah belajar Termokimia bersama ThermoLearn 💛</h2>
+            <h2 style="margin:10px 0 6px; font-size:32px;">Terima kasih sudah belajar Termokimia bersama ThermoLearn 💛</h2>
             <p class="subtitle" style="margin:0;">
               Berikut rekap hasil belajarmu (nilai terkunci).
             </p>

@@ -23,7 +23,7 @@ function renderSubbab4(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> ${label.toUpperCase()}</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">${escapeHtml(state.content[key].title)}</h2>
+                <h2 style="margin:10px 0 6px; font-size:32px;">${escapeHtml(state.content[key].title)}</h2>
                 <p class="subtitle" style="margin:0;">Pada subbab ini, kamu akan mempelajari cara menentukan perubahan entalpi reaksi (ΔH) menggunakan data energi ikatan dan data entalpi pembentukan standar (ΔH°f). Kamu juga akan belajar menganalisis hubungan antara pemutusan dan pembentukan ikatan terhadap perubahan energi reaksi, menghitung ΔH reaksi berdasarkan data termokimia, serta menginterpretasikan hasil perhitungan untuk menentukan sifat reaksi kimia yang terjadi.</p>
               </div>
               <div class="scoreBadge">🎯 Skor Terkunci: <span style="font-size:14px;">${typeof savedScore === "number" ? savedScore : "—"}</span></div>
