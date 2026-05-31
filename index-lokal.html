@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>ThermoLearn — Termokimia Interaktif</title>
+    <meta name="description"
+        content="E-learning termokimia interaktif dengan maskot Y2K api & air, kuis, rekap nilai, dan dashboard admin." />
+
+    <!-- PDF Export (client-side) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="watermark"></div>
+
+    <div class="wrap">
+        <div class="shell">
+            <!-- Topbar (disembunyikan di cover) -->
+            <div class="topbar" id="topbar">
+                <div class="brand" role="button" tabindex="0" onclick="go('#/landing')">
+                    <div class="logoDot" aria-hidden="true"></div>
+                    <div>
+                        <h1>THERMOLEARN</h1>
+                        <small>E-learning interaktif seru ⚗️</small>
+                    </div>
+                </div>
+
+                <div class="nav" id="nav"></div>
+            </div>
+
+            <main id="app"></main>
+
+            <div class="footerNote">
+                © <span id="year"></span> ThermoLearn — Termokimia Interaktif • Desain hologram cerah + maskot Y2K
+            </div>
+        </div>
+    </div>
+
+    <!-- Setting toggle button for GAS_URL (Local Manual) -->
+    <button class="chatToggle" id="gasSettingToggle" title="Setting GAS_URL (Manual Lokal)"
+        style="bottom: 74px; display: none; background: conic-gradient(from 200deg, #6b7280, #374151, #6b7280);">
+        <span style="font-size: 20px; position: relative;">⚙️<div
+                style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: var(--red); border-radius: 50%;">
+            </div></span>
+    </button>
+
+    <!-- Modal Setting GAS URL -->
+    <div id="gasModalOverlay"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; backdrop-filter: blur(4px); justify-content: center; align-items: center;">
+        <div class="card cardPad"
+            style="width: 90%; max-width: 400px; text-align: center; background: rgba(255, 255, 255, 0.95);">
+            <h3 style="margin-top:0">⚙️ Setting GAS_URL Lokal</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 15px;">
+                Status: <strong style="color: var(--orange);">Manual di Lokal</strong>. Silakan masukkan URL Web App
+                Google Apps Script.
+            </p>
+            <div class="field" style="text-align: left;">
+                <label>GAS_URL (Manual)</label>
+                <input type="text" id="gasUrlInput" placeholder="https://script.google.com/macros/s/.../exec" />
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end;">
+                <button class="btn btnGhost"
+                    onclick="document.getElementById('gasModalOverlay').style.display='none'">Batal</button>
+                <button class="btn btnPrimary" onclick="saveGasUrl()">Simpan & Reload</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat toggle button (only shown when logged in) -->
+    <button class="chatToggle" id="chatToggle" title="Chatbot">
+        <span>💬</span>
+    </button>
+
+    <!-- Chatbot widget -->
+    <section class="chatbot hidden" id="chatbot" aria-label="Chatbot">
+        <div class="chatHead">
+            <div style="display: flex; align-items: center; gap: 10px">
+                <span class="badge"><i></i> <strong>ThermoBot</strong></span>
+                <span class="hint" id="chatContext">Siap bantu termokimia!</span>
+            </div>
+            <button class="btn btnGhost" style="padding: 10px 12px; border-radius: 14px" onclick="toggleChat(false)">
+                Tutup
+            </button>
+        </div>
+        <div class="chatBody" id="chatBody"></div>
+        <div class="chatFoot">
+            <input id="chatInput" type="text" placeholder="Tanya: entalpi, kalorimeter, Hess, energi ikatan..." />
+            <button class="btn btnPrimary" style="padding: 12px 14px; border-radius: 14px" onclick="sendChat()">
+                Kirim
+            </button>
+        </div>
+    </section>
+
+    <!-- Global Variable untuk Google Apps Script -->
+    <script>
+        // URL ini akan otomatis diisi oleh Google Apps Script ketika dijalankan sebagai Web App
+        let GAS_URL = "<?= gasUrl ?>";
+        let isLocalManual = false;
+
+        // Fallback untuk testing di localhost: ambil dari localStorage 'dev_gas_url'
+        if (GAS_URL.includes("<" + "?=")) {
+            GAS_URL = localStorage.getItem("dev_gas_url") || "";
+            isLocalManual = true;
+        }
+
+        // Menampilkan tombol setting dan modal jika diperlukan
+        window.addEventListener('DOMContentLoaded', () => {
+            const btnSetting = document.getElementById('gasSettingToggle');
+            const modalSetting = document.getElementById('gasModalOverlay');
+
+            if (isLocalManual || !GAS_URL) {
+                btnSetting.style.display = 'flex';
+                // Jika belum disetting (kosong), tampilkan modal secara otomatis
+                if (!GAS_URL) {
+                    modalSetting.style.display = 'flex';
+                }
+            }
+
+            btnSetting.addEventListener('click', () => {
+                document.getElementById('gasUrlInput').value = GAS_URL;
+                modalSetting.style.display = 'flex';
+            });
+        });
+
+        function saveGasUrl() {
+            const val = document.getElementById('gasUrlInput').value.trim();
+            localStorage.setItem('dev_gas_url', val);
+            location.reload();
+        }
+
+        // Variabel reset password dinamis (diisi oleh doGet backend GAS)
+        let RESET_ACTION = "<?= action ?>";
+        let RESET_EMAIL = "<?= email ?>";
+        let RESET_TOKEN = "<?= token ?>";
+
+        // Fallback localhost: baca dari parameter query URL browser
+        if (RESET_ACTION.includes("<" + "?=")) {
+            const urlParams = new URLSearchParams(window.location.search);
+            RESET_ACTION = urlParams.get("action") || "";
+            RESET_EMAIL = urlParams.get("email") || "";
+            RESET_TOKEN = urlParams.get("token") || "";
+        }
+
+        window.RESET_ACTION = RESET_ACTION;
+        window.RESET_EMAIL = RESET_EMAIL;
+        window.RESET_TOKEN = RESET_TOKEN;
+    </script>
+
+    <script src="js/utils.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/pages/cover.js"></script>
+    <script src="js/pages/landing.js"></script>
+    <script src="js/pages/materi.js"></script>
+    <script src="js/pages/subbab1.js"></script>
+    <script src="js/pages/subbab2.js"></script>
+    <script src="js/pages/subbab3.js"></script>
+    <script src="js/pages/subbab4.js"></script>
+    <script src="js/pages/evaluasi.js"></script>
+    <script src="js/pages/final.js"></script>
+    <script src="js/pages/admin.js"></script>
+    <script src="js/pages/router.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

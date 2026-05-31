@@ -22,11 +22,15 @@ function renderMateri(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> Peta Konsep</span>
-                <h2 style="margin:10px 0 6px; font-size:26px;">Bagaimana Materi Ini Disusun?</h2>
-                <p class="subtitle" style="margin:0;">
-                  Peta konsep berikut menunjukkan alur materi yang akan kamu pelajari, mulai dari konsep dasar hingga penerapannya dalam kehidupan sehari-hari. Gunakan peta ini sebagai panduan belajar, sehingga kamu tahu dari mana harus mulai dan ke mana pembelajaran akan berlanjut.
-                </p>
-                <img src="/gambar/PetaKonsep.png" alt="Peta Konsep Termokimia" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/PetaKonsep.png" alt="Peta Konsep Termokimia" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="row" style="justify-content:space-between;">
+              <div>
+                <span class="badge"><i></i> Profil</span>
+                <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/Profil.png" alt="Profil" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
               </div>
             </div>
 
