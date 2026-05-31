@@ -22,7 +22,7 @@ function defaultContent() {
                   Perhatikan fenomena kayu terbakar dan es mencair pada video. Amati perubahan suhu yang terjadi serta bagaimana kalor berpindah pada kedua peristiwa tersebut.
                 </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/QxV4Xpz_lj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/QxV4Xpz_lj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ function defaultContent() {
                 <!-- Peristiwa 1: Kayu Terbakar -->
                 <div id="akt1_p1" class="akt1-peristiwa">
                   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KayuTerbakar.png" alt="Kayu Terbakar" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KayuTerbakar.png" alt="Kayu Terbakar" style="max-width:120px; width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                     <strong style="font-size:14px;">Peristiwa 1: Kayu Terbakar</strong>
                   </div>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -106,7 +106,7 @@ function defaultContent() {
                 <!-- Peristiwa 2: Es Batu Mencair -->
                 <div id="akt1_p2" class="akt1-peristiwa" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
                   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/EsBatu.png" alt="Es Batu Mencair" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/EsBatu.png" alt="Es Batu Mencair" style="max-width:120px; width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                     <strong style="font-size:14px;">Peristiwa 2: Es Batu Mencair</strong>
                   </div>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -147,7 +147,7 @@ function defaultContent() {
                 <!-- Peristiwa 3: Air Dipanaskan dalam Panci -->
                 <div id="akt1_p3" class="akt1-peristiwa" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
                   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/AirDalamPanci.png" alt="Air Dipanaskan dalam Panci" style="width:120px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/AirDalamPanci.png" alt="Air Dipanaskan dalam Panci" style="max-width:120px; width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                     <strong style="font-size:14px;">Peristiwa 3: Air Dipanaskan dalam Panci</strong>
                   </div>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -195,11 +195,11 @@ function defaultContent() {
                   Berdasarkan informasi yang telah kamu pelajari, kelompokkan peristiwa berikut ke dalam reaksi eksoterm atau endoterm dengan cara menyeret kartu peristiwa ke kolom yang sesuai.
                 </p>
                 <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px;">
-                  <div style="flex:1; min-width:200px;">
+                  <div style="flex:1; min-width:min(200px, 45vw);">
                     <h5 style="margin:0 0 8px; text-align:center; color:#ef4444;">🔥 Eksoterm</h5>
                     <div class="drop-zone" id="dz_eksoterm" data-accept="kt_kayu,kt_respirasi" style="min-height:180px;"></div>
                   </div>
-                  <div style="flex:1; min-width:200px;">
+                  <div style="flex:1; min-width:min(200px, 45vw);">
                     <h5 style="margin:0 0 8px; text-align:center; color:#3b82f6;">❄️ Endoterm</h5>
                     <div class="drop-zone" id="dz_endoterm" data-accept="kt_es,kt_fotosintesis" style="min-height:180px;"></div>
                   </div>
@@ -208,16 +208,16 @@ function defaultContent() {
                   <p style="margin:0 0 8px; font-weight:800; font-size:13px; color:#2f6bff;">▼ Kartu Peristiwa (Seret ke kolom yang sesuai)</p>
                   <div class="drag-source-group" id="drag_source_akt2" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
                     <div class="drag-item" draggable="true" data-id="kt_es" style="padding:4px;">
-                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtEsBatuMencir.png" alt="Es Batu Mencair" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtEsBatuMencir.png" alt="Es Batu Mencair" style="max-width:140px; width:100%; border-radius:8px;">
                     </div>
                     <div class="drag-item" draggable="true" data-id="kt_kayu" style="padding:4px;">
-                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtKayuTerbakar.png" alt="Kayu Terbakar" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtKayuTerbakar.png" alt="Kayu Terbakar" style="max-width:140px; width:100%; border-radius:8px;">
                     </div>
                     <div class="drag-item" draggable="true" data-id="kt_fotosintesis" style="padding:4px;">
-                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtFotosintesis.png" alt="Fotosintesis" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtFotosintesis.png" alt="Fotosintesis" style="max-width:140px; width:100%; border-radius:8px;">
                     </div>
                     <div class="drag-item" draggable="true" data-id="kt_respirasi" style="padding:4px;">
-                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtRespirasi.png" alt="Respirasi" style="width:140px; border-radius:8px;">
+                      <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-1/KtRespirasi.png" alt="Respirasi" style="max-width:140px; width:100%; border-radius:8px;">
                     </div>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ function defaultContent() {
                   Amati video berikut dengan saksama. Perhatikan nyala api, asap, dan panas yang dihasilkan dari masing-masing bahan bakar!
                 </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/mFls5tXQo9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/mFls5tXQo9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
               </div>
             </div>
@@ -664,7 +664,7 @@ function defaultContent() {
                 </p>
                 <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">Pelajari konsep Hukum Hess melalui Video berikut:</p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/J8E0Car5uiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/J8E0Car5uiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
 
                 <h4 style="margin:0 0 8px;">🧠 Aktivitas 1 — Analisis Perubahan Persamaan Reaksi dan Nilai ΔH</h4>
@@ -746,7 +746,7 @@ function defaultContent() {
                   Perhatikan bagaimana ikatan kimia pada molekul dapat terputus dan terbentuk kembali selama reaksi berlangsung, serta bagaimana proses tersebut berkaitan dengan perubahan energi reaksi.
                 </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/TK3GeOM2IVk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/TK3GeOM2IVk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
               </div>
             </div>
@@ -776,7 +776,7 @@ function defaultContent() {
 
                 <h5 style="margin:0 0 8px;">&#128250; Video Pembelajaran:</h5>
                 <div class="videoWrap" style="margin-bottom:16px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/65mpx9V2Rac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/65mpx9V2Rac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
 
                 <h5 style="margin:0 0 8px;">&#128218; Materi Energi Ikatan:</h5>
@@ -851,7 +851,7 @@ function defaultContent() {
 
                 <h5 style="margin:0 0 8px;">&#128250; Video Pembelajaran \u0394H\u00B0f:</h5>
                 <div class="videoWrap" style="margin-bottom:16px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/UDutI0H2k1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/UDutI0H2k1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
 
                 <h5 style="margin:0 0 8px;">&#10024; Rumus Penentuan \u0394H Reaksi:</h5>

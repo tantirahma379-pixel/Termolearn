@@ -14,7 +14,7 @@ function renderMateri(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> Petunjuk Penggunaan</span>
-                <div style="position:relative;padding-top:0;width:900px;height:500px;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/nttmb/Petunjuk-Penggunaan/" title="Petunjuk Penggunaan " seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
+                <div class="flipbookWrap"><iframe src="https://online.fliphtml5.com/nttmb/Petunjuk-Penggunaan/" title="Petunjuk Penggunaan " seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
               </div>
             </div>
 

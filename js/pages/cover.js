@@ -14,7 +14,7 @@ function renderCover(app) {
               TERMOLEARN <span style="background:linear-gradient(90deg, var(--orange), var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent;">seru</span>
             </h2>
             <div class="coverMascot">
-              <div class="mascotWrap" style="min-height:320px; padding:0;">
+              <div class="mascotWrap" style="min-height:min(320px, 50vh); padding:0;">
                 <img class="mascot" src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/Maskot.png" alt="Maskot TermoLearn">
               </div>
 
