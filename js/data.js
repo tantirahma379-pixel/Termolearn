@@ -520,11 +520,6 @@ function defaultContent() {
                   Tuliskan kesimpulanmu mengenai hubungan antara: perubahan entalpi standar, jenis reaksi eksoterm dan endoterm, nilai ΔH°, serta kalor yang dilepaskan atau diserap pada reaksi kimia.
                 </p>
                 <textarea id="kesimpulanS2" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
-                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
-                  <p style="margin:0; color:#065f46; font-weight:650;">
-                    🏆 Selamat! Kamu telah menyelesaikan Subbab 2 — Perubahan Entalpi Standar (ΔH°). Kamu telah memahami konsep perubahan entalpi standar dan jenis-jenisnya.
-                  </p>
-                </div>
               </div>
             </div>
           `
@@ -537,7 +532,7 @@ function defaultContent() {
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">👀 Amati ilustrasi berikut dengan saksama!</h4>
                 <div style="text-align:center; margin-bottom:16px;">
-                  <img src="/gambar/sub-bab-3/IlustrasiKalorimeter.png" alt="Ilustrasi Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                  <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/sub-bab-3/IlustrasiKalorimeter.png" alt="Ilustrasi Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                 </div>
                 <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Seorang siswa melakukan percobaan dengan mencampurkan larutan HCl dan NaOH ke dalam kalorimeter sederhana. Setelah kedua larutan dicampurkan, suhu larutan meningkat dari 25°C menjadi 32°C. Fenomena tersebut menunjukkan bahwa selama reaksi berlangsung terjadi perpindahan kalor.
@@ -575,7 +570,7 @@ function defaultContent() {
                   Sebelum melakukan praktikum virtual, pelajari terlebih dahulu konsep dasar kalorimeter dan perubahan entalpi reaksi melalui infografis berikut.
                 </p>
                 <div style="text-align:center; margin-bottom:16px;">
-                  <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-3/image2.png" alt="Infografis Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                  <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/sub-bab-3/InfografisKalorimeter.png" alt="Infografis Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                 </div>
 
                 <hr style="border:0; border-top:1px dashed #ccc; margin:20px 0;">
@@ -726,11 +721,6 @@ function defaultContent() {
                   Setelah mempelajari praktikum kalorimeter dan Hukum Hess, tuliskan kesimpulanmu tentang: cara menentukan perubahan entalpi reaksi, dan penggunaan Hukum Hess dalam menentukan ΔH reaksi.
                 </p>
                 <textarea id="kesimpulanS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
-                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
-                  <p style="margin:0; color:#065f46; font-weight:650;">
-                    🏆 Selamat! Kamu telah menyelesaikan Subbab 3 — Penentuan ΔH Reaksi Menggunakan Kalorimeter dan Hukum Hess.
-                  </p>
-                </div>
               </div>
             </div>
           `
@@ -912,28 +902,10 @@ function defaultContent() {
                   <li>Hubungan nilai \u0394H terhadap sifat reaksi kimia</li>
                 </ul>
                 <textarea id="kesimpulanS4" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
-                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
-                  <p style="margin:0; color:#065f46; font-weight:650;">&#128079; Kesimpulanmu sudah tersimpan. Kamu telah menyelesaikan Subbab 4!</p>
-                </div>
               </div>
             </div>
           `
     },
-    eval: {
-      title: "Evaluasi Akhir",
-      html: `\n<div class="contentBox">
-  <h4 style="margin:0 0 8px;">🎓 Evaluasi Akhir Termokimia</h4>
-  <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-    Selamat! Kamu telah menyelesaikan seluruh materi. Sekarang saatnya menguji pemahamanmu melalui evaluasi akhir ini. 
-    Terdapat 10 soal pilihan ganda. Kerjakan dengan teliti ya!
-  </p>
-  <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px; color:#4b5563;">
-    <li>Pilih satu jawaban yang paling tepat.</li>
-    <li>Setelah semua soal dijawab, submit kuis untuk melihat nilai akhirmu.</li>
-  </ul>
-</div>
-          `
-    }
   };
 }
 
