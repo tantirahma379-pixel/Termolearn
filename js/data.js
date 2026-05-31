@@ -18,7 +18,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="0" data-type="video">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🔍 Yuk, amati video berikut!</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Perhatikan fenomena kayu terbakar dan es mencair pada video. Amati perubahan suhu yang terjadi serta bagaimana kalor berpindah pada kedua peristiwa tersebut.
                 </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
@@ -30,11 +30,11 @@ function defaultContent() {
             <!-- Stage 1: Dugaan Awal (SECTION 2) -->
             <div class="content-stage" data-stage="1" data-type="activity">
               <div class="contentBox">
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">
                   Setelah mengamati video tentang kayu terbakar dan es mencair, coba pikirkan: mengapa pembakaran kayu menghasilkan panas, sedangkan es batu membutuhkan kalor untuk mencair, serta bagaimana kalor dapat berpindah pada kedua peristiwa tersebut?
                 </p>
                 <h4 style="margin:12px 0 8px;">✍ DUGAAN AWAL</h4>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
                 <textarea id="dugaanAwal" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
               </div>
             </div>
@@ -43,10 +43,10 @@ function defaultContent() {
             <div class="content-stage" data-stage="2" data-type="content">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">📖 Bahan Bacaan Interaktif</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Untuk memahami konsep dasar termokimia, bacalah bahan bacaan digital berikut dengan saksama. Pada bahan bacaan ini, kamu akan mempelajari konsep termokimia, sistem dan lingkungan, perpindahan kalor, reaksi eksoterm dan endoterm, serta perubahan entalpi (ΔH).
                 </p>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Selama membaca, cobalah temukan hubungan antara perpindahan kalor dengan perubahan energi yang terjadi pada suatu zat. Catat informasi penting yang kamu temukan untuk membantu menjawab aktivitas dan pertanyaan pada section berikutnya.
                 </p>
                 <a href="https://online.fliphtml5.com/nttmb/Bahan-Bacaan-Subbab-1-BTY7/" target="_blank" class="btn btnPrimary" style="display:inline-block; text-decoration:none;">
@@ -59,7 +59,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="3" data-type="quiz" data-quiz="aktivitas1">
               <div class="contentBox" style="border: 1px solid rgba(17, 24, 39, 0.15);">
                 <h4 style="margin:0 0 8px;">🧠 Aktivitas 1 — Analisis Sistem dan Lingkungan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                   Perhatikan beberapa gambar peristiwa berikut, kemudian tentukan bagian yang termasuk sistem dan lingkungan dengan cara menyeret jawaban ke kolom yang sesuai.
                 </p>
 
@@ -191,7 +191,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="4" data-type="quiz" data-quiz="aktivitas2">
               <div class="contentBox" style="border: 1px solid rgba(17, 24, 39, 0.15);">
                 <h4 style="margin:0 0 8px;">🔥 Aktivitas 2 — Klasifikasi Eksoterm dan Endoterm</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                   Berdasarkan informasi yang telah kamu pelajari, kelompokkan peristiwa berikut ke dalam reaksi eksoterm atau endoterm dengan cara menyeret kartu peristiwa ke kolom yang sesuai.
                 </p>
                 <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px;">
@@ -232,7 +232,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="5" data-type="quiz" data-quiz="aktivitas3">
               <div class="contentBox" style="border: 1px solid rgba(17, 24, 39, 0.15);">
                 <h4 style="margin:0 0 8px;">🌡 Aktivitas 3 — Analisis Perpindahan Kalor</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                   Perhatikan ilustrasi perpindahan kalor berikut, kemudian analisis arah perpindahan kalor, tanda ΔH, dan jenis reaksi yang terjadi dengan memilih jawaban yang sesuai.
                 </p>
                 <div class="imgWrap" style="margin-bottom:16px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
@@ -281,7 +281,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="0" data-type="video">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🔍 Yuk, amati video berikut!</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Amati video berikut dengan saksama. Perhatikan nyala api, asap, dan panas yang dihasilkan dari masing-masing bahan bakar!
                 </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
@@ -293,11 +293,11 @@ function defaultContent() {
             <!-- Stage 1: Dugaan Awal (SECTION 2) -->
             <div class="content-stage" data-stage="1" data-type="activity">
               <div class="contentBox">
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">
                   Setelah mengamati video pembakaran berbagai bahan bakar, coba pikirkan: mengapa LPG dapat memanaskan air lebih cepat dibandingkan bahan bakar lainnya, mengapa setiap bahan bakar menghasilkan kalor yang berbeda, serta apa hubungan proses pembakaran dengan energi kimia?
                 </p>
                 <h4 style="margin:12px 0 8px;">✍ DUGAAN AWAL</h4>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
                 <textarea id="dugaanAwalS2" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
               </div>
             </div>
@@ -306,15 +306,15 @@ function defaultContent() {
             <div class="content-stage" data-stage="2" data-type="content">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">📘 Pengertian Perubahan Entalpi Standar</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Perubahan entalpi standar (ΔH°) merupakan perubahan kalor yang terjadi pada suatu reaksi kimia dalam kondisi standar, yaitu pada suhu 25°C (298 K) dan tekanan 1 atm. Nilai ΔH° menunjukkan jumlah kalor yang dilepaskan atau diserap selama reaksi berlangsung.
                 </p>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Untuk memahami mengapa setiap bahan bakar dapat menghasilkan kalor yang berbeda, mari pelajari jenis-jenis perubahan entalpi standar melalui flipcard berikut.
                 </p>
 
                 <h4 style="margin:16px 0 12px;">🃏 Flipcard</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Klik kartu untuk melihat penjelasan di baliknya. Pelajari ketiga jenis perubahan entalpi standar berikut.
                 </p>
                 <div id="s2_flipcards" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-bottom:20px;">
@@ -354,13 +354,13 @@ function defaultContent() {
                 </div>
 
                 <h4 style="margin:16px 0 8px;">📊 Data Perubahan Entalpi Standar</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mempelajari jenis-jenis perubahan entalpi standar melalui flipcard, amati data perubahan entalpi (ΔH°) berikut dengan saksama. Perhatikan hubungan antara: tanda ΔH°, jenis perubahan entalpi, serta kalor yang dilepaskan atau diserap selama reaksi berlangsung.
                 </p>
                 <div style="text-align:center; margin-bottom:12px;">
                   <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/gambar/sub-bab-2/TabelDataPerubahan.png" alt="Tabel Data Perubahan Entalpi" style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
                 </div>
-                <p style="margin:0; color:#6b7280; font-weight:650;">
+                <p style="margin:0; color:#1a1818; font-weight:650;">
                   Gunakan informasi pada tabel untuk membantu menyelesaikan aktivitas analisis pada section berikutnya.
                 </p>
               </div>
@@ -369,14 +369,14 @@ function defaultContent() {
             <!-- Stage 3: Aktivitas Analisis (SECTION 4) -->
             <div class="content-stage" data-stage="3" data-type="quiz" data-quiz="s2aktivitas">
               <div class="contentBox" style="border: 1px solid rgba(17, 24, 39, 0.15);">
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mempelajari konsep perubahan entalpi standar melalui flipcard pada section sebelumnya, sekarang saatnya mengolah informasi tersebut melalui beberapa aktivitas analisis. Pada section ini, kamu akan menentukan jenis perubahan entalpi standar, menganalisis persamaan reaksi, serta menghitung perubahan entalpi sederhana berdasarkan data reaksi.
                 </p>
 
                 <!-- Aktivitas 1: Drag & Drop — Menentukan Jenis Perubahan Entalpi -->
                 <div id="s2_akt1_wrap">
                   <h4 style="margin:0 0 8px;">🧠 Aktivitas 1 — Menentukan Jenis Perubahan Entalpi</h4>
-                  <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                  <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                     Perhatikan reaksi berikut, kemudian tentukan jenis perubahan entalpinya dengan menyeret jawaban ke kolom yang sesuai.
                   </p>
                   <div style="overflow-x:auto; margin-bottom:12px;">
@@ -433,7 +433,7 @@ function defaultContent() {
                 <!-- Aktivitas 2: Pilihan Ganda — Menentukan Persamaan Termokimia -->
                 <div id="s2_akt2_wrap" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
                   <h4 style="margin:0 0 8px;">🌡 Aktivitas 2 — Menentukan Persamaan Termokimia yang Benar</h4>
-                  <p style="margin:0 0 8px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                  <p style="margin:0 0 8px; color:#1a1818; font-size:13.5px; font-weight:600;">
                     Pilih persamaan yang menunjukkan <strong>entalpi pembentukan standar H₂O(<em>l</em>)</strong>:
                   </p>
                   <div style="margin-bottom:12px;">
@@ -459,7 +459,7 @@ function defaultContent() {
                 <!-- Aktivitas 3: Pilihan Ganda — Menghitung ΔH Reaksi -->
                 <div id="s2_akt3_wrap" style="display:none; margin-top:20px; padding-top:20px; border-top:1px dashed rgba(17,24,39,0.1);">
                   <h4 style="margin:0 0 8px;">🔥 Aktivitas 3 — Menghitung ΔH Reaksi</h4>
-                  <p style="margin:0 0 8px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                  <p style="margin:0 0 8px; color:#1a1818; font-size:13.5px; font-weight:600;">
                     Diketahui: ΔH°c = −890,3 kJ/mol<br>
                     Jika <strong>2 mol CH₄ dibakar sempurna</strong>, maka besar ΔH total adalah ...
                   </p>
@@ -492,7 +492,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="4" data-type="activity">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">✍ Lengkapi Pernyataan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Lengkapilah pernyataan berikut berdasarkan hasil pembelajaran yang telah kamu lakukan.
                 </p>
                 <div style="margin-bottom:16px;">
@@ -516,7 +516,7 @@ function defaultContent() {
                 <div id="feedback_s2fill" style="display:none; margin-bottom:16px;"></div>
 
                 <h4 style="margin:16px 0 8px;">✍ Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Tuliskan kesimpulanmu mengenai hubungan antara: perubahan entalpi standar, jenis reaksi eksoterm dan endoterm, nilai ΔH°, serta kalor yang dilepaskan atau diserap pada reaksi kimia.
                 </p>
                 <textarea id="kesimpulanS2" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
@@ -539,10 +539,10 @@ function defaultContent() {
                 <div style="text-align:center; margin-bottom:16px;">
                   <img src="/gambar/sub-bab-3/IlustrasiKalorimeter.png" alt="Ilustrasi Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                 </div>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Seorang siswa melakukan percobaan dengan mencampurkan larutan HCl dan NaOH ke dalam kalorimeter sederhana. Setelah kedua larutan dicampurkan, suhu larutan meningkat dari 25°C menjadi 32°C. Fenomena tersebut menunjukkan bahwa selama reaksi berlangsung terjadi perpindahan kalor.
                 </p>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Menurutmu, dari mana asal kalor tersebut? Bagaimana cara menentukan besar kalor yang dihasilkan reaksi?
                 </p>
               </div>
@@ -551,11 +551,11 @@ function defaultContent() {
             <!-- Stage 1: Dugaan Awal (SECTION 2) -->
             <div class="content-stage" data-stage="1" data-type="activity">
               <div class="contentBox">
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">
                   Berdasarkan ilustrasi sebelumnya, suhu larutan meningkat setelah HCl dan NaOH dicampurkan ke dalam kalorimeter. Kenaikan suhu tersebut menunjukkan bahwa reaksi menghasilkan kalor. Namun: bagaimana cara menentukan besar kalor yang dihasilkan? apakah semua reaksi menghasilkan kalor yang sama? dan bagaimana jika kalor suatu reaksi sulit diukur secara langsung?
                 </p>
                 <h4 style="margin:12px 0 8px;">✍ DUGAAN AWAL</h4>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
                 <textarea id="dugaanAwalS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
                 <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
                   <p style="margin:0; color:#065f46; font-weight:650;">💡 Jawabanmu berhasil disimpan. Lanjutkan ke section berikutnya.</p>
@@ -567,11 +567,11 @@ function defaultContent() {
             <div class="content-stage" data-stage="2" data-type="quiz" data-quiz="s3_kalorimeter">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🧪 BAGIAN 1 MENENTUKAN ΔH REAKSI MENGGUNAKAN KALORIMETER</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Pada section ini, peserta didik akan melakukan praktikum virtual menggunakan simulasi kalorimeter untuk mengetahui besar kalor reaksi berdasarkan perubahan suhu yang terjadi selama reaksi berlangsung.
                 </p>
                 <h4 style="margin:12px 0 8px;">📘 Infografis Konsep: Mengenal Kalorimeter dan Perubahan Entalpi Reaksi</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Sebelum melakukan praktikum virtual, pelajari terlebih dahulu konsep dasar kalorimeter dan perubahan entalpi reaksi melalui infografis berikut.
                 </p>
                 <div style="text-align:center; margin-bottom:16px;">
@@ -581,7 +581,7 @@ function defaultContent() {
                 <hr style="border:0; border-top:1px dashed #ccc; margin:20px 0;">
 
                 <h4 style="margin:0 0 8px;">🧪 BAGIAN 2 SIMULASI VIRTUAL KALORIMETER</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mempelajari konsep kalorimeter, lakukan praktikum virtual berikut untuk mengetahui perubahan kalor selama reaksi berlangsung.<br>
                   <strong>🎯 Tujuan:</strong> Menganalisis perubahan suhu dan menghitung kalor reaksi melalui praktikum virtual.
                 </p>
@@ -659,16 +659,16 @@ function defaultContent() {
             <div class="content-stage" data-stage="3" data-type="quiz" data-quiz="s3_hess">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">📘 BAGIAN 2 MENENTUKAN ΔH REAKSI MENGGUNAKAN HUKUM HESS</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Pada percobaan sebelumnya, kamu telah menentukan kalor reaksi menggunakan kalorimeter berdasarkan perubahan suhu yang terjadi selama reaksi berlangsung. Namun, tidak semua reaksi kimia dapat diukur secara langsung menggunakan kalorimeter. Oleh karena itu, ilmuwan menggunakan cara lain untuk menentukan perubahan entalpi reaksi, yaitu menggunakan Hukum Hess.
                 </p>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">Pelajari konsep Hukum Hess melalui Video berikut:</p>
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">Pelajari konsep Hukum Hess melalui Video berikut:</p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/J8E0Car5uiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
 
                 <h4 style="margin:0 0 8px;">🧠 Aktivitas 1 — Analisis Perubahan Persamaan Reaksi dan Nilai ΔH</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                   Perhatikan data reaksi berikut.<br>
                   H₂(<em>g</em>) + ½O₂(<em>g</em>) → H₂O(<em>l</em>) ΔH = −285,8 kJ<br>
                   Tentukan perubahan nilai ΔH jika:
@@ -699,7 +699,7 @@ function defaultContent() {
                 </div>
 
                 <h4 style="margin:16px 0 8px;">🔥 Aktivitas 2 — Menentukan ΔH Reaksi</h4>
-                <p style="margin:0 0 8px; color:#6b7280; font-size:13.5px; font-weight:600;">Gunakan data reaksi berikut untuk menentukan ΔH reaksi target.</p>
+                <p style="margin:0 0 8px; color:#1a1818; font-size:13.5px; font-weight:600;">Gunakan data reaksi berikut untuk menentukan ΔH reaksi target.</p>
                 <p style="margin:0 0 8px; font-size:13.5px;"><strong>Reaksi Target:</strong> C(<em>s</em>) + ½O₂(<em>g</em>) → CO(<em>g</em>)</p>
                 <p style="margin:0 0 8px; font-size:13.5px;">
                   <strong>Data Reaksi:</strong><br>
@@ -722,7 +722,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="4" data-type="activity">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mempelajari praktikum kalorimeter dan Hukum Hess, tuliskan kesimpulanmu tentang: cara menentukan perubahan entalpi reaksi, dan penggunaan Hukum Hess dalam menentukan ΔH reaksi.
                 </p>
                 <textarea id="kesimpulanS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
@@ -742,7 +742,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="0" data-type="video">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">&#128269; Yuk, amati video berikut!</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Perhatikan bagaimana ikatan kimia pada molekul dapat terputus dan terbentuk kembali selama reaksi berlangsung, serta bagaimana proses tersebut berkaitan dengan perubahan energi reaksi.
                 </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
@@ -754,11 +754,11 @@ function defaultContent() {
             <!-- Stage 1: Dugaan Awal (SECTION 2) -->
             <div class="content-stage" data-stage="1" data-type="activity">
               <div class="contentBox">
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mengamati video, menurutmu mengapa setiap reaksi menghasilkan energi yang berbeda? Bagaimana cara menentukan perubahan entalpi reaksi (\u0394H) menggunakan data energi ikatan dan data \u0394H\u00B0f?
                 </p>
                 <h4 style="margin:12px 0 8px;">&#9998; DUGAAN AWAL</h4>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
                 <textarea id="dugaanAwalS4" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
                 <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
                   <p style="margin:0; color:#065f46; font-weight:650;">&#128526; Jawabanmu berhasil disimpan. Lanjutkan ke section berikutnya.</p>
@@ -770,7 +770,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="2" data-type="content">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">&#128218; BAGIAN A: MENENTUKAN \u0394H REAKSI MENGGUNAKAN DATA ENERGI IKATAN</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Pada section ini, kamu akan mempelajari cara menentukan perubahan entalpi reaksi (\u0394H) menggunakan data energi ikatan melalui video pembelajaran dan aktivitas analisis reaksi kimia.
                 </p>
 
@@ -780,7 +780,7 @@ function defaultContent() {
                 </div>
 
                 <h5 style="margin:0 0 8px;">&#128218; Materi Energi Ikatan:</h5>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">
                   Sebelum mengerjakan aktivitas, pelajari terlebih dahulu materi tentang energi ikatan melalui flipbook berikut. Amati hubungan antara pemutusan dan pembentukan ikatan terhadap perubahan energi reaksi.
                 </p>
                 <p style="margin:0 0 16px;">
@@ -788,7 +788,7 @@ function defaultContent() {
                 </p>
 
                 <h4 style="margin:16px 0 8px;">&#129514; Aktivitas Menghitung \u0394H Reaksi Menggunakan Energi Ikatan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                   Gunakan data energi ikatan berikut untuk menentukan \u0394H reaksi pembakaran metana.<br>
                   CH<sub>4</sub>(<em>g</em>) + 2O<sub>2</sub>(<em>g</em>) \u2192 CO<sub>2</sub>(<em>g</em>) + 2H<sub>2</sub>O(<em>l</em>)
                 </p>
@@ -845,7 +845,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="3" data-type="content">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">&#128218; BAGIAN B: MENENTUKAN \u0394H REAKSI MENGGUNAKAN DATA ENTALPI PEMBENTUKAN STANDAR (\u0394H\u00B0f)</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Pada section ini, kamu akan mempelajari cara menentukan perubahan entalpi reaksi (\u0394H) menggunakan data entalpi pembentukan standar (\u0394H\u00B0f) melalui video pembelajaran dan aktivitas perhitungan \u0394H reaksi.
                 </p>
 
@@ -865,7 +865,7 @@ function defaultContent() {
                 </div>
 
                 <h4 style="margin:16px 0 8px;">&#129514; Aktivitas Menentukan \u0394H Reaksi Menggunakan \u0394H\u00B0f</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-size:13.5px; font-weight:600;">
+                <p style="margin:0 0 12px; color:#1a1818; font-size:13.5px; font-weight:600;">
                   Gunakan data \u0394H\u00B0f berikut untuk menentukan \u0394H reaksi pembakaran metana.<br>
                   CH<sub>4</sub>(<em>g</em>) + 2O<sub>2</sub>(<em>g</em>) \u2192 CO<sub>2</sub>(<em>g</em>) + 2H<sub>2</sub>O(<em>l</em>)
                 </p>
@@ -903,7 +903,7 @@ function defaultContent() {
             <div class="content-stage" data-stage="4" data-type="activity">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">&#9998; Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mempelajari penentuan \u0394H reaksi menggunakan data energi ikatan dan data entalpi pembentukan standar (\u0394H\u00B0f), tuliskan kesimpulanmu tentang:
                 </p>
                 <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px; color:#4b5563;">
@@ -923,7 +923,7 @@ function defaultContent() {
       title: "Evaluasi Akhir",
       html: `\n<div class="contentBox">
   <h4 style="margin:0 0 8px;">🎓 Evaluasi Akhir Termokimia</h4>
-  <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+  <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
     Selamat! Kamu telah menyelesaikan seluruh materi. Sekarang saatnya menguji pemahamanmu melalui evaluasi akhir ini. 
     Terdapat 10 soal pilihan ganda. Kerjakan dengan teliti ya!
   </p>

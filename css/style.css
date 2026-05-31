@@ -4,7 +4,7 @@
       --bg1: #ffffff;
       --bg2: #fff6e8;
       --ink: #111827;
-      --muted: #6b7280;
+      --muted: #1a1818;
 
       --orange: #ff6a00;
       --yellow: #ffd000;
@@ -569,6 +569,7 @@
       padding: 12px;
       min-height: 160px;
       overflow: auto;
+      color: #1a1818;
     }
 
     /* ===== Quiz ===== */

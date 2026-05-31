@@ -25,7 +25,7 @@ function renderSubbab2(app) {
                 <span class="badge"><i></i> ${label.toUpperCase()}</span>
                 <h2 style="margin:10px 0 6px; font-size:32px;">${escapeHtml(state.content[key].title)}</h2>
                 <p class="subtitle" style="margin:0;">Pada subbab ini, kamu akan mempelajari mengapa setiap bahan bakar dapat menghasilkan kalor yang berbeda saat digunakan dalam kehidupan sehari-hari. Kamu juga akan belajar memahami konsep perubahan entalpi standar (ΔH°) dan kondisi standar reaksi, menganalisis jenis perubahan entalpi berdasarkan data atau diagram entalpi, serta mengaitkan perubahan entalpi standar dengan pemanfaatan energi dalam berbagai peristiwa di sekitar kita.</p>
-                <p style="margin:8px 0 0; color:#6b7280; font-size:14px;">Setelah melakukan berbagai aktivitas analisis perubahan entalpi standar pada section sebelumnya, sekarang saatnya membuktikan pemahamanmu melalui kuis verifikasi konsep.</p>
+                <p style="margin:8px 0 0; color:#1a1818; font-size:14px;">Setelah melakukan berbagai aktivitas analisis perubahan entalpi standar pada section sebelumnya, sekarang saatnya membuktikan pemahamanmu melalui kuis verifikasi konsep.</p>
               </div>
               <div class="scoreBadge">🎯 Skor Terkunci: <span style="font-size:14px;">${typeof savedScore === "number" ? savedScore : "—"}</span></div>
             </div>

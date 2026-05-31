@@ -248,7 +248,7 @@ function checkQuizAnswer(key, idx) {
             fb.innerHTML = `<div class="quizFbBox quizFbHint">
                 <strong>❌ Kurang tepat.</strong><br>
                 <span>${escapeHtml(item.hint || "Coba perhatikan kembali dan jawab sekali lagi.")}</span><br>
-                <em style="font-size:12px; color:#6b7280;">Kamu memiliki 1 kesempatan lagi.</em>
+                <em style="font-size:12px; color:#1a1818;">Kamu memiliki 1 kesempatan lagi.</em>
             </div>`;
         }
         group.forEach(r => {
@@ -664,7 +664,7 @@ function checkAktivitas1Peristiwa(pid) {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Benar!</strong><br>' +
-                '<span style="color:#6b7280;">' + _akt1Pembahasan[pid] + '</span></div>';
+                '<span style="color:#1a1818;">' + _akt1Pembahasan[pid] + '</span></div>';
         }
         const idx = _akt1Sequence.indexOf(pid);
         if (idx < _akt1Sequence.length - 1) {
@@ -730,7 +730,7 @@ function checkAktivitas2() {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Benar!</strong><br>' +
-                '<span style="color:#6b7280;">Reaksi eksoterm merupakan reaksi yang melepaskan kalor ke lingkungan, sedangkan reaksi endoterm merupakan reaksi yang menyerap kalor dari lingkungan.</span></div>';
+                '<span style="color:#1a1818;">Reaksi eksoterm merupakan reaksi yang melepaskan kalor ke lingkungan, sedangkan reaksi endoterm merupakan reaksi yang menyerap kalor dari lingkungan.</span></div>';
         }
         if (_currentSubbabKey) {
             const stage = dzEkso.closest(".content-stage");
@@ -807,7 +807,7 @@ function checkAktivitas3() {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Hebat! Jawabanmu benar semua.</strong><br>' +
-                '<span style="color:#6b7280;">Pada ilustrasi tersebut, kalor berpindah dari sistem ke lingkungan sehingga suhu lingkungan meningkat. Peristiwa ini menunjukkan bahwa sistem melepaskan kalor, sehingga reaksi termasuk eksoterm dan memiliki nilai ΔH negatif.</span></div>';
+                '<span style="color:#1a1818;">Pada ilustrasi tersebut, kalor berpindah dari sistem ke lingkungan sehingga suhu lingkungan meningkat. Peristiwa ini menunjukkan bahwa sistem melepaskan kalor, sehingga reaksi termasuk eksoterm dan memiliki nilai ΔH negatif.</span></div>';
         }
         if (_currentSubbabKey) {
             const stage = document.getElementById("feedback_akt3").closest(".content-stage");
@@ -894,7 +894,7 @@ function checkS2Aktivitas1() {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Benar!</strong><br>' +
-                '<span style="color:#6b7280;">ΔH°f terjadi jika 1 mol senyawa terbentuk dari unsur-unsurnya. ΔH°d terjadi jika senyawa diuraikan menjadi zat penyusunnya. ΔH°c terjadi jika zat dibakar sempurna menggunakan oksigen.</span></div>';
+                '<span style="color:#1a1818;">ΔH°f terjadi jika 1 mol senyawa terbentuk dari unsur-unsurnya. ΔH°d terjadi jika senyawa diuraikan menjadi zat penyusunnya. ΔH°c terjadi jika zat dibakar sempurna menggunakan oksigen.</span></div>';
         }
         const akt2 = document.getElementById("s2_akt2_wrap");
         if (akt2) {
@@ -949,7 +949,7 @@ function checkS2Aktivitas2() {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Benar!</strong><br>' +
-                '<span style="color:#6b7280;">Entalpi pembentukan standar harus: membentuk 1 mol senyawa, berasal dari unsur-unsurnya, dan berada pada keadaan standar.</span></div>';
+                '<span style="color:#1a1818;">Entalpi pembentukan standar harus: membentuk 1 mol senyawa, berasal dari unsur-unsurnya, dan berada pada keadaan standar.</span></div>';
         }
         const akt3 = document.getElementById("s2_akt3_wrap");
         if (akt3) {
@@ -1000,7 +1000,7 @@ function checkS2Aktivitas3() {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Benar!</strong><br>' +
-                '<span style="color:#6b7280;">2 × (−890,3) = −1780,6 kJ. Karena jumlah mol diperbesar 2 kali, maka nilai ΔH juga dikalikan 2.</span></div>';
+                '<span style="color:#1a1818;">2 × (−890,3) = −1780,6 kJ. Karena jumlah mol diperbesar 2 kali, maka nilai ΔH juga dikalikan 2.</span></div>';
         }
         if (_currentSubbabKey) {
             const stage = document.getElementById("s2_akt1_wrap").closest(".content-stage");
@@ -1066,7 +1066,7 @@ function checkS2FillBlank() {
             fb.style.display = "block";
             fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.08); border-radius:8px; font-size:13px;">' +
                 '<strong style="color:#065f46;">✅ Semua jawaban benar!</strong><br>' +
-                '<span style="color:#6b7280;">Perubahan entalpi standar terjadi pada suhu 25°C (298 K) dan tekanan 1 atm. Entalpi pembentukan standar (ΔH°f) menunjukkan pembentukan 1 mol senyawa dari unsur-unsurnya.</span></div>';
+                '<span style="color:#1a1818;">Perubahan entalpi standar terjadi pada suhu 25°C (298 K) dan tekanan 1 atm. Entalpi pembentukan standar (ΔH°f) menunjukkan pembentukan 1 mol senyawa dari unsur-unsurnya.</span></div>';
         }
     } else {
         toast("Ada jawaban yang kurang tepat. Periksa kolom berwarna merah. 💪");

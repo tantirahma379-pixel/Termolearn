@@ -61,10 +61,10 @@ function renderSubbab1(app) {
               <div class="divider"></div>
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#6b7280; font-weight:650;">
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mengamati fenomena, membaca bahan bacaan, menganalisis data, dan mengerjakan kuis verifikasi, sekarang saatnya menyusun kesimpulan berdasarkan konsep yang telah kamu temukan selama pembelajaran.
                 </p>
-                <p style="margin:0 0 8px; color:#6b7280; font-weight:650;">Tuliskan kesimpulanmu pada kolom berikut.</p>
+                <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan kesimpulanmu pada kolom berikut.</p>
                 <textarea id="kesimpulanS1" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
                 <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
                   <p style="margin:0; color:#065f46; font-weight:650;">
