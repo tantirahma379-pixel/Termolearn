@@ -38,6 +38,11 @@ function init() {
             if (id && state.session) {
                 updateAnswer(id, e.target.value);
             }
+        } else if (e.target.tagName === "INPUT" && e.target.type === "radio") {
+            const name = e.target.name;
+            if (name && state.session) {
+                updateAnswer(name, e.target.value);
+            }
         }
     });
 

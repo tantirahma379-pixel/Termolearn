@@ -472,6 +472,7 @@ function initDragDrop() {
             const draggable = document.querySelector(".dragging");
             if (draggable) {
                 zone.appendChild(draggable);
+                if (typeof triggerDropZoneSave === "function") triggerDropZoneSave();
             }
         });
     });
@@ -485,6 +486,7 @@ function initDragDrop() {
             const draggable = document.querySelector(".dragging");
             if (draggable) {
                 dragSource.appendChild(draggable);
+                if (typeof triggerDropZoneSave === "function") triggerDropZoneSave();
             }
         });
     }
@@ -498,6 +500,7 @@ function initDragDrop() {
             const draggable = document.querySelector(".dragging");
             if (draggable) {
                 group.appendChild(draggable);
+                if (typeof triggerDropZoneSave === "function") triggerDropZoneSave();
             }
         });
     });
@@ -567,6 +570,7 @@ function initDragDrop() {
 
         if (target && (target.classList.contains("drop-zone") || target.classList.contains("drag-source-group") || target.id === "drag_source")) {
             target.appendChild(touchItem);
+            if (typeof triggerDropZoneSave === "function") triggerDropZoneSave();
         }
 
         if (touchClone) {
@@ -584,6 +588,25 @@ function initDragDrop() {
         document.addEventListener("touchstart", onTouchStart, { passive: false });
         document.addEventListener("touchmove", onTouchMove, { passive: false });
         document.addEventListener("touchend", onTouchEnd, { passive: false });
+    }
+}
+
+function triggerDropZoneSave() {
+    if (!state.session) return;
+    const dropZones = document.querySelectorAll(".drop-zone");
+    let changed = false;
+    dropZones.forEach(zone => {
+        if (zone.id) {
+            const childIds = Array.from(zone.children).filter(c => c.classList.contains("drag-item")).map(c => c.dataset.id).join(",");
+            if (state.answers[zone.id] !== childIds) {
+                state.answers[zone.id] = childIds;
+                changed = true;
+            }
+        }
+    });
+    if (changed && typeof saveAnswersToStorage === "function") {
+        saveAnswersToStorage(state.answers);
+        syncAnswersWithServer();
     }
 }
 

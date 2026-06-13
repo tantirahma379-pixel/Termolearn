@@ -38,6 +38,30 @@ function restoreAnswers() {
         const el = document.getElementById(id);
         if (el && (el.tagName === "TEXTAREA" || el.tagName === "INPUT")) {
             el.value = value;
+        } else if (el && el.classList.contains("drop-zone")) {
+            // Restore drop zone
+            if (value) {
+                const childIds = value.split(",");
+                childIds.forEach(childId => {
+                    const child = document.querySelector(`[data-id="${childId}"]`);
+                    if (child) {
+                        el.appendChild(child);
+                    }
+                });
+            }
+        } else {
+            // Try as radio button name
+            const radios = document.getElementsByName(id);
+            if (radios && radios.length > 0) {
+                radios.forEach(r => {
+                    if (r.value === value) {
+                        r.checked = true;
+                        // Trigger onQuizAnswerSelected manually if needed for visual updates
+                        const event = new Event('change', { bubbles: true });
+                        r.dispatchEvent(event);
+                    }
+                });
+            }
         }
     }
 }
