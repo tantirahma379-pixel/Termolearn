@@ -12,9 +12,9 @@ function renderMateri(app) {
         <section class="card">
           <div class="cardPad">
             <div class="row" style="justify-content:space-between;">
-              <div>
+              <div style="width:100%">
                 <span class="badge"><i></i> Petunjuk Penggunaan</span>
-                <div class="flipbookWrap"><iframe src="https://online.fliphtml5.com/nttmb/Petunjuk-Penggunaan/" title="Petunjuk Penggunaan " seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
+                <div class="flipbookWrap" style="margin-top:20px;"><iframe src="https://online.fliphtml5.com/nttmb/Petunjuk-Penggunaan/" title="Petunjuk Penggunaan " seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
               </div>
             </div>
 
@@ -49,10 +49,10 @@ function renderMateri(app) {
             <div class="divider"></div>
 
             <div class="modules">
-              ${moduleCardLocked("s1", "SUBBAB 1", state.content.s1.title, res.s1, true)}
-              ${moduleCardLocked("s2", "SUBBAB 2", state.content.s2.title, res.s2, hasDone("s1"))}
-              ${moduleCardLocked("s3", "SUBBAB 3", state.content.s3.title, res.s3, hasDone("s1") && hasDone("s2"))}
-              ${moduleCardLocked("s4", "SUBBAB 4", state.content.s4.title, res.s4, hasDone("s1") && hasDone("s2") && hasDone("s3"))}
+              ${moduleCardLocked("s1", "SUBBAB 1", state.content.s1.title, "", res.s1, true)}
+              ${moduleCardLocked("s2", "SUBBAB 2", state.content.s2.title, "", res.s2, hasDone("s1"))}
+              ${moduleCardLocked("s3", "SUBBAB 3", state.content.s3.title, "", res.s3, hasDone("s1") && hasDone("s2"))}
+              ${moduleCardLocked("s4", "SUBBAB 4", state.content.s4.title, "", res.s4, hasDone("s1") && hasDone("s2") && hasDone("s3"))}
             </div>
 
             <div class="lockHint">

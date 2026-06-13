@@ -19,6 +19,8 @@ function init() {
         location.hash = "#/cover";
     }
 
+    state.route = location.hash;
+
     if (state.session) {
         updateChatVisibility();
         bootstrapChat();
