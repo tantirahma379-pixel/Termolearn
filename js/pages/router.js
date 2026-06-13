@@ -19,15 +19,25 @@ function render() {
     if (!r.startsWith("#/cover") && !guardRoute()) return;
 
     if (r.startsWith("#/cover")) return renderCover(app);
-    if (r.startsWith("#/landing")) return requireLogin() && renderLanding(app);
-    if (r.startsWith("#/materi")) return requireLogin() && renderMateri(app);
-    if (r.startsWith("#/s1")) return requireLogin() && renderSubbab1(app);
-    if (r.startsWith("#/s2")) return requireLogin() && renderSubbab2(app);
-    if (r.startsWith("#/s3")) return requireLogin() && renderSubbab3(app);
-    if (r.startsWith("#/s4")) return requireLogin() && renderSubbab4(app);
-    if (r.startsWith("#/eval")) return requireLogin() && renderEvaluasi(app);
-    if (r.startsWith("#/final")) return requireLogin() && renderFinal(app);
-    if (r.startsWith("#/admin")) return requireLogin() && renderAdmin(app);
+    if (r.startsWith("#/landing")) { requireLogin() && renderLanding(app); restoreAnswers(); return; }
+    if (r.startsWith("#/materi")) { requireLogin() && renderMateri(app); restoreAnswers(); return; }
+    if (r.startsWith("#/s1")) { requireLogin() && renderSubbab1(app); restoreAnswers(); return; }
+    if (r.startsWith("#/s2")) { requireLogin() && renderSubbab2(app); restoreAnswers(); return; }
+    if (r.startsWith("#/s3")) { requireLogin() && renderSubbab3(app); restoreAnswers(); return; }
+    if (r.startsWith("#/s4")) { requireLogin() && renderSubbab4(app); restoreAnswers(); return; }
+    if (r.startsWith("#/eval")) { requireLogin() && renderEvaluasi(app); restoreAnswers(); return; }
+    if (r.startsWith("#/final")) { requireLogin() && renderFinal(app); restoreAnswers(); return; }
+    if (r.startsWith("#/admin")) { requireLogin() && renderAdmin(app); restoreAnswers(); return; }
 
     go("#/cover");
+}
+
+function restoreAnswers() {
+    if (!state.answers) return;
+    for (const [id, value] of Object.entries(state.answers)) {
+        const el = document.getElementById(id);
+        if (el && (el.tagName === "TEXTAREA" || el.tagName === "INPUT")) {
+            el.value = value;
+        }
+    }
 }

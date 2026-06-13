@@ -8,10 +8,43 @@ const state = {
     users: [],
     results: [],
     content: null,
-    currentUserResult: null
+    currentUserResult: null,
+    answers: {}
 };
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+/* ---- localStorage helpers for answers ---- */
+function loadAnswersFromStorage() {
+    try {
+        return JSON.parse(localStorage.getItem(LS_KEYS.answers) || "{}");
+    } catch (e) { return {}; }
+}
+
+function saveAnswersToStorage(answers) {
+    localStorage.setItem(LS_KEYS.answers, JSON.stringify(answers));
+}
+
+function updateAnswer(key, value) {
+    if (!state.session || !state.session.email) return;
+    state.answers[key] = value;
+    saveAnswersToStorage(state.answers);
+    syncAnswersWithServer();
+}
+
+async function syncAnswersWithServer() {
+    if (!state.session || !state.session.email) return;
+    if (typeof GAS_URL === 'undefined' || !GAS_URL || GAS_URL === "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") return;
+    try {
+        const payload = { action: "sync_answers", email: state.session.email, name: state.session.name, answers: state.answers };
+        await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify(payload)
+        });
+    } catch (e) {
+        console.warn("Gagal sinkronisasi jawaban ke server", e);
+    }
+}
 
 /* ---- localStorage helpers for results ---- */
 function loadResultsFromStorage() {
@@ -61,6 +94,7 @@ function loadAll() {
 
     if (state.session && state.session.email) {
         refreshCurrentUserResult();
+        state.answers = loadAnswersFromStorage();
     }
 
     const y = $("#year");
@@ -169,6 +203,10 @@ async function login() {
             // Simpan progress dari server ke local
             upsertResultInStorage(email, name, result.progress);
         }
+        if (result.answers) {
+            state.answers = result.answers;
+            saveAnswersToStorage(state.answers);
+        }
     } catch (err) {
         console.warn("Gagal fetch GAS_URL:", err);
         toast("Gagal terhubung ke Server. Pastikan internet aktif.");
@@ -235,6 +273,10 @@ async function register() {
         }
         if (result.progress) {
             upsertResultInStorage(email, name, result.progress);
+        }
+        if (result.answers) {
+            state.answers = result.answers;
+            saveAnswersToStorage(state.answers);
         }
     } catch (err) {
         console.warn("Gagal fetch GAS_URL:", err);
@@ -360,6 +402,8 @@ async function resetPasswordSubmit() {
 function logout() {
     state.session = null;
     state.currentUserResult = null;
+    state.answers = {};
+    saveAnswersToStorage({});
     saveSession();
     toggleChat(false);
     updateChatVisibility();

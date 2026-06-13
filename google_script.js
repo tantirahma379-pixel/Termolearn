@@ -4,6 +4,7 @@
 
 const SHEET_NAME_USERS = 'Users';
 const SHEET_NAME_RESULTS = 'Results';
+const SHEET_NAME_ANSWERS = 'Answers';
 const SPREADSHEET_ID = 'xxxxxxxx';
 
 // Helper untuk mendapatkan objek Spreadsheet secara aman (bound atau standalone)
@@ -46,6 +47,14 @@ function setup() {
     sheetResults.getRange("A1:J1").setFontWeight("bold");
     sheetResults.setFrozenRows(1);
   }
+
+  let sheetAnswers = ss.getSheetByName(SHEET_NAME_ANSWERS);
+  if (!sheetAnswers) {
+    sheetAnswers = ss.insertSheet(SHEET_NAME_ANSWERS);
+    sheetAnswers.appendRow(['Email', 'Nama', 'UpdatedAt']);
+    sheetAnswers.getRange("1:1").setFontWeight("bold");
+    sheetAnswers.setFrozenRows(1);
+  }
 }
 
 // Regex validasi format email
@@ -85,6 +94,10 @@ function doPost(e) {
 
     if (action === 'sync_result') {
       return handleSyncResult(params);
+    }
+
+    if (action === 'sync_answers') {
+      return handleSyncAnswers(params);
     }
 
     // Untuk action login, register, forgot_password, reset_password_submit
@@ -145,11 +158,15 @@ function doPost(e) {
         // Ambil progress dari tabel Results
         const progress = getUserProgress(email);
 
+        // Ambil jawaban dari tabel Answers
+        const answers = getUserAnswers(email);
+
         return createJsonResponse({
           status: 'success',
           message: 'Login berhasil',
           data: userData,
-          progress: progress
+          progress: progress,
+          answers: answers
         });
       } else {
         return createJsonResponse({ status: 'error', message: 'Email belum terdaftar. Silakan daftar terlebih dahulu.' });
@@ -172,7 +189,8 @@ function doPost(e) {
           status: 'success',
           message: 'Pendaftaran berhasil',
           data: userData,
-          progress: null
+          progress: null,
+          answers: {}
         });
       }
 
@@ -353,6 +371,99 @@ function getUserProgress(email) {
     }
   }
   return null;
+}
+
+function handleSyncAnswers(params) {
+  const ss = getSpreadsheet();
+  let sheetAnswers = ss.getSheetByName(SHEET_NAME_ANSWERS);
+  if (!sheetAnswers) {
+    setup();
+    sheetAnswers = ss.getSheetByName(SHEET_NAME_ANSWERS);
+  }
+
+  const email = params.email;
+  const name = params.name;
+  const answers = params.answers || {};
+  if (!email) return createJsonResponse({ status: 'error', message: 'Email tidak valid untuk sinkronisasi' });
+
+  let data = sheetAnswers.getDataRange().getValues();
+  let headers = data[0];
+  let rowIndex = -1;
+
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][0] === email) { // Kolom Email indeks 0
+      rowIndex = i + 1;
+      break;
+    }
+  }
+
+  // Update headers if new keys
+  let headersChanged = false;
+  for (let key in answers) {
+    if (headers.indexOf(key) === -1) {
+      headers.push(key);
+      headersChanged = true;
+    }
+  }
+  
+  if (headersChanged) {
+    sheetAnswers.getRange(1, 1, 1, headers.length).setValues([headers]);
+    sheetAnswers.getRange("1:1").setFontWeight("bold");
+  }
+
+  // Prepare row data
+  let rowData = new Array(headers.length).fill('');
+  rowData[0] = email;
+  rowData[1] = name || '';
+  rowData[2] = new Date().toISOString(); // UpdatedAt is index 2
+  
+  // existing row data
+  if (rowIndex !== -1) {
+    let existingRow = sheetAnswers.getRange(rowIndex, 1, 1, data[rowIndex-1].length).getValues()[0];
+    for(let i=0; i<existingRow.length; i++) {
+       rowData[i] = existingRow[i];
+    }
+  }
+  
+  rowData[2] = new Date().toISOString(); // refresh date
+
+  for (let key in answers) {
+    let colIndex = headers.indexOf(key);
+    if (colIndex !== -1) {
+      rowData[colIndex] = answers[key];
+    }
+  }
+
+  if (rowIndex !== -1) {
+    sheetAnswers.getRange(rowIndex, 1, 1, rowData.length).setValues([rowData]);
+  } else {
+    sheetAnswers.appendRow(rowData);
+  }
+
+  return createJsonResponse({ status: 'success', message: 'Sync jawaban berhasil' });
+}
+
+function getUserAnswers(email) {
+  const ss = getSpreadsheet();
+  const sheetAnswers = ss.getSheetByName(SHEET_NAME_ANSWERS);
+  if (!sheetAnswers) return {};
+
+  const data = sheetAnswers.getDataRange().getValues();
+  if (data.length < 1) return {};
+  
+  const headers = data[0];
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][0] === email) {
+      const row = data[i];
+      let answers = {};
+      // Mulai dari kolom ke-3 (index 3) karena 0=Email, 1=Nama, 2=UpdatedAt
+      for (let j = 3; j < headers.length; j++) {
+        answers[headers[j]] = row[j] || "";
+      }
+      return answers;
+    }
+  }
+  return {};
 }
 
 function doOptions(e) {

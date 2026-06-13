@@ -30,6 +30,15 @@ function init() {
         }
     });
 
+    document.addEventListener("change", (e) => {
+        if (e.target.tagName === "TEXTAREA" || (e.target.tagName === "INPUT" && e.target.type === "text")) {
+            const id = e.target.id;
+            if (id && state.session) {
+                updateAnswer(id, e.target.value);
+            }
+        }
+    });
+
     document.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && document.activeElement === $("#chatInput")) {
             sendChat();

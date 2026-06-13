@@ -6,7 +6,8 @@ const LS_KEYS = {
   session: "thermolearn_session_v1",
   users: "thermolearn_users_v1",
   content: "thermolearn_content_v1",
-  results: "thermolearn_results_v1"
+  results: "thermolearn_results_v1",
+  answers: "thermolearn_answers_v1"
 };
 
 function defaultContent() {
