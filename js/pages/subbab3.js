@@ -18,7 +18,7 @@ function renderSubbab3(app) {
         lockedInfo = '<div class="lockHint">&#128274; Nilai ' + label + ' sudah terkunci (' + savedScore + '). Submit ulang hanya untuk latihan (tidak mengubah nilai).</div>';
     }
 
-    var quizSectionClass = nextUnlocked ? "" : " stage-locked";
+    var quizSectionClass = " stage-locked";
     var nextBtnClass = nextUnlocked ? "" : "disabled";
     var nextBtnOnclick = nextUnlocked ? 'onclick="go(\'' + nextHash + '\')"' : 'disabled="disabled"';
     var nextLockHint = nextUnlocked ? "" : '<div class="lockHint">Next masih terkunci. Submit (pertama kali) agar terbuka 🙂</div>';
@@ -38,15 +38,22 @@ function renderSubbab3(app) {
     <div class="divider"></div>\
     <div id="stageProgressBar"></div>\
     <div id="subContent">' + state.content[key].html + '</div>\
-    <div class="row" style="margin-top:10px;">\
-      <button class="btn btnGhost" onclick="go(\'#/materi\')">&#11013;&#65039; Back ke Materi</button>\
-    </div>\
     <div id="quizSection' + quizSectionClass + '">\
       <div class="divider"></div>\
       <h3 style="margin:0 0 8px;">&#129392; Kuis Verifikasi Konsep (' + label + ')</h3>\
       ' + lockedInfo + '\
       <div id="quizArea"></div>\
-      <div class="row" style="margin-top:10px;">\
+\
+      <div class="divider"></div>\
+      <div class="contentBox">\
+        <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>\
+        <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">\
+          Setelah mempelajari praktikum kalorimeter dan Hukum Hess, tuliskan kesimpulanmu tentang: cara menentukan perubahan entalpi reaksi, dan penggunaan Hukum Hess dalam menentukan ΔH reaksi.\
+        </p>\
+        <textarea id="kesimpulanS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>\
+      </div>\
+\
+      <div class="row" style="margin-top:20px;">\
         <button class="btn btnGhost" onclick="go(\'#/materi\')">&#11013;&#65039; Back</button>\
         <button class="btn btnPrimary" onclick="submitQuiz(\'' + key + '\')">Submit &#10004;</button>\
         <button class="btn btnGhost ' + nextBtnClass + '" ' + nextBtnOnclick + '>&#10145;&#65039; Next</button>\
@@ -63,18 +70,18 @@ function renderSubbab3(app) {
     initStages(key);
 }
 
-function unlockAndScrollS3() {
+function unlockAndScrollS3Hess() {
     unlockNextStage("s3");
-    setTimeout(function() {
-        var next = document.querySelector('.content-stage[data-stage="3"]');
+    setTimeout(function () {
+        var next = document.querySelector('.content-stage[data-stage="4"]');
         if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
 }
 
 function unlockAndScrollS3Kesimpulan() {
     unlockNextStage("s3");
-    setTimeout(function() {
-        var next = document.querySelector('.content-stage[data-stage="4"]');
+    setTimeout(function () {
+        var next = document.getElementById("quizSection");
         if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
 }
@@ -125,8 +132,8 @@ function checkS3Praktikum() {
         score += 10;
     }
 
-    var lanjutBtn = '<div style="margin-top:16px; text-align:center;"><button class="btn btnPrimary" onclick="unlockAndScrollS3()">Lanjutkan ke Hukum Hess ▶️</button></div>';
-    fb.innerHTML = '<div style="padding:12px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>&#10004; Jawaban Tersimpan!</strong><br>Nilai Lkpd Praktikum kamu: ' + score + '/100<br><em>Feedback: Perhitungan kalor yang benar adalah q = m x c x ΔT = 100 x 4,2 x 7 = 2940 J. Reaksi bersifat eksoterm karena suhu meningkat (melepas kalor).</em>' + lanjutBtn + '</div>';
+    fb.innerHTML = '<div style="padding:12px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>&#10004; Jawaban Tersimpan!</strong><br>Nilai Lkpd Praktikum kamu: ' + score + '/100<br><em>Feedback: Perhitungan kalor yang benar adalah q = m x c x ΔT = 100 x 4,2 x 7 = 2940 J. Reaksi bersifat eksoterm karena suhu meningkat (melepas kalor).</em></div>';
+    document.getElementById("s3_next_hess").style.display = "block";
 }
 
 function checkS3Hess() {
@@ -149,12 +156,12 @@ function checkS3Hess() {
     var h2_2Num = parseFloat(h2_2.replace(",", "."));
 
     if (Math.abs(h1_1Num - 285.8) > 0.1) { benar = false; }
-    if (Math.abs(h1_2Num - (-571.6)) > 0.1) { benar = false; }
+    if (Math.abs(h1_2Num - (+571.6)) > 0.1) { benar = false; }
     if (Math.abs(h2_2Num - (-110.5)) > 0.1) { benar = false; }
 
     if (benar) {
-        var lanjutBtnHess = '<div style="margin-top:16px; text-align:center;"><button class="btn btnPrimary" onclick="unlockAndScrollS3Kesimpulan()">Lanjutkan ke Kesimpulan ▶️</button></div>';
-        fb.innerHTML = '<div style="padding:12px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>&#10004; Tepat Sekali!</strong><br>Aktivitas 1: Jika reaksi dibalik, ΔH menjadi +285,8 kJ. Jika dikali 2, ΔH menjadi −571,6 kJ.<br>Aktivitas 2: Reaksi 2 dibalik, lalu dijumlahkan dengan Reaksi 1. ΔH = −393,5 + 283 = −110,5 kJ.' + lanjutBtnHess + '</div>';
+        fb.innerHTML = '<div style="padding:12px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>&#10004; Tepat Sekali!</strong><br>Aktivitas 1: Jika reaksi dibalik, ΔH menjadi +285,8 kJ. Jika dikali 2, ΔH menjadi +571,6 kJ.<br>Aktivitas 2: Reaksi 2 dibalik, lalu dijumlahkan dengan Reaksi 1. ΔH = −393,5 + 283 = −110,5 kJ.</div>';
+        document.getElementById("s3_next_kesimpulan").style.display = "block";
     } else {
         fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">&#128161; Masih ada yang kurang tepat. Coba periksa kembali tanda positif/negatif dan perhitungan matematikanya! Petunjuk: jika reaksi dibalik, tanda ΔH berubah.</div>';
     }

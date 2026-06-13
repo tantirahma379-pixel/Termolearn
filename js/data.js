@@ -515,12 +515,6 @@ function defaultContent() {
                   <button class="btn btnPrimary" onclick="checkS2FillBlank()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
                 </div>
                 <div id="feedback_s2fill" style="display:none; margin-bottom:16px;"></div>
-
-                <h4 style="margin:16px 0 8px;">✍ Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-                  Tuliskan kesimpulanmu mengenai hubungan antara: perubahan entalpi standar, jenis reaksi eksoterm dan endoterm, nilai ΔH°, serta kalor yang dilepaskan atau diserap pada reaksi kimia.
-                </p>
-                <textarea id="kesimpulanS2" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
               </div>
             </div>
           `
@@ -553,14 +547,11 @@ function defaultContent() {
                 <h4 style="margin:12px 0 8px;">✍ DUGAAN AWAL</h4>
                 <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
                 <textarea id="dugaanAwalS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
-                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
-                  <p style="margin:0; color:#065f46; font-weight:650;">💡 Jawabanmu berhasil disimpan. Lanjutkan ke section berikutnya.</p>
                 </div>
-              </div>
             </div>
 
-            <!-- Stage 2: Kalorimeter (SECTION 3) -->
-            <div class="content-stage" data-stage="2" data-type="quiz" data-quiz="s3_kalorimeter">
+            <!-- Stage 2: Kalorimeter Bagian 1 - Teori (SECTION 3) -->
+            <div class="content-stage" data-stage="2" data-type="content">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🧪 BAGIAN 1 MENENTUKAN ΔH REAKSI MENGGUNAKAN KALORIMETER</h4>
                 <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
@@ -573,15 +564,18 @@ function defaultContent() {
                 <div style="text-align:center; margin-bottom:16px;">
                   <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/sub-bab-3/InfografisKalorimeter.png" alt="Infografis Kalorimeter" style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                 </div>
+              </div>
+            </div>
 
-                <hr style="border:0; border-top:1px dashed #ccc; margin:20px 0;">
-
+            <!-- Stage 3: Kalorimeter Bagian 2 - Simulasi Virtual (SECTION 3 LANJUTAN) -->
+            <div class="content-stage" data-stage="3" data-type="quiz" data-quiz="s3_kalorimeter">
+              <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🧪 BAGIAN 2 SIMULASI VIRTUAL KALORIMETER</h4>
                 <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
                   Setelah mempelajari konsep kalorimeter, lakukan praktikum virtual berikut untuk mengetahui perubahan kalor selama reaksi berlangsung.<br>
                   <strong>🎯 Tujuan:</strong> Menganalisis perubahan suhu dan menghitung kalor reaksi melalui praktikum virtual.
                 </p>
-                
+
                 <div style="background:rgba(255,106,0,0.05); padding:16px; border-radius:8px; margin-bottom:16px;">
                   <h5 style="margin:0 0 8px;">A. Petunjuk Praktikum Virtual Kalorimeter</h5>
                   <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px;">
@@ -639,7 +633,7 @@ function defaultContent() {
                   <label style="display:inline-block; font-size:13.5px; cursor:pointer; padding:6px 12px; background:rgba(255,255,255,0.5); border:1px solid rgba(17,24,39,0.1); border-radius:6px;"><input type="radio" name="s3_sifat" value="endoterm"> ❄️ Endoterm</label>
                   <p style="margin:8px 0 6px; font-size:13.5px;">✍ Alasan:</p>
                   <textarea id="s3_alasan" rows="2" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px; box-sizing:border-box;" placeholder="Jelaskan mengapa reaksi bersifat eksoterm/endoterm..."></textarea>
-                  
+
                   <p style="margin:12px 0 6px; font-size:13.5px;">2. Tuliskan kesimpulan berdasarkan hasil percobaan virtual yang telah dilakukan.</p>
                   <textarea id="s3_kesimpulan_praktikum" rows="3" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px; box-sizing:border-box;" placeholder="Tuliskan kesimpulan percobaanmu di sini..."></textarea>
                 </div>
@@ -648,11 +642,14 @@ function defaultContent() {
                   <button class="btn btnPrimary" onclick="checkS3Praktikum()" style="padding:10px 20px; font-size:12px;">Periksa LKPD 🔍</button>
                 </div>
                 <div id="feedback_s3_praktikum" style="display:none; margin-top:12px;"></div>
+                <div id="s3_next_hess" style="display:none; text-align:center; margin-top:16px;">
+                  <button class="btn btnPrimary" onclick="unlockAndScrollS3Hess()">Next: Hukum Hess ▶️</button>
+                </div>
               </div>
             </div>
 
-            <!-- Stage 3: Hukum Hess (SECTION 4) -->
-            <div class="content-stage" data-stage="3" data-type="quiz" data-quiz="s3_hess">
+            <!-- Stage 4: Hukum Hess (SECTION 4) -->
+            <div class="content-stage" data-stage="4" data-type="quiz" data-quiz="s3_hess">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">📘 BAGIAN 2 MENENTUKAN ΔH REAKSI MENGGUNAKAN HUKUM HESS</h4>
                 <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
@@ -703,27 +700,20 @@ function defaultContent() {
                   Reaksi 2: CO(<em>g</em>) + ½O₂(<em>g</em>) → CO₂(<em>g</em>) ΔH = −283 kJ
                 </p>
                 <p style="margin:0 0 8px; font-size:13.5px;">Berdasarkan data reaksi, tentukan reaksi mana yang dibalik dan bagaimana nilai ΔH-nya!</p>
-                <textarea id="s3_hess2_1" rows="2" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:13.5px; margin-bottom:8px; box-sizing:border-box;" placeholder="Misal: Reaksi 2 dibalik karena..."></textarea>
+                <textarea id="s3_hess2_1" rows="2" style="width:100%; padding:8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:13.5px; margin-bottom:8px; box-sizing:border-box;"></textarea>
                 <p style="margin:0 0 8px; font-size:13.5px;">Tentukan ΔH total (kJ):</p>
-                <input type="number" id="s3_hess2_2" step="0.1" placeholder="-110.5" style="width:120px; padding:6px 8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px; margin-bottom:16px;">
+                <input type="number" id="s3_hess2_2" step="0.1" style="width:120px; padding:6px 8px; border:1px solid rgba(17,24,39,0.15); border-radius:6px; font-size:14px; margin-bottom:16px;">
                 
                 <div style="text-align:right;">
                   <button class="btn btnPrimary" onclick="checkS3Hess()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban 🔍</button>
                 </div>
                 <div id="feedback_s3_hess" style="display:none; margin-top:12px;"></div>
+                <div id="s3_next_kesimpulan" style="display:none; text-align:center; margin-top:16px;">
+                  <button class="btn btnPrimary" onclick="unlockAndScrollS3Kesimpulan()">Next: Kesimpulan ▶️</button>
+                </div>
               </div>
             </div>
 
-            <!-- Stage 4: Kesimpulan (SECTION 6) -->
-            <div class="content-stage" data-stage="4" data-type="activity">
-              <div class="contentBox">
-                <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-                  Setelah mempelajari praktikum kalorimeter dan Hukum Hess, tuliskan kesimpulanmu tentang: cara menentukan perubahan entalpi reaksi, dan penggunaan Hukum Hess dalam menentukan ΔH reaksi.
-                </p>
-                <textarea id="kesimpulanS3" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
-              </div>
-            </div>
           `
     },
     s4: {
@@ -751,9 +741,6 @@ function defaultContent() {
                 <h4 style="margin:12px 0 8px;">&#9998; DUGAAN AWAL</h4>
                 <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan jawabanmu pada kolom berikut.</p>
                 <textarea id="dugaanAwalS4" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan dugaanmu di sini..."></textarea>
-                <div style="margin-top:12px; padding:12px; background:rgba(16,185,129,0.08); border-radius:8px;">
-                  <p style="margin:0; color:#065f46; font-weight:650;">&#128526; Jawabanmu berhasil disimpan. Lanjutkan ke section berikutnya.</p>
-                </div>
               </div>
             </div>
 
@@ -829,6 +816,10 @@ function defaultContent() {
                   <button class="btn btnPrimary" onclick="checkS4Ikatan()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban &#128269;</button>
                 </div>
                 <div id="feedback_s4_ikatan" style="display:none; margin-top:12px;"></div>
+
+                <div id="s4_next_bagianb" style="display:none; text-align:center; margin-top:20px;">
+                  <button class="btn btnPrimary" onclick="unlockAndScrollS4BagianB()">Next: Menentukan ΔH dengan ΔH°f ▶️</button>
+                </div>
               </div>
             </div>
 
@@ -887,24 +878,12 @@ function defaultContent() {
                   <button class="btn btnPrimary" onclick="checkS4Entalpi()" style="padding:10px 20px; font-size:12px;">Periksa Jawaban &#128269;</button>
                 </div>
                 <div id="feedback_s4_entalpi" style="display:none; margin-top:12px;"></div>
+                <div id="s4_next_kesimpulan" style="display:none; text-align:center; margin-top:16px;">
+                  <button class="btn btnPrimary" onclick="unlockAndScrollS4Kesimpulan()">Next: Kesimpulan ▶️</button>
+                </div>
               </div>
             </div>
 
-            <!-- Stage 4: Kesimpulan (SECTION 6) -->
-            <div class="content-stage" data-stage="4" data-type="activity">
-              <div class="contentBox">
-                <h4 style="margin:0 0 8px;">&#9998; Kesimpulan</h4>
-                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-                  Setelah mempelajari penentuan \u0394H reaksi menggunakan data energi ikatan dan data entalpi pembentukan standar (\u0394H\u00B0f), tuliskan kesimpulanmu tentang:
-                </p>
-                <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px; color:#4b5563;">
-                  <li>Cara menentukan \u0394H reaksi menggunakan data energi ikatan</li>
-                  <li>Cara menentukan \u0394H reaksi menggunakan data \u0394H\u00B0f</li>
-                  <li>Hubungan nilai \u0394H terhadap sifat reaksi kimia</li>
-                </ul>
-                <textarea id="kesimpulanS4" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
-              </div>
-            </div>
           `
     },
   };
@@ -922,7 +901,7 @@ const quizBank = {
     { q: "Perhatikan reaksi berikut.\nNaCl(s) → Na(s) + ½Cl₂(g)\nReaksi tersebut termasuk ...", a: ["ΔH°f", "ΔH°c", "ΔH°d", "eksoterm", "pembakaran"], correct: 2, hint: "Perhatikan arah panah reaksi. Ke kiri atau ke kanan? Dan apa yang terjadi pada senyawa NaCl?", pembahasan: "Reaksi tersebut menunjukkan senyawa NaCl diuraikan menjadi unsur-unsurnya, yaitu Na dan Cl₂. Reaksi penguraian seperti ini termasuk perubahan entalpi penguraian standar (ΔH°d). Ciri ΔH°d: senyawa dipecah menjadi zat yang lebih sederhana, membutuhkan energi, umumnya bersifat endoterm." },
     { q: "Perhatikan data berikut.\nΔH°f NH₄Cl = −314,4 kJ/mol\nPersamaan termokimia yang benar adalah ...", a: ["NH₄Cl(s) → NH₃(g) + HCl(g)", "½N₂(g) + 2H₂(g) + ½Cl₂(g) → NH₄Cl(s)", "N₂(g) + 2H₂(g) + Cl₂(g) → 2NH₄Cl(s)", "NH₄Cl(s) + O₂(g) → CO₂(g) + H₂O(l)", "NH₄Cl(s) → N₂(g) + H₂(g) + Cl₂(g)"], correct: 1, hint: "Entalpi pembentukan standar harus membentuk 1 mol senyawa dari unsur-unsurnya dalam keadaan standar. Berapa mol NH₄Cl yang dihasilkan?", pembahasan: "Entalpi pembentukan standar (ΔH°f) adalah perubahan entalpi saat 1 mol senyawa terbentuk dari unsur-unsurnya dalam keadaan standar. Persamaan yang benar harus berasal dari unsur standar N₂(g), H₂(g), dan Cl₂(g), menghasilkan tepat 1 mol NH₄Cl(s). Persamaan yang benar: ½N₂(g) + 2H₂(g) + ½Cl₂(g) → NH₄Cl(s)." },
     { q: "Diketahui: ΔH°f H₂O(l) = −285,85 kJ/mol\nJika terbentuk 4 mol H₂O(l), maka besar ΔH total adalah ...", a: ["−1143,4 kJ", "−571,7 kJ", "+1143,4 kJ", "+571,7 kJ", "−285,85 kJ"], correct: 0, hint: "Nilai ΔH berlaku untuk 1 mol. Jika mol diubah, maka ΔH juga ikut berubah.", pembahasan: "Nilai ΔH berlaku untuk 1 mol reaksi. Karena terbentuk 4 mol H₂O, maka: ΔH = 4 × (−285,85) = −1143,4 kJ. Semakin banyak mol zat yang bereaksi, semakin besar kalor yang dilepaskan atau diserap." },
-    { q: "Reaksi berikut termasuk jenis perubahan entalpi ...\nC(s) + O₂(g) → CO₂(g)", a: ["penguraian", "endoterm", "pembentukan", "pembakaran dan pembentukan", "netral"], correct: 3, hint: "Reaksi ini termasuk pembakaran karena karbon bereaksi dengan oksigen. Namun, apakah juga termasuk pembentukan?", pembahasan: "Reaksi tersebut termasuk: pembakaran, karena karbon bereaksi dengan oksigen; pembentukan, karena membentuk 1 mol CO₂ dari unsur-unsurnya. Jadi reaksi dapat termasuk lebih dari satu jenis perubahan entalpi standar tergantung cara peninjauannya." },
+    { q: "Reaksi berikut termasuk jenis perubahan entalpi ...\nC(s) + O₂(g) → CO₂(g)", a: ["penguraian", "endoterm", "netralisasi", "pembakaran dan pembentukan", "netral"], correct: 3, hint: "Reaksi ini termasuk pembakaran karena karbon bereaksi dengan oksigen. Namun, apakah juga termasuk pembentukan?", pembahasan: "Reaksi tersebut termasuk: pembakaran, karena karbon bereaksi dengan oksigen; pembentukan, karena membentuk 1 mol CO₂ dari unsur-unsurnya. Jadi reaksi dapat termasuk lebih dari satu jenis perubahan entalpi standar tergantung cara peninjauannya." },
     { q: "Mengapa reaksi pembakaran umumnya memiliki nilai ΔH negatif?", a: ["karena menyerap kalor", "karena kalor berpindah ke sistem", "karena melepaskan kalor ke lingkungan", "karena produk memiliki energi lebih tinggi", "karena tidak terjadi perpindahan kalor"], correct: 2, hint: "Perhatikan arah perpindahan kalor pada reaksi pembakaran. Ke mana kalor mengalir?", pembahasan: "Reaksi pembakaran umumnya memiliki nilai ΔH negatif karena melepaskan kalor ke lingkungan. Reaksi pembakaran bersifat eksoterm, yaitu reaksi yang melepaskan kalor sehingga suhu lingkungan meningkat. Hal ini terjadi karena energi yang dilepaskan saat pembentukan ikatan baru lebih besar dari energi yang dibutuhkan untuk memutuskan ikatan pereaksi." },
   ],
   s3: [

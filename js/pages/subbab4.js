@@ -35,14 +35,28 @@ function renderSubbab4(app) {
 
             <div id="subContent">${state.content[key].html}</div>
 
-            <div id="quizSection">
+            <div id="quizSection" class="stage-locked">
               <div class="divider"></div>
 
               <h3 style="margin:0 0 8px;">🧠 Kuis Singkat (${label})</h3>
               ${lockedInfo}
               <div id="quizArea"></div>
 
-              <div class="row" style="margin-top:10px;">
+              <div class="divider"></div>
+              <div class="contentBox">
+                <h4 style="margin:0 0 8px;">&#9998; Kesimpulan</h4>
+                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
+                  Setelah mempelajari penentuan ΔH reaksi menggunakan data energi ikatan dan data entalpi pembentukan standar (ΔH°f), tuliskan kesimpulanmu tentang:
+                </p>
+                <ul style="margin:0 0 12px; padding-left:20px; font-size:13.5px; color:#4b5563;">
+                  <li>Cara menentukan ΔH reaksi menggunakan data energi ikatan</li>
+                  <li>Cara menentukan ΔH reaksi menggunakan data ΔH°f</li>
+                  <li>Hubungan nilai ΔH terhadap sifat reaksi kimia</li>
+                </ul>
+                <textarea id="kesimpulanS4" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
+              </div>
+
+              <div class="row" style="margin-top:20px;">
                 <button class="btn btnGhost" onclick="go('#/materi')">⬅️ Back</button>
                 <button class="btn btnPrimary" onclick="submitQuiz('${key}')">Submit ✅</button>
                 <button class="btn btnGhost ${nextUnlocked ? "" : "disabled"}" ${nextUnlocked ? `onclick="go('${nextHash}')"` : "disabled"}>
@@ -63,7 +77,23 @@ function renderSubbab4(app) {
 function unlockAndScrollS4Entalpi() {
     unlockNextStage("s4");
     setTimeout(function() {
-        var next = document.querySelector('.content-stage[data-stage="4"]');
+        var next = document.querySelector('.content-stage[data-stage="3"]');
+        if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+}
+
+function unlockAndScrollS4BagianB() {
+    unlockNextStage("s4");
+    setTimeout(function() {
+        var next = document.querySelector('.content-stage[data-stage="3"]');
+        if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+}
+
+function unlockAndScrollS4Kesimpulan() {
+    unlockNextStage("s4");
+    setTimeout(function() {
+        var next = document.getElementById("quizSection");
         if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
 }
@@ -89,8 +119,8 @@ function checkS4Ikatan() {
   if (dh != "-654" && dh != "-650") benar = false;
 
   if (benar) {
-    var lanjutBtn = '<div style="margin-top:16px; text-align:center;"><button class="btn btnPrimary" onclick="unlockAndScrollS4Entalpi()">Lanjutkan ke Bagian B \u25B6️</button></div>';
-    fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>✅ Jawaban benar!</strong><br>Kamu berhasil menentukan \u0394H reaksi menggunakan data energi ikatan.<br><em>Energi Diputus: 2646 kJ. Energi Dibentuk: 3300 kJ. \u0394H = 2646 - 3300 = -654 kJ.</em>' + lanjutBtn + '</div>';
+    fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>✅ Jawaban benar!</strong><br>Kamu berhasil menentukan ΔH reaksi menggunakan data energi ikatan.<br><em>Energi Diputus: 2646 kJ. Energi Dibentuk: 3300 kJ. ΔH = 2646 - 3300 = -654 kJ.</em></div>';
+    document.getElementById("s4_next_bagianb").style.display = "block";
   } else {
     fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">❌ Jawaban masih kurang tepat.<br>💡 Petunjuk: Perhatikan kembali jumlah ikatan pada pereaksi dan produk. Ingat bahwa pemutusan ikatan membutuhkan energi.</div>';
   }
@@ -117,8 +147,9 @@ function checkS4Entalpi() {
   if (dh != "-890.2") benar = false;
 
   if (benar) {
-    fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>✅ Jawaban benar!</strong><br>Kamu berhasil menentukan \u0394H reaksi menggunakan data \u0394H\u00B0f.<br><em>\u0394H = (-965.1) - (-74.9) = -890.2 kJ. Karena \u0394H negatif, reaksi bersifat eksoterm.</em></div>';
+    fb.innerHTML = '<div style="padding:10px; background:rgba(16,185,129,0.1); color:#065f46; border-radius:6px;"><strong>✅ Jawaban benar!</strong><br>Kamu berhasil menentukan ΔH reaksi menggunakan data ΔH°f.<br><em>ΔH = (-965.1) - (-74.9) = -890.2 kJ. Karena ΔH negatif, reaksi bersifat eksoterm.</em></div>';
+    document.getElementById("s4_next_kesimpulan").style.display = "block";
   } else {
-    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">❌ Jawaban masih kurang tepat.<br>💡 Petunjuk: Perhatikan kembali jumlah \u0394H\u00B0f produk dan pereaksi. Jangan lupa koefisien reaksi memengaruhi perhitungan \u0394H.</div>';
+    fb.innerHTML = '<div style="padding:10px; background:rgba(239,68,68,0.1); color:#b91c1c; border-radius:6px;">❌ Jawaban masih kurang tepat.<br>💡 Petunjuk: Perhatikan kembali jumlah ΔH°f produk dan pereaksi. Jangan lupa koefisien reaksi memengaruhi perhitungan ΔH.</div>';
   }
 }

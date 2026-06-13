@@ -8,10 +8,10 @@ function renderCover(app) {
   app.innerHTML = `
         <section class="card">
           <div class="cardPad centerCol">
-            <span class="badge"><i></i> THERMOLEARN • TERMOKIMIA INTERACTIVE</span>
+            <span class="badge"><i></i> MEDIA PEMBELAJARAN INTERAKTIF</span>
 
             <h2 class="titleXL" style="margin-top:10px;">
-              TERMOLEARN <span style="background:linear-gradient(90deg, var(--orange), var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent;">seru</span>
+              TERMOLEARN
             </h2>
             <div class="coverMascot">
               <div class="mascotWrap" style="min-height:min(320px, 50vh); padding:0;">

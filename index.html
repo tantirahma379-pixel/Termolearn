@@ -1,117 +1,121 @@
 <!doctype html>
 <html lang="id">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <title>ThermoLearn — Termokimia Interaktif</title>
-        <meta name="description" content="E-learning termokimia interaktif dengan maskot Y2K api & air, kuis, rekap nilai, dan dashboard admin." />
 
-        <!-- PDF Export (client-side) -->
-        <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>ThermoLearn — Termokimia Interaktif</title>
+    <meta name="description"
+        content="E-learning termokimia interaktif dengan maskot Y2K api & air, kuis, rekap nilai, dan dashboard admin." />
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/css/style.css">
-        <!-- <link rel="stylesheet" href="css/style.css" /> -->
-    </head>
+    <!-- PDF Export (client-side) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
-    <body>
-        <div class="bg"></div>
-        <div class="watermark"></div>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@master/css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+</head>
 
-        <div class="wrap">
-            <div class="shell">
-                <!-- Topbar (disembunyikan di cover) -->
-                <div class="topbar" id="topbar">
-                    <div class="brand" role="button" tabindex="0" onclick="go('#/landing')">
-                        <div class="logoDot" aria-hidden="true"></div>
-                        <div>
-                            <h1>THERMOLEARN</h1>
-                            <small>E-learning interaktif seru ⚗️</small>
-                        </div>
+<body>
+    <div class="bg"></div>
+    <div class="watermark"></div>
+
+    <div class="wrap">
+        <div class="shell">
+            <!-- Topbar (disembunyikan di cover) -->
+            <div class="topbar" id="topbar">
+                <div class="brand" role="button" tabindex="0" onclick="go('#/landing')">
+                    <div class="logoDot" aria-hidden="true"></div>
+                    <div>
+                        <h1>TERMOLEARN</h1>
+                        <small>Media Pembelajaran Interaktif Termokimia⚗️</small>
                     </div>
-
-                    <div class="nav" id="nav"></div>
                 </div>
 
-                <main id="app"></main>
+                <div class="nav" id="nav"></div>
+            </div>
 
-                <div class="footerNote">
-                    © <span id="year"></span> ThermoLearn — Termokimia Interaktif • Desain hologram cerah + maskot Y2K
-                </div>
+            <main id="app"></main>
+
+            <div class="footerNote">
+                © <span id="year"></span> ThermoLearn — Termokimia Interaktif • Desain hologram cerah + maskot Y2K
             </div>
         </div>
+    </div>
 
-        <!-- Chat toggle button (only shown when logged in) -->
-        <button class="chatToggle" id="chatToggle" title="Chatbot">
-            <span>💬</span>
-        </button>
+    <!-- Chat toggle button (only shown when logged in) -->
+    <button class="chatToggle" id="chatToggle" title="Chatbot">
+        <span>💬</span>
+    </button>
 
-        <!-- Chatbot widget -->
-        <section class="chatbot hidden" id="chatbot" aria-label="Chatbot">
-            <div class="chatHead">
-                <div style="display: flex; align-items: center; gap: 10px">
-                    <span class="badge"><i></i> <strong>ThermoBot</strong></span>
-                    <span class="hint" id="chatContext">Siap bantu termokimia!</span>
-                </div>
-                <button class="btn btnGhost" style="padding: 10px 12px; border-radius: 14px" onclick="toggleChat(false)">
-                    Tutup
-                </button>
+    <!-- Chatbot widget -->
+    <section class="chatbot hidden" id="chatbot" aria-label="Chatbot">
+        <div class="chatHead">
+            <div style="display: flex; align-items: center; gap: 10px">
+                <span class="badge"><i></i> <strong>ThermoBot</strong></span>
+                <span class="hint" id="chatContext">Siap bantu termokimia!</span>
             </div>
-            <div class="chatBody" id="chatBody"></div>
-            <div class="chatFoot">
-                <input id="chatInput" type="text" placeholder="Tanya: entalpi, kalorimeter, Hess, energi ikatan..." />
-                <button class="btn btnPrimary" style="padding: 12px 14px; border-radius: 14px" onclick="sendChat()">
-                    Kirim
-                </button>
-            </div>
-        </section>
+            <button class="btn btnGhost" style="padding: 10px 12px; border-radius: 14px" onclick="toggleChat(false)">
+                Tutup
+            </button>
+        </div>
+        <div class="chatBody" id="chatBody"></div>
+        <div class="chatFoot">
+            <input id="chatInput" type="text" placeholder="Tanya: entalpi, kalorimeter, Hess, energi ikatan..." />
+            <button class="btn btnPrimary" style="padding: 12px 14px; border-radius: 14px" onclick="sendChat()">
+                Kirim
+            </button>
+        </div>
+    </section>
 
-        <!-- Global Variable untuk Google Apps Script -->
-        <script>
-            // URL ini akan otomatis diisi oleh Google Apps Script ketika dijalankan sebagai Web App
-            let GAS_URL = "<?= gasUrl ?>";
+    <!-- Global Variable untuk Google Apps Script -->
+    <script>
+        // URL ini akan otomatis diisi oleh Google Apps Script ketika dijalankan sebagai Web App
+        let GAS_URL = "<?= gasUrl ?>";
 
-            // Fallback untuk testing di localhost: ambil dari localStorage 'dev_gas_url'
-            if (GAS_URL.includes("<" + "?=")) {
-                GAS_URL = localStorage.getItem("dev_gas_url") || "";
-            }
+        // Fallback untuk testing di localhost: ambil dari localStorage 'dev_gas_url'
+        if (GAS_URL.includes("<" + "?=")) {
+            GAS_URL = localStorage.getItem("dev_gas_url") || "";
+        }
 
-            // Variabel reset password dinamis (diisi oleh doGet backend GAS)
-            let RESET_ACTION = "<?= action ?>";
-            let RESET_EMAIL = "<?= email ?>";
-            let RESET_TOKEN = "<?= token ?>";
+        // Variabel reset password dinamis (diisi oleh doGet backend GAS)
+        let RESET_ACTION = "<?= action ?>";
+        let RESET_EMAIL = "<?= email ?>";
+        let RESET_TOKEN = "<?= token ?>";
 
-            // Fallback localhost: baca dari parameter query URL browser
-            if (RESET_ACTION.includes("<" + "?=")) {
-                const urlParams = new URLSearchParams(window.location.search);
-                RESET_ACTION = urlParams.get("action") || "";
-                RESET_EMAIL = urlParams.get("email") || "";
-                RESET_TOKEN = urlParams.get("token") || "";
-            }
+        // Fallback localhost: baca dari parameter query URL browser
+        if (RESET_ACTION.includes("<" + "?=")) {
+            const urlParams = new URLSearchParams(window.location.search);
+            RESET_ACTION = urlParams.get("action") || "";
+            RESET_EMAIL = urlParams.get("email") || "";
+            RESET_TOKEN = urlParams.get("token") || "";
+        }
 
-            window.RESET_ACTION = RESET_ACTION;
-            window.RESET_EMAIL = RESET_EMAIL;
-            window.RESET_TOKEN = RESET_TOKEN;
-        </script>
+        window.RESET_ACTION = RESET_ACTION;
+        window.RESET_EMAIL = RESET_EMAIL;
+        window.RESET_TOKEN = RESET_TOKEN;
+    </script>
 
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/utils.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/data.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/state.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/components.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/chat.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/quiz.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/cover.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/landing.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/materi.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab1.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab2.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab3.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab4.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/evaluasi.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/final.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/admin.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/router.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/main.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/state.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/components.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/chat.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/cover.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/landing.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/materi.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab2.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/subbab4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/evaluasi.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/final.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/pages/router.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/js/main.js"></script>
+</body>
+
 </html>

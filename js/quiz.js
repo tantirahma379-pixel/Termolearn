@@ -68,6 +68,10 @@ function applyStageVisibility(subbabKey) {
                 setTimeout(() => {
                     const next = document.querySelector(`.content-stage[data-stage="${unlocked + 1}"]`);
                     if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+                    else {
+                        const quiz = document.getElementById("quizSection");
+                        if (quiz) quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
                 }, 100);
             };
             currentStage.appendChild(btn);

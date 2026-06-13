@@ -35,10 +35,6 @@ function renderSubbab1(app) {
 
             <div id="subContent">${state.content[key].html}</div>
 
-            <div class="row" style="margin-top:10px;">
-              <button class="btn btnGhost" onclick="go('#/materi')">⬅️ Back ke Materi</button>
-            </div>
-
             <div id="quizSection" class="stage-locked">
               <div class="divider"></div>
 
@@ -46,18 +42,6 @@ function renderSubbab1(app) {
               ${lockedInfo}
               <div id="quizArea"></div>
 
-              <div class="row" style="margin-top:10px;">
-                <button class="btn btnGhost" onclick="go('#/materi')">⬅️ Back</button>
-                <button class="btn btnPrimary" onclick="submitQuiz('${key}')">Submit ✅</button>
-                <button class="btn btnGhost ${nextUnlocked ? "" : "disabled"}" ${nextUnlocked ? `onclick="go('${nextHash}')"` : "disabled"}>
-                  Next ➡️
-                </button>
-              </div>
-
-              ${nextUnlocked ? "" : `<div class="lockHint">Next masih terkunci. Submit (pertama kali) agar terbuka 🙂</div>`}
-            </div>
-
-            <div class="content-stage" data-stage="6" data-type="activity">
               <div class="divider"></div>
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">✍ Kesimpulan</h4>
@@ -67,6 +51,16 @@ function renderSubbab1(app) {
                 <p style="margin:0 0 8px; color:#1a1818; font-weight:650;">Tuliskan kesimpulanmu pada kolom berikut.</p>
                 <textarea id="kesimpulanS1" rows="5" style="width:100%; padding:12px; border:1px solid rgba(17,24,39,0.15); border-radius:8px; font-size:14px; resize:vertical; box-sizing:border-box;" placeholder="Tuliskan kesimpulanmu di sini..."></textarea>
               </div>
+
+              <div class="row" style="margin-top:20px;">
+                <button class="btn btnGhost" onclick="go('#/materi')">⬅️ Back</button>
+                <button class="btn btnPrimary" onclick="submitQuiz('${key}')">Submit ✅</button>
+                <button class="btn btnGhost ${nextUnlocked ? "" : "disabled"}" ${nextUnlocked ? `onclick="go('${nextHash}')"` : "disabled"}>
+                  Next ➡️
+                </button>
+              </div>
+
+              ${nextUnlocked ? "" : `<div class="lockHint">Next masih terkunci. Submit (pertama kali) agar terbuka 🙂</div>`}
             </div>
           </div>
         </section>
