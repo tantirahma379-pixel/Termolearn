@@ -18,7 +18,7 @@ function renderSubbab3(app) {
         lockedInfo = '<div class="lockHint">&#128274; Nilai ' + label + ' sudah terkunci (' + savedScore + '). Submit ulang hanya untuk latihan (tidak mengubah nilai).</div>';
     }
 
-    var quizSectionClass = " stage-locked";
+    var quizSectionClass = "stage-locked";
     var nextBtnClass = nextUnlocked ? "" : "disabled";
     var nextBtnOnclick = nextUnlocked ? 'onclick="go(\'' + nextHash + '\')"' : 'disabled="disabled"';
     var nextLockHint = nextUnlocked ? "" : '<div class="lockHint">Next masih terkunci. Submit (pertama kali) agar terbuka 🙂</div>';
@@ -38,7 +38,7 @@ function renderSubbab3(app) {
     <div class="divider"></div>\
     <div id="stageProgressBar"></div>\
     <div id="subContent">' + state.content[key].html + '</div>\
-    <div id="quizSection' + quizSectionClass + '">\
+    <div id="quizSection" class="' + quizSectionClass + '">\
       <div class="divider"></div>\
       <h3 style="margin:0 0 8px;">&#129392; Kuis Verifikasi Konsep (' + label + ')</h3>\
       ' + lockedInfo + '\
