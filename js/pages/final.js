@@ -3,26 +3,26 @@
  * Final Page
  ***********************/
 function renderFinal(app) {
-    setChatContext("Akhir: lihat rekap dan unduh laporan.");
+  setChatContext("Akhir: lihat rekap dan unduh laporan.");
 
-    const me = state.session;
-    const row = currentUserResult();
+  const me = state.session;
+  const row = currentUserResult();
 
-    const s1 = row?.s1 ?? "—";
-    const s2 = row?.s2 ?? "—";
-    const s3 = row?.s3 ?? "—";
-    const s4 = row?.s4 ?? "—";
-    const ev = row?.eval ?? "—";
-    const total = row?.total ?? "—";
-    const summary = row?.summary || "Kerjakan subbab dan evaluasi untuk melihat kesimpulan.";
+  const s1 = row?.s1 ?? "—";
+  const s2 = row?.s2 ?? "—";
+  const s3 = row?.s3 ?? "—";
+  const s4 = row?.s4 ?? "—";
+  const ev = row?.eval ?? "—";
+  const total = row?.total ?? "—";
+  const summary = row?.summary || "Kerjakan subbab dan evaluasi untuk melihat kesimpulan.";
 
-    const isAdmin = state.session?.role === "admin";
+  const isAdmin = state.session?.role === "admin";
 
-    app.innerHTML = `
+  app.innerHTML = `
         <section class="card">
           <div class="cardPad">
             <span class="badge"><i></i> HALAMAN TERAKHIR</span>
-            <h2 style="margin:10px 0 6px; font-size:32px;">Terima kasih sudah belajar Termokimia bersama ThermoLearn 💛</h2>
+            <h2 style="margin:10px 0 6px; font-size:32px;">Terima kasih sudah belajar Termokimia bersama TermoLearn 💛</h2>
             <p class="subtitle" style="margin:0;">
               Berikut rekap hasil belajarmu (nilai terkunci).
             </p>
@@ -53,14 +53,14 @@ function renderFinal(app) {
 
                   <div class="row" style="margin-top:12px;">
                     ${isAdmin
-            ? `
+      ? `
                         <button class="btn btnPrimary" onclick="downloadMyReport('html')">Unduh HTML (1 File)</button>
                         <button class="btn btnGhost" onclick="downloadMyReport('pdf')">Unduh PDF</button>
                       `
-            : `
+      : `
                         <button class="btn btnPrimary" onclick="downloadMyReport('pdf')">Unduh PDF</button>
                       `
-        }
+    }
                   </div>
 
                   <p class="hint" style="margin-top:10px;">

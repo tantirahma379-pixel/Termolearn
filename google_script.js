@@ -12,12 +12,12 @@ function getSpreadsheet() {
   try {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     if (ss) return ss;
-  } catch (e) {}
+  } catch (e) { }
   try {
     if (SPREADSHEET_ID && SPREADSHEET_ID !== 'xxxxxxxx') {
       return SpreadsheetApp.openById(SPREADSHEET_ID);
     }
-  } catch (e) {}
+  } catch (e) { }
   return SpreadsheetApp.getActiveSpreadsheet();
 }
 
@@ -142,12 +142,12 @@ function doPost(e) {
     if (action === 'login') {
       if (userRowIndex !== -1) {
         const hashedPassword = md5Double(password);
-        
+
         // Cek jika password cocok (baik dengan hash md5 2x maupun plain text untuk kompatibilitas migrasi)
         if (userData.password !== hashedPassword && userData.password !== password) {
           return createJsonResponse({ status: 'error', message: 'Password salah!' });
         }
-        
+
         // Jika password di database masih berupa plain text, kita migrasikan otomatis ke md5 2x!
         if (userData.password === password) {
           sheet.getRange(userRowIndex, 3).setValue(hashedPassword);
@@ -210,13 +210,13 @@ function doPost(e) {
       // Kirim email reset password
       const resetLink = ScriptApp.getService().getUrl() + "?action=reset_password&email=" + encodeURIComponent(email) + "&token=" + token;
 
-      const subject = "[ThermoLearn] Permintaan Reset Password Anda";
+      const subject = "[TermoLearn] Permintaan Reset Password Anda";
       const body = "Halo " + userData.name + ",\n\n" +
-                   "Kami menerima permintaan untuk mereset password akun ThermoLearn Anda.\n" +
-                   "Silakan klik link di bawah ini untuk mereset password Anda (Link aktif selama 1 jam):\n\n" +
-                   resetLink + "\n\n" +
-                   "Jika Anda tidak merasa meminta hal ini, silakan abaikan email ini.\n\n" +
-                   "Salam,\nThermoLearn Team";
+        "Kami menerima permintaan untuk mereset password akun TermoLearn Anda.\n" +
+        "Silakan klik link di bawah ini untuk mereset password Anda (Link aktif selama 1 jam):\n\n" +
+        resetLink + "\n\n" +
+        "Jika Anda tidak merasa meminta hal ini, silakan abaikan email ini.\n\n" +
+        "Salam,\nTermoLearn Team";
 
       try {
         MailApp.sendEmail(email, subject, body);
@@ -405,7 +405,7 @@ function handleSyncAnswers(params) {
       headersChanged = true;
     }
   }
-  
+
   if (headersChanged) {
     sheetAnswers.getRange(1, 1, 1, headers.length).setValues([headers]);
     sheetAnswers.getRange("1:1").setFontWeight("bold");
@@ -416,15 +416,15 @@ function handleSyncAnswers(params) {
   rowData[0] = email;
   rowData[1] = name || '';
   rowData[2] = new Date().toISOString(); // UpdatedAt is index 2
-  
+
   // existing row data
   if (rowIndex !== -1) {
-    let existingRow = sheetAnswers.getRange(rowIndex, 1, 1, data[rowIndex-1].length).getValues()[0];
-    for(let i=0; i<existingRow.length; i++) {
-       rowData[i] = existingRow[i];
+    let existingRow = sheetAnswers.getRange(rowIndex, 1, 1, data[rowIndex - 1].length).getValues()[0];
+    for (let i = 0; i < existingRow.length; i++) {
+      rowData[i] = existingRow[i];
     }
   }
-  
+
   rowData[2] = new Date().toISOString(); // refresh date
 
   for (let key in answers) {
@@ -450,7 +450,7 @@ function getUserAnswers(email) {
 
   const data = sheetAnswers.getDataRange().getValues();
   if (data.length < 1) return {};
-  
+
   const headers = data[0];
   for (let i = 1; i < data.length; i++) {
     if (data[i][0] === email) {
@@ -491,7 +491,7 @@ function doGet(e) {
   html.gasUrl = gasUrl;
 
   return html.evaluate()
-    .setTitle('ThermoLearn')
+    .setTitle('TermoLearn')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1')
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }

@@ -2,7 +2,7 @@
 /***********************
  * Stage Progress Logic
  ***********************/
-const LS_STAGES_KEY = "thermolearn_stages_v1";
+const LS_STAGES_KEY = "TermoLearn_stages_v1";
 let _currentSubbabKey = null;
 
 function loadStageProgress() {
@@ -120,13 +120,13 @@ function updateProgressBar(unlocked, totalStages) {
           </div>
           <div class="progressDots">
             ${Array.from({ length: totalSteps }, (_, i) => {
-                const done = i < completed;
-                const active = i === completed && completed < totalSteps;
-                const isQuiz = i === totalSteps - 1;
-                const cls = done ? "dot done" : active ? "dot active" : "dot";
-                const label = isQuiz ? "Kuis" : (i + 1);
-                return `<div class="${cls}"><span>${label}</span></div>`;
-            }).join("")}
+        const done = i < completed;
+        const active = i === completed && completed < totalSteps;
+        const isQuiz = i === totalSteps - 1;
+        const cls = done ? "dot done" : active ? "dot active" : "dot";
+        const label = isQuiz ? "Kuis" : (i + 1);
+        return `<div class="${cls}"><span>${label}</span></div>`;
+    }).join("")}
           </div>
         </div>
     `;
@@ -191,7 +191,7 @@ function renderQuiz(key) {
             ` : ''}
           </div>
         `;
-      }).join("")}
+    }).join("")}
     `;
 }
 

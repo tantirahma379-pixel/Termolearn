@@ -75,7 +75,7 @@ function downloadMyReport(type) {
         toast("Belum ada data untuk diunduh.");
         return;
     }
-    exportRows([row], type, `ThermoLearn_Report_${safeFile(row.name)}_${todayStamp()}`);
+    exportRows([row], type, `TermoLearn_Report_${safeFile(row.name)}_${todayStamp()}`);
 }
 
 function exportRows(rows, type, filename) {
@@ -106,7 +106,7 @@ function toHTMLReport(row) {
 <html lang="id">
 <head>
 <meta charset="utf-8"/>
-<title>ThermoLearn — Report</title>
+<title>TermoLearn — Report</title>
 <style>
   body{ font-family: Arial, sans-serif; padding:20px; }
   table{ border-collapse: collapse; width:100%; margin-top:12px; }
@@ -116,7 +116,7 @@ function toHTMLReport(row) {
 </style>
 </head>
 <body>
-  <h1>ThermoLearn — Rekap Nilai</h1>
+  <h1>TermoLearn — Rekap Nilai</h1>
   <small>Nama: ${escapeHtml(row.name || "")}<br/>Email: ${escapeHtml(row.email || "")}<br/>Diekspor: ${escapeHtml(date)}</small>
   <table>
     <thead><tr><th>Komponen</th><th>Skor</th></tr></thead>
@@ -150,7 +150,7 @@ async function toPDF(rows, filename) {
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(16);
-    doc.text("ThermoLearn — Rekap Nilai (Terkunci)", margin, y); y += 18;
+    doc.text("TermoLearn — Rekap Nilai (Terkunci)", margin, y); y += 18;
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);

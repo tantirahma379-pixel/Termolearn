@@ -3,11 +3,11 @@
  * Data & Constants
  ***********************/
 const LS_KEYS = {
-  session: "thermolearn_session_v1",
-  users: "thermolearn_users_v1",
-  content: "thermolearn_content_v1",
-  results: "thermolearn_results_v1",
-  answers: "thermolearn_answers_v1"
+  session: "TermoLearn_session_v1",
+  users: "TermoLearn_users_v1",
+  content: "TermoLearn_content_v1",
+  results: "TermoLearn_results_v1",
+  answers: "TermoLearn_answers_v1"
 };
 
 function defaultContent() {
@@ -19,9 +19,6 @@ function defaultContent() {
             <div class="content-stage" data-stage="0" data-type="video">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🔍 Yuk, amati video berikut!</h4>
-                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-                  Perhatikan fenomena kayu terbakar dan es mencair pada video. Amati perubahan suhu yang terjadi serta bagaimana kalor berpindah pada kedua peristiwa tersebut.
-                </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/fNNKl5LZ4S8?si=oet5e_xq5kVO4I8x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -279,9 +276,6 @@ function defaultContent() {
             <div class="content-stage" data-stage="0" data-type="video">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">🔍 Yuk, amati video berikut!</h4>
-                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-                  Amati video berikut dengan saksama. Perhatikan nyala api, asap, dan panas yang dihasilkan dari masing-masing bahan bakar!
-                </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); display:flex; justify-content:center;">
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/SVbSyB77TI8?si=iQEzCY2mSCh0kiVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -714,9 +708,6 @@ function defaultContent() {
             <div class="content-stage" data-stage="0" data-type="video">
               <div class="contentBox">
                 <h4 style="margin:0 0 8px;">&#128269; Yuk, amati video berikut!</h4>
-                <p style="margin:0 0 12px; color:#1a1818; font-weight:650;">
-                  Perhatikan bagaimana ikatan kimia pada molekul dapat terputus dan terbentuk kembali selama reaksi berlangsung, serta bagaimana proses tersebut berkaitan dengan perubahan energi reaksi.
-                </p>
                 <div class="videoWrap" style="margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/2CLkD-wXjYw?si=9zefmAoyu_Vu5T8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>

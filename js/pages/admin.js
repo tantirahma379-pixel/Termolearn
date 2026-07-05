@@ -2,8 +2,8 @@
  * Admin Page
  ***********************/
 async function renderAdmin(app) {
-    if (state.session?.role !== "admin") {
-        app.innerHTML = `
+  if (state.session?.role !== "admin") {
+    app.innerHTML = `
           <section class="card"><div class="cardPad">
             <h2 style="margin:0 0 6px;">Akses ditolak</h2>
             <p class="subtitle" style="margin:0;">Halaman ini hanya untuk Admin.</p>
@@ -11,13 +11,13 @@ async function renderAdmin(app) {
             <button class="btn btnPrimary" onclick="go('#/landing')">Kembali</button>
           </div></section>
         `;
-        return;
-    }
+    return;
+  }
 
-    setChatContext("Admin: kelola data nilai siswa.");
+  setChatContext("Admin: kelola data nilai siswa.");
 
-    // Tampilkan loading state
-    app.innerHTML = `
+  // Tampilkan loading state
+  app.innerHTML = `
         <section class="card">
           <div class="cardPad centerCol" style="min-height:200px;">
             <h2 style="margin-bottom:10px;">Mengambil Data... ⏳</h2>
@@ -26,36 +26,36 @@ async function renderAdmin(app) {
         </section>
     `;
 
-    // Ambil data (dari server jika GAS_URL tersedia, atau fallback ke local)
-    let results = loadResultsFromStorage();
-    if (typeof GAS_URL !== 'undefined' && GAS_URL && GAS_URL !== "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
-        try {
-            const res = await fetch(GAS_URL, {
-                method: "POST",
-                body: JSON.stringify({ action: "get_all_results" })
-            });
-            const resultData = await res.json();
-            if (resultData.status === "success" && resultData.data) {
-                results = resultData.data;
-                // Sinkronisasi ke storage lokal agar bisa offline sementara
-                saveResultsToStorage(results);
-            }
-        } catch (e) {
-            console.warn("Gagal fetch data admin dari server, menggunakan data lokal", e);
-            toast("Mode Offline: Menggunakan data lokal");
-        }
+  // Ambil data (dari server jika GAS_URL tersedia, atau fallback ke local)
+  let results = loadResultsFromStorage();
+  if (typeof GAS_URL !== 'undefined' && GAS_URL && GAS_URL !== "ISI_URL_WEB_APP_GOOGLE_SCRIPT_DI_SINI") {
+    try {
+      const res = await fetch(GAS_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "get_all_results" })
+      });
+      const resultData = await res.json();
+      if (resultData.status === "success" && resultData.data) {
+        results = resultData.data;
+        // Sinkronisasi ke storage lokal agar bisa offline sementara
+        saveResultsToStorage(results);
+      }
+    } catch (e) {
+      console.warn("Gagal fetch data admin dari server, menggunakan data lokal", e);
+      toast("Mode Offline: Menggunakan data lokal");
     }
+  }
 
-    const rows = results.sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
-    const countUsers = rows.length;
+  const rows = results.sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
+  const countUsers = rows.length;
 
-    app.innerHTML = `
+  app.innerHTML = `
         <section class="card">
           <div class="cardPad">
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> SPREADSHEET • DASHBOARD ADMIN</span>
-                <h2 style="margin:10px 0 6px; font-size:32px;">Kelola ThermoLearn 👩‍🏫</h2>
+                <h2 style="margin:10px 0 6px; font-size:32px;">Kelola TermoLearn 👩‍🏫</h2>
                 <p class="subtitle" style="margin:0;">
                   Lihat nilai siswa secara real-time tersinkron dengan Google Sheets.
                 </p>
