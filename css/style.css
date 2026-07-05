@@ -44,6 +44,10 @@
       overflow-x: hidden;
     }
 
+    h2 {
+      color: #7e75ae;
+    }
+
     /* ===== Moving hologram background ===== */
     .bg {
       position: fixed;

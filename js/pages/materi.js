@@ -22,7 +22,7 @@ function renderMateri(app) {
             <div class="row" style="justify-content:space-between;">
               <div>
                 <span class="badge"><i></i> Peta Konsep</span>
-                <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/PetaKonsep.png" alt="Peta Konsep Termokimia" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                <img src="https://cdn.jsdelivr.net/gh/tantirahma379-pixel/Termolearn@latest/gambar/PetaKonsepMateri.png" alt="Peta Konsep Termokimia" style="width:100%; max-width:1000px; margin:20px 0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
               </div>
             </div>
 
